@@ -14,5 +14,6 @@ target 'NewretailStoreAssistantIos' do
   pod "Masonry"
   pod "DZNEmptyDataSet"
   pod "IQKeyboardManager"
+  pod "Toast"
 
 end

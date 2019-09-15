@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CT-RP-Kba">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CT-RP-Kba">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,17 +31,17 @@
             <objects>
                 <viewController id="oYv-Gv-C9z" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUw-nf-7CT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="LogoIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="aBO-XX-7yW">
-                                <rect key="frame" x="53" y="120" width="214.5" height="26"/>
+                                <rect key="frame" x="80.5" y="120" width="214" height="26"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="wLu-He-y53">
-                                <rect key="frame" x="30" y="210" width="260" height="101"/>
+                                <rect key="frame" x="30" y="210" width="315" height="101"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入门店编号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="McD-Zg-xyY" customClass="ResetTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="U7A-uR-Vkh"/>
                                         </constraints>
@@ -50,7 +50,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-Ir-2IF" customClass="ResetTextField">
-                                        <rect key="frame" x="0.0" y="57" width="260" height="44"/>
+                                        <rect key="frame" x="0.0" y="57" width="315" height="44"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -58,7 +58,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-XL-jYJ" customClass="ResetTextField">
-                                <rect key="frame" x="30" y="324" width="260" height="44"/>
+                                <rect key="frame" x="30" y="324" width="315" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="mfR-0O-HaB"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNy-a6-RDB">
-                                <rect key="frame" x="60" y="398" width="200" height="44"/>
+                                <rect key="frame" x="60" y="398" width="255" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.92156862745098034" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2Ij-SN-qXf"/>
@@ -86,7 +86,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbp-wS-EYq">
-                                <rect key="frame" x="129" y="459" width="62" height="30"/>
+                                <rect key="frame" x="156.5" y="459" width="62" height="30"/>
                                 <state key="normal" title="忘记密码">
                                     <color key="titleColor" red="0.20784313725490194" green="0.20784313725490194" blue="0.20784313725490194" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -95,7 +95,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oV-dx-BsO">
-                                <rect key="frame" x="238" y="329" width="30" height="34"/>
+                                <rect key="frame" x="299" y="334" width="24" height="24"/>
+                                <state key="normal" image="lock.png"/>
                                 <connections>
                                     <action selector="passwordVisible:" destination="oYv-Gv-C9z" eventType="touchUpInside" id="1wi-n0-5Ub"/>
                                 </connections>
@@ -103,10 +104,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wLu-He-y53" firstAttribute="top" secondItem="aBO-XX-7yW" secondAttribute="bottom" constant="64" id="0c8-dg-iqo"/>
                             <constraint firstItem="Xbp-wS-EYq" firstAttribute="centerX" secondItem="DNy-a6-RDB" secondAttribute="centerX" id="109-9c-zG3"/>
                             <constraint firstItem="aBO-XX-7yW" firstAttribute="top" secondItem="jjo-Pw-Yi6" secondAttribute="top" constant="100" id="1s2-3T-nv0"/>
                             <constraint firstItem="DNy-a6-RDB" firstAttribute="leading" secondItem="jjo-Pw-Yi6" secondAttribute="leading" constant="60" id="Fca-6S-wy6"/>
-                            <constraint firstItem="wLu-He-y53" firstAttribute="top" secondItem="aBO-XX-7yW" secondAttribute="bottom" constant="64" id="MMq-Y5-ocl"/>
                             <constraint firstItem="jUc-XL-jYJ" firstAttribute="top" secondItem="wLu-He-y53" secondAttribute="bottom" constant="13" id="Nai-GD-tu0"/>
                             <constraint firstItem="Xbp-wS-EYq" firstAttribute="top" secondItem="DNy-a6-RDB" secondAttribute="bottom" constant="17" id="Rqc-Gr-ToV"/>
                             <constraint firstItem="jUc-XL-jYJ" firstAttribute="leading" secondItem="wLu-He-y53" secondAttribute="leading" id="T1u-La-kMO"/>
@@ -136,6 +137,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoIcon.png" width="214.5" height="26"/>
+        <image name="LogoIcon.png" width="214" height="26"/>
+        <image name="lock.png" width="24" height="24"/>
     </resources>
 </document>

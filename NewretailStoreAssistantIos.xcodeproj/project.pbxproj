@@ -252,6 +252,7 @@
 		5B8F60512328FCC30068A275 /* ResetTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResetTextField.m; sourceTree = "<group>"; };
 		6A25096CC7469474E89B47D6 /* Pods_NewretailStoreAssistantIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewretailStoreAssistantIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE0F5007316EEA4DA8394E3 /* Pods-NewretailStoreAssistantIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewretailStoreAssistantIos.release.xcconfig"; path = "Target Support Files/Pods-NewretailStoreAssistantIos/Pods-NewretailStoreAssistantIos.release.xcconfig"; sourceTree = "<group>"; };
+		EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewretailStoreAssistantIos.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,8 +301,6 @@
 		5B394AA72327A00400C37DAF /* CommonCategory */ = {
 			isa = PBXGroup;
 			children = (
-				5B8F604C2328F2700068A275 /* ColorTransfer */,
-				5B394AA82327A09D00C37DAF /* CustomNavigation */,
 				5B394AAD2327A09D00C37DAF /* NSArray+Crash */,
 			);
 			path = CommonCategory;
@@ -361,6 +360,7 @@
 		5B6628072325E28600084F97 /* NewretailStoreAssistantIos */ = {
 			isa = PBXGroup;
 			children = (
+				EA6A11E2232E695D0062DC04 /* UtilityClass */,
 				5B8F5F7B2328E4590068A275 /* LocalImage */,
 				5B394AB32327A0D300C37DAF /* APPEntrance */,
 				5B394AA72327A00400C37DAF /* CommonCategory */,
@@ -369,6 +369,7 @@
 				5B66280E2325E28600084F97 /* Main.storyboard */,
 				5B6628112325E29200084F97 /* Assets.xcassets */,
 				5B6628132325E29200084F97 /* LaunchScreen.storyboard */,
+				EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */,
 				5B6628162325E29200084F97 /* Info.plist */,
 				5B6628172325E29200084F97 /* main.m */,
 			);
@@ -398,8 +399,6 @@
 			children = (
 				5B8F5F782328DCA10068A275 /* LoginViewController.h */,
 				5B8F5F792328DCA10068A275 /* LoginViewController.m */,
-				5B8F60502328FCC30068A275 /* ResetTextField.h */,
-				5B8F60512328FCC30068A275 /* ResetTextField.m */,
 			);
 			path = loginModuel;
 			sourceTree = "<group>";
@@ -572,6 +571,17 @@
 				5B8F604E2328F2700068A275 /* TRCColor.m */,
 			);
 			path = ColorTransfer;
+			sourceTree = "<group>";
+		};
+		EA6A11E2232E695D0062DC04 /* UtilityClass */ = {
+			isa = PBXGroup;
+			children = (
+				5B394AA82327A09D00C37DAF /* CustomNavigation */,
+				5B8F604C2328F2700068A275 /* ColorTransfer */,
+				5B8F60502328FCC30068A275 /* ResetTextField.h */,
+				5B8F60512328FCC30068A275 /* ResetTextField.m */,
+			);
+			path = UtilityClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1020,6 +1030,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8SJC79N67;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NewretailStoreAssistantIos/NewretailStoreAssistantIos.pch;
 				INFOPLIST_FILE = NewretailStoreAssistantIos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1038,6 +1051,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P8SJC79N67;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NewretailStoreAssistantIos/NewretailStoreAssistantIos.pch;
 				INFOPLIST_FILE = NewretailStoreAssistantIos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

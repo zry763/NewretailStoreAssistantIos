@@ -7,9 +7,9 @@
 //
 
 #import "LoginViewController.h"
-#import "TRCColor.h"
-
+#import "MBProgressHUD.h"
 @interface LoginViewController ()
+@property (strong ,nonatomic) UIView *maskView;
 
 @end
 
@@ -19,6 +19,7 @@
     [super viewDidLoad];
     [self initSubView];
     
+
 
 
     // Do any additional setup after loading the view.
@@ -48,6 +49,34 @@
     return maskLayer;
 }
 
+-(UIView *)maskView{
+    if (!_maskView) {
+        _maskView = [[UIView alloc]init];
+        _maskView.backgroundColor =[[UIColor blackColor] colorWithAlphaComponent:0.64];
+    }
+    return _maskView;
+}
+
+-(void)showLoading:(UIView *)view title:(NSString *)title{
+
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view==nil?[[UIApplication sharedApplication].windows lastObject]:view animated:YES];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.color = [UIColor clearColor];
+    UIImageView* mainImageView= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loading"]];
+    hud.customView = mainImageView;
+    hud.label.text =title;
+    hud.label.textColor = [UIColor whiteColor];
+    
+    CABasicAnimation *rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat:M_PI*2.0];
+    rotationAnimation.duration = 2;
+    rotationAnimation.repeatCount = HUGE_VALF;
+    [mainImageView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+
+ 
+}
 
 /*
 #pragma mark - Navigation
@@ -60,20 +89,36 @@
 */
 /*-----------密码是否可见------------*/
 - (IBAction)passwordVisible:(id)sender {
-//    UIButton *targetBT = (UIButton *)sender;
-//    if (targetBT == self.passwordLock) {
-    NSLog(@"%@",[NSNumber numberWithBool:self.passwordLock.selected ]);
-        self.passwordLock.selected = !self.passwordLock.selected;
 
-//    }
+    self.userPassword.secureTextEntry = self.passwordLock.selected;
+    self.passwordLock.selected = !self.passwordLock.selected;
 }
 
 /*-----------忘记密码------------*/
 - (IBAction)forgotPassword:(id)sender {
     
+    [self.maskView removeFromSuperview];
+
+    
 }
 /*-----------登录------------*/
 - (IBAction)loginUserInformation:(id)sender {
+
+    [self.view addSubview:self.maskView];
+    [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [self showLoading:self.maskView title:@"正在登录"];
+    
+    [self performSelector:@selector(dismissMaskView) withObject:self afterDelay:3];
+    
+    
+}
+-(void)dismissMaskView{
+    
+    [self.maskView removeFromSuperview];
+    self.maskView = nil;
     
 }
 @end

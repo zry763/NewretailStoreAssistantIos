@@ -1,0 +1,18 @@
+//
+//  PrefixHeader.pch
+//  NewretailStoreAssistantIos
+//
+//  Created by Z-Mac on 2019/9/15.
+//  Copyright © 2019 zry. All rights reserved.
+//
+
+#ifndef NewretailStoreAssistantIos_pch
+#define NewretailStoreAssistantIos_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "TRCColor.h"
+#import <Masonry/Masonry.h>
+
+#endif /* NewretailStoreAssistantIos_pch */
