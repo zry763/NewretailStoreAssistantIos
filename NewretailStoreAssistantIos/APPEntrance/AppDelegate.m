@@ -21,7 +21,12 @@
     
     // 获取类库的单例变量 键盘遮挡处理全局可用
     keyboardManager.enable = YES; // 控制整个功能是否启用
+    //键盘弹出时，点击背景，键盘收回
+    keyboardManager.shouldResignOnTouchOutside = YES;
+    //隐藏键盘上面的toolBar,默认是开启的
+    keyboardManager.enableAutoToolbar = NO;
     
+
     // Override point for customization after application launch.
     return YES;
 }

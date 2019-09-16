@@ -27,14 +27,7 @@
 
 
 /* 某个页面导航栏透明,文字不透明
- - (void)viewWillAppear:(BOOL)animated
- {
- [super viewWillAppear:animated];
- //设置导航栏背景图片为一个空的image，这样就透明了
- [self.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
- //去掉透明后导航栏下边的黑边
- [self.navigationBar setShadowImage:[[UIImage alloc] init]];
- }
+
  
  - (void)viewWillDisappear:(BOOL)animated{
  
@@ -43,28 +36,35 @@
  [self.navigationController.navigationBar setShadowImage:nil];
  }
  */
-
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    //设置导航栏背景图片为一个空的image，这样就透明了
+//    [self.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//    //去掉透明后导航栏下边的黑边
+//    [self.navigationBar setShadowImage:[[UIImage alloc] init]];
+//}
 + (void)initialize {
     //appearance方法返回一个导航栏的外观对象
     //修改了这个外观对象，相当于修改了整个项目中的外观
     UINavigationBar *navigationBar = [UINavigationBar appearance];
     //设置导航栏背景颜色
-    [navigationBar setBarTintColor:[UIColor grayColor]];
+    [navigationBar setBarTintColor:[UIColor whiteColor]];
     //设置NavigationBarItem文字的颜色
-    [navigationBar setTintColor:[UIColor whiteColor]];
+    [navigationBar setTintColor:[TRCColor colorFromHexCode:@"#353535"]];
     //设置标题栏颜色
-    navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:18]};
-    [navigationBar setBackIndicatorImage:[UIImage imageNamed:@""]];
-    [navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@""]];
-    
+    navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [TRCColor colorFromHexCode:@"#353535"], NSFontAttributeName : [UIFont systemFontOfSize:16]};
+//    [navigationBar setBackIndicatorImage:[UIImage imageNamed:@""]];
+//    [navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@""]];
+    [navigationBar setShadowImage:[[UIImage alloc] init]];
 //     //设置导航栏文字的主题
      NSShadow *shadow = [[NSShadow alloc]init];
      [shadow setShadowOffset:CGSizeZero];
-     [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor],NSShadowAttributeName : shadow}];
+     [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [TRCColor colorFromHexCode:@"#353535"],NSShadowAttributeName : shadow}];
     
     UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
 //     修改item上面的文字样式
-     NSDictionary *dict =@{NSForegroundColorAttributeName : [UIColor whiteColor],NSShadowAttributeName : shadow};
+     NSDictionary *dict =@{NSForegroundColorAttributeName : [TRCColor colorFromHexCode:@"#353535"],NSShadowAttributeName : shadow};
      [barButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
      [barButtonItem setTitleTextAttributes:dict forState:UIControlStateHighlighted];
     

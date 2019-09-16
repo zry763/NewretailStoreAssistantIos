@@ -14,5 +14,7 @@
 
 #import "TRCColor.h"
 #import <Masonry/Masonry.h>
-
+#import <Toast/Toast.h>
+#import "TRCStringUtil.h"
+#import "GlobalHeader.h"
 #endif /* NewretailStoreAssistantIos_pch */

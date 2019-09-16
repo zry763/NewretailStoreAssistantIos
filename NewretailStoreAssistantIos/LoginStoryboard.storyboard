@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CT-RP-Kba">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3CT-RP-Kba">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,12 +35,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="LogoIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="aBO-XX-7yW">
-                                <rect key="frame" x="80.5" y="120" width="214" height="26"/>
+                                <rect key="frame" x="80.5" y="120" width="214.5" height="26"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="wLu-He-y53">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="JUt-q0-BqQ">
                                 <rect key="frame" x="30" y="210" width="315" height="101"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入门店编号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="McD-Zg-xyY" customClass="ResetTextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入门店编号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="McD-Zg-xyY" customClass="ResetTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="U7A-uR-Vkh"/>
@@ -48,16 +48,22 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="oYv-Gv-C9z" id="1v9-kl-rou"/>
+                                        </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-Ir-2IF" customClass="ResetTextField">
+                                    <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入电话号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-Ir-2IF" customClass="ResetTextField">
                                         <rect key="frame" x="0.0" y="57" width="315" height="44"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="oYv-Gv-C9z" id="GEf-XV-Nfz"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-XL-jYJ" customClass="ResetTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登录密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUc-XL-jYJ" customClass="ResetTextField">
                                 <rect key="frame" x="30" y="324" width="315" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="mfR-0O-HaB"/>
@@ -65,6 +71,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="oYv-Gv-C9z" id="627-SI-EFx"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNy-a6-RDB">
                                 <rect key="frame" x="60" y="398" width="255" height="44"/>
@@ -104,27 +113,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wLu-He-y53" firstAttribute="top" secondItem="aBO-XX-7yW" secondAttribute="bottom" constant="64" id="0c8-dg-iqo"/>
                             <constraint firstItem="Xbp-wS-EYq" firstAttribute="centerX" secondItem="DNy-a6-RDB" secondAttribute="centerX" id="109-9c-zG3"/>
+                            <constraint firstItem="jUc-XL-jYJ" firstAttribute="trailing" secondItem="JUt-q0-BqQ" secondAttribute="trailing" id="1Bk-4W-lgT"/>
                             <constraint firstItem="aBO-XX-7yW" firstAttribute="top" secondItem="jjo-Pw-Yi6" secondAttribute="top" constant="100" id="1s2-3T-nv0"/>
+                            <constraint firstItem="jUc-XL-jYJ" firstAttribute="top" secondItem="JUt-q0-BqQ" secondAttribute="bottom" constant="13" id="3Zf-cr-hCA"/>
+                            <constraint firstItem="JUt-q0-BqQ" firstAttribute="leading" secondItem="jjo-Pw-Yi6" secondAttribute="leading" constant="30" id="Ai9-Rm-GgK"/>
                             <constraint firstItem="DNy-a6-RDB" firstAttribute="leading" secondItem="jjo-Pw-Yi6" secondAttribute="leading" constant="60" id="Fca-6S-wy6"/>
-                            <constraint firstItem="jUc-XL-jYJ" firstAttribute="top" secondItem="wLu-He-y53" secondAttribute="bottom" constant="13" id="Nai-GD-tu0"/>
+                            <constraint firstItem="JUt-q0-BqQ" firstAttribute="top" secondItem="aBO-XX-7yW" secondAttribute="bottom" constant="64" id="La0-1m-p4t"/>
                             <constraint firstItem="Xbp-wS-EYq" firstAttribute="top" secondItem="DNy-a6-RDB" secondAttribute="bottom" constant="17" id="Rqc-Gr-ToV"/>
-                            <constraint firstItem="jUc-XL-jYJ" firstAttribute="leading" secondItem="wLu-He-y53" secondAttribute="leading" id="T1u-La-kMO"/>
-                            <constraint firstItem="wLu-He-y53" firstAttribute="leading" secondItem="jjo-Pw-Yi6" secondAttribute="leading" constant="30" id="WRb-k0-DKP"/>
                             <constraint firstItem="aBO-XX-7yW" firstAttribute="centerX" secondItem="OUw-nf-7CT" secondAttribute="centerX" id="XqJ-JE-vzR"/>
                             <constraint firstItem="3oV-dx-BsO" firstAttribute="centerY" secondItem="jUc-XL-jYJ" secondAttribute="centerY" id="b3b-n2-raS"/>
                             <constraint firstItem="DNy-a6-RDB" firstAttribute="top" secondItem="jUc-XL-jYJ" secondAttribute="bottom" constant="30" id="nFD-gB-D8i"/>
+                            <constraint firstItem="jjo-Pw-Yi6" firstAttribute="trailing" secondItem="JUt-q0-BqQ" secondAttribute="trailing" constant="30" id="qYq-9J-f6f"/>
                             <constraint firstItem="jUc-XL-jYJ" firstAttribute="centerX" secondItem="DNy-a6-RDB" secondAttribute="centerX" id="rfj-F6-aE9"/>
                             <constraint firstItem="3oV-dx-BsO" firstAttribute="trailing" secondItem="jUc-XL-jYJ" secondAttribute="trailing" constant="-22" id="sYb-Yy-hF4"/>
-                            <constraint firstItem="jUc-XL-jYJ" firstAttribute="trailing" secondItem="wLu-He-y53" secondAttribute="trailing" id="tpo-CH-crV"/>
-                            <constraint firstItem="jjo-Pw-Yi6" firstAttribute="trailing" secondItem="wLu-He-y53" secondAttribute="trailing" constant="30" id="yVE-aS-7AB"/>
+                            <constraint firstItem="jUc-XL-jYJ" firstAttribute="leading" secondItem="JUt-q0-BqQ" secondAttribute="leading" id="tlY-df-uR0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jjo-Pw-Yi6"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="jyz-5w-ydf"/>
                     <connections>
+                        <outlet property="loginBT" destination="DNy-a6-RDB" id="nzD-Dq-WNm"/>
                         <outlet property="passwordLock" destination="3oV-dx-BsO" id="SZy-no-daG"/>
                         <outlet property="storeIDField" destination="McD-Zg-xyY" id="T4P-Nw-t9p"/>
                         <outlet property="userPassword" destination="jUc-XL-jYJ" id="wfL-yL-79y"/>
@@ -137,7 +147,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoIcon.png" width="214" height="26"/>
+        <image name="LogoIcon.png" width="214.5" height="26"/>
         <image name="lock.png" width="24" height="24"/>
     </resources>
 </document>
