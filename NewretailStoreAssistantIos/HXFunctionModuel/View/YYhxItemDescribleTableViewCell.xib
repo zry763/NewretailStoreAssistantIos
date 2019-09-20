@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="84" id="oxu-Rz-WLe" customClass="YYhxItemDescribleTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxu-Rz-WLe" id="fUi-hw-bZm">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="83.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="泰然城接驳车泰然城接驳车泰然城接驳车泰然城接驳车泰然城接驳车泰然城接驳车泰然城接驳车" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fik-uN-Hvz">
+                        <rect key="frame" x="0.0" y="0.0" width="357" height="83.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="x2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvT-mb-9MW">
+                        <rect key="frame" x="394.5" y="11.5" width="19.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Fik-uN-Hvz" firstAttribute="leading" secondItem="fUi-hw-bZm" secondAttribute="leading" id="3Ei-bk-LlT"/>
+                    <constraint firstItem="Fik-uN-Hvz" firstAttribute="top" secondItem="fUi-hw-bZm" secondAttribute="top" id="5f3-U1-Fjl"/>
+                    <constraint firstAttribute="trailing" secondItem="tvT-mb-9MW" secondAttribute="trailing" id="AMq-21-8AH"/>
+                    <constraint firstAttribute="bottom" secondItem="Fik-uN-Hvz" secondAttribute="bottom" id="EGg-tq-MNO"/>
+                    <constraint firstItem="Fik-uN-Hvz" firstAttribute="centerY" secondItem="fUi-hw-bZm" secondAttribute="centerY" id="JCg-Y4-iZk"/>
+                    <constraint firstItem="tvT-mb-9MW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fik-uN-Hvz" secondAttribute="trailing" constant="30" id="JXw-4a-Ckl"/>
+                    <constraint firstItem="tvT-mb-9MW" firstAttribute="top" secondItem="fUi-hw-bZm" secondAttribute="top" constant="11.5" id="PE2-FD-lJZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="itemCount" destination="tvT-mb-9MW" id="f1Z-OY-WlL"/>
+                <outlet property="itemDescribleLable" destination="Fik-uN-Hvz" id="zFl-fR-Wc9"/>
+            </connections>
+            <point key="canvasLocation" x="35.200000000000003" y="188.90554722638683"/>
+        </tableViewCell>
+    </objects>
+</document>

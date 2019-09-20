@@ -44,7 +44,14 @@
 #define INPUT_VERIFICATION_CODE_LENGTH 4
 
 
+#define TRC_BLOCK_WEAK_SELF    __weak __typeof(self) weakSelf = self;
+#define TRC_BLOCK_STRONG_SELF  __strong __typeof(weakSelf) strongSelf = weakSelf;
 
+
+#define LBXScan_Define_Native  //下载了native模块
+#define LBXScan_Define_ZXing   //下载了ZXing模块
+#define LBXScan_Define_ZBar   //下载了ZBar模块
+#define LBXScan_Define_UI     //下载了界面模块
 
 
 #endif /* GlobalHeader_h */

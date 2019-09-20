@@ -17,4 +17,9 @@
 #import <Toast/Toast.h>
 #import "TRCStringUtil.h"
 #import "GlobalHeader.h"
+#import "BaseTableViewCell.h"
+#import "BaseViewController.h"
+#import "BaseTableViewController.h"
+#import "TRCBaseView.h"
+
 #endif /* NewretailStoreAssistantIos_pch */

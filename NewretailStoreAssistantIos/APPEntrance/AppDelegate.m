@@ -25,7 +25,8 @@
     keyboardManager.shouldResignOnTouchOutside = YES;
     //隐藏键盘上面的toolBar,默认是开启的
     keyboardManager.enableAutoToolbar = NO;
-    
+    self.window.backgroundColor = [UIColor whiteColor];
+
 
     // Override point for customization after application launch.
     return YES;
