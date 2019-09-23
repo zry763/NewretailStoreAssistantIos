@@ -172,6 +172,7 @@
 		5BFF3D7E2338C4A400F8D3F9 /* BorringInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF3D7C2338C4A400F8D3F9 /* BorringInfoViewController.xib */; };
 		5BFF3D802338C5BA00F8D3F9 /* hyvip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF3D7F2338C5B900F8D3F9 /* hyvip@2x.png */; };
 		DBB5DE172A37F8EE386ADC53 /* Pods_NewretailStoreAssistantIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A25096CC7469474E89B47D6 /* Pods_NewretailStoreAssistantIos.framework */; };
+		EA8ADB0B2338FED2004FC1BC /* BorringBookScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8ADB0A2338FED2004FC1BC /* BorringBookScanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -434,6 +435,8 @@
 		6A25096CC7469474E89B47D6 /* Pods_NewretailStoreAssistantIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewretailStoreAssistantIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE0F5007316EEA4DA8394E3 /* Pods-NewretailStoreAssistantIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewretailStoreAssistantIos.release.xcconfig"; path = "Target Support Files/Pods-NewretailStoreAssistantIos/Pods-NewretailStoreAssistantIos.release.xcconfig"; sourceTree = "<group>"; };
 		EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewretailStoreAssistantIos.pch; sourceTree = "<group>"; };
+		EA8ADB092338FED2004FC1BC /* BorringBookScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorringBookScanViewController.h; sourceTree = "<group>"; };
+		EA8ADB0A2338FED2004FC1BC /* BorringBookScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorringBookScanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -890,7 +893,6 @@
 				5B8F5F772328DC650068A275 /* loginModule */,
 				5B04762C232F8F820016134E /* HomeModule */,
 				5B263CED2331F0F3005FAF16 /* HXFunctionModuel */,
-				5B6628162325E29200084F97 /* Info.plist */,
 				5B0D66DA2334CEF60058F9AF /* BorrowingBookFunctionModule */,
 				5B8F5F732328CC1F0068A275 /* LoginStoryboard.storyboard */,
 				5B66280E2325E28600084F97 /* Main.storyboard */,
@@ -898,6 +900,7 @@
 				5B6628132325E29200084F97 /* LaunchScreen.storyboard */,
 				5B04762B232F73E60016134E /* GlobalHeader.h */,
 				EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */,
+				5B6628162325E29200084F97 /* Info.plist */,
 				5B6628172325E29200084F97 /* main.m */,
 			);
 			path = NewretailStoreAssistantIos;
@@ -1135,12 +1138,14 @@
 			children = (
 				5B0D66DB2334CFA50058F9AF /* BorringHomeViewController.h */,
 				5B0D66DC2334CFA50058F9AF /* BorringHomeViewController.m */,
+				5B0D66DD2334CFA50058F9AF /* BorringHomeViewController.xib */,
 				5BFF3D7A2338C4A400F8D3F9 /* BorringInfoViewController.h */,
 				5BFF3D7B2338C4A400F8D3F9 /* BorringInfoViewController.m */,
 				5BFF3D7C2338C4A400F8D3F9 /* BorringInfoViewController.xib */,
 				5BFF3D6D2338A66500F8D3F9 /* BookScanViewController.h */,
 				5BFF3D6E2338A66500F8D3F9 /* BookScanViewController.m */,
-				5B0D66DD2334CFA50058F9AF /* BorringHomeViewController.xib */,
+				EA8ADB092338FED2004FC1BC /* BorringBookScanViewController.h */,
+				EA8ADB0A2338FED2004FC1BC /* BorringBookScanViewController.m */,
 			);
 			path = BorringVC;
 			sourceTree = "<group>";
@@ -1448,6 +1453,7 @@
 				5BDCF2DA2330850A00AB10D3 /* BaseTableViewCell.m in Sources */,
 				5B047619232F37FE0016134E /* TRCBaseSharedInstance.m in Sources */,
 				5B04760B232F37FE0016134E /* TRCBase64.m in Sources */,
+				EA8ADB0B2338FED2004FC1BC /* BorringBookScanViewController.m in Sources */,
 				5BDCF2DD23308F1E00AB10D3 /* BaseViewController.m in Sources */,
 				5BFD8284233313DB0024FDCF /* HXTableViewCell.m in Sources */,
 				5BFD828C23332E340024FDCF /* HXDetailsViewController.m in Sources */,

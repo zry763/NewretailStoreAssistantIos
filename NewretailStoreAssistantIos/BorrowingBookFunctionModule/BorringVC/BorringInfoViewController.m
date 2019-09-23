@@ -7,6 +7,7 @@
 //
 
 #import "BorringInfoViewController.h"
+#import "BorringBookScanViewController.h"
 
 @interface BorringInfoViewController ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.nextStep setTitle:@"不能再借了，知道了" forState:UIControlStateNormal];
+    [self.nextStep setTitle:@"下一步" forState:UIControlStateNormal];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -31,6 +35,11 @@
 
 - (IBAction)goNextStep:(id)sender {
     
+    //点击下一步到扫码页面借阅
+    [self resetBackButtonTitleWith:@"扫码借阅" and:[UIColor whiteColor]];
+    BorringBookScanViewController *booringVC= [[BorringBookScanViewController alloc]init];
+    booringVC.stepNum = 2;
+    [self.navigationController pushViewController:booringVC animated:YES];
     
 }
 @end

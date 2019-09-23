@@ -57,6 +57,9 @@
 #endif
     
     [self.navigationController.navigationBar setTintColor:[TRCColor colorFromHexCode:@"#353535"]];
+    
+    
+ 
 
 }
 
