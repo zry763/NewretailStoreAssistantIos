@@ -7,9 +7,10 @@
 //
 
 #import "BorringHomeViewController.h"
+#import "BookScanViewController.h"
 
 @interface BorringHomeViewController ()
-
+@property (strong ,nonatomic) BookScanViewController *bookScanVC;
 @end
 
 @implementation BorringHomeViewController
@@ -33,8 +34,28 @@
     
     UITapGestureRecognizer *gest = (UITapGestureRecognizer *)sender;
     
+    
     UIView *desView = gest.view;
     NSLog(@"%ld",(long)desView.tag);
+    if (desView.tag == 100) {
+        self.bookScanVC.borringOrReturn = YES;
+        [self resetBackButtonTitleWith:@"图书借阅" and: [UIColor whiteColor]];
+
+    }else
+    {
+    self.bookScanVC.borringOrReturn = NO;
+    [self resetBackButtonTitleWith:@"图书归还" and: [UIColor whiteColor]];
+    }
+
     
+    [self.navigationController pushViewController:self.bookScanVC animated:YES];
+    
+}
+
+-(BookScanViewController *)bookScanVC{
+    if (!_bookScanVC) {
+        _bookScanVC = [[BookScanViewController alloc]init];
+    }
+    return _bookScanVC;
 }
 @end

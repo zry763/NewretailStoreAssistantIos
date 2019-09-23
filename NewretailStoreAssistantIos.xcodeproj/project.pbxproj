@@ -94,8 +94,6 @@
 		5B8F60022328E4590068A275 /* bus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F962328E4590068A275 /* bus@3x.png */; };
 		5B8F60032328E4590068A275 /* fieldbg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F972328E4590068A275 /* fieldbg@3x.png */; };
 		5B8F60042328E4590068A275 /* hyvip@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F992328E4590068A275 /* hyvip@3x.png */; };
-		5B8F60052328E4590068A275 /* hyvip@3x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F9A2328E4590068A275 /* hyvip@3x@2x.png */; };
-		5B8F60062328E4590068A275 /* hyvip@3x@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F9B2328E4590068A275 /* hyvip@3x@3x.png */; };
 		5B8F60072328E4590068A275 /* book@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F9D2328E4590068A275 /* book@3x.png */; };
 		5B8F60082328E4590068A275 /* kcpd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F9E2328E4590068A275 /* kcpd@2x.png */; };
 		5B8F60092328E4590068A275 /* yyhx@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5F9F2328E4590068A275 /* yyhx@3x.png */; };
@@ -166,6 +164,13 @@
 		5BFD82A3233340430024FDCF /* YYhxItemDescribleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFD82A2233340430024FDCF /* YYhxItemDescribleTableViewCell.xib */; };
 		5BFD82A9233397C50024FDCF /* HXSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD82A8233397C50024FDCF /* HXSearchViewController.m */; };
 		5BFD82AC2333A46F0024FDCF /* BaseScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD82AB2333A46F0024FDCF /* BaseScanViewController.m */; };
+		5BFF3D6F2338A66500F8D3F9 /* BookScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF3D6E2338A66500F8D3F9 /* BookScanViewController.m */; };
+		5BFF3D732338A73E00F8D3F9 /* BorringProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF3D722338A73E00F8D3F9 /* BorringProcessView.m */; };
+		5BFF3D752338A88700F8D3F9 /* BorringProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF3D742338A88700F8D3F9 /* BorringProcessView.xib */; };
+		5BFF3D782338AEB900F8D3F9 /* StepModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF3D772338AEB900F8D3F9 /* StepModel.m */; };
+		5BFF3D7D2338C4A400F8D3F9 /* BorringInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFF3D7B2338C4A400F8D3F9 /* BorringInfoViewController.m */; };
+		5BFF3D7E2338C4A400F8D3F9 /* BorringInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF3D7C2338C4A400F8D3F9 /* BorringInfoViewController.xib */; };
+		5BFF3D802338C5BA00F8D3F9 /* hyvip@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF3D7F2338C5B900F8D3F9 /* hyvip@2x.png */; };
 		DBB5DE172A37F8EE386ADC53 /* Pods_NewretailStoreAssistantIos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A25096CC7469474E89B47D6 /* Pods_NewretailStoreAssistantIos.framework */; };
 /* End PBXBuildFile section */
 
@@ -331,8 +336,6 @@
 		5B8F5F962328E4590068A275 /* bus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bus@3x.png"; sourceTree = "<group>"; };
 		5B8F5F972328E4590068A275 /* fieldbg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fieldbg@3x.png"; sourceTree = "<group>"; };
 		5B8F5F992328E4590068A275 /* hyvip@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hyvip@3x.png"; sourceTree = "<group>"; };
-		5B8F5F9A2328E4590068A275 /* hyvip@3x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hyvip@3x@2x.png"; sourceTree = "<group>"; };
-		5B8F5F9B2328E4590068A275 /* hyvip@3x@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hyvip@3x@3x.png"; sourceTree = "<group>"; };
 		5B8F5F9D2328E4590068A275 /* book@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book@3x.png"; sourceTree = "<group>"; };
 		5B8F5F9E2328E4590068A275 /* kcpd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kcpd@2x.png"; sourceTree = "<group>"; };
 		5B8F5F9F2328E4590068A275 /* yyhx@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yyhx@3x.png"; sourceTree = "<group>"; };
@@ -417,6 +420,17 @@
 		5BFD82A8233397C50024FDCF /* HXSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HXSearchViewController.m; sourceTree = "<group>"; };
 		5BFD82AA2333A46F0024FDCF /* BaseScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScanViewController.h; sourceTree = "<group>"; };
 		5BFD82AB2333A46F0024FDCF /* BaseScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseScanViewController.m; sourceTree = "<group>"; };
+		5BFF3D6D2338A66500F8D3F9 /* BookScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookScanViewController.h; sourceTree = "<group>"; };
+		5BFF3D6E2338A66500F8D3F9 /* BookScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookScanViewController.m; sourceTree = "<group>"; };
+		5BFF3D712338A73E00F8D3F9 /* BorringProcessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorringProcessView.h; sourceTree = "<group>"; };
+		5BFF3D722338A73E00F8D3F9 /* BorringProcessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorringProcessView.m; sourceTree = "<group>"; };
+		5BFF3D742338A88700F8D3F9 /* BorringProcessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorringProcessView.xib; sourceTree = "<group>"; };
+		5BFF3D762338AEB900F8D3F9 /* StepModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StepModel.h; sourceTree = "<group>"; };
+		5BFF3D772338AEB900F8D3F9 /* StepModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StepModel.m; sourceTree = "<group>"; };
+		5BFF3D7A2338C4A400F8D3F9 /* BorringInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorringInfoViewController.h; sourceTree = "<group>"; };
+		5BFF3D7B2338C4A400F8D3F9 /* BorringInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorringInfoViewController.m; sourceTree = "<group>"; };
+		5BFF3D7C2338C4A400F8D3F9 /* BorringInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorringInfoViewController.xib; sourceTree = "<group>"; };
+		5BFF3D7F2338C5B900F8D3F9 /* hyvip@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hyvip@2x.png"; sourceTree = "<group>"; };
 		6A25096CC7469474E89B47D6 /* Pods_NewretailStoreAssistantIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewretailStoreAssistantIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE0F5007316EEA4DA8394E3 /* Pods-NewretailStoreAssistantIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewretailStoreAssistantIos.release.xcconfig"; path = "Target Support Files/Pods-NewretailStoreAssistantIos/Pods-NewretailStoreAssistantIos.release.xcconfig"; sourceTree = "<group>"; };
 		EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewretailStoreAssistantIos.pch; sourceTree = "<group>"; };
@@ -725,9 +739,8 @@
 		5B0D66DA2334CEF60058F9AF /* BorrowingBookFunctionModule */ = {
 			isa = PBXGroup;
 			children = (
-				5B0D66DB2334CFA50058F9AF /* BorringHomeViewController.h */,
-				5B0D66DC2334CFA50058F9AF /* BorringHomeViewController.m */,
-				5B0D66DD2334CFA50058F9AF /* BorringHomeViewController.xib */,
+				5BFF3D792338B2DF00F8D3F9 /* BorringVC */,
+				5BFF3D702338A70200F8D3F9 /* View */,
 			);
 			path = BorrowingBookFunctionModule;
 			sourceTree = "<group>";
@@ -969,8 +982,7 @@
 			isa = PBXGroup;
 			children = (
 				5B8F5F992328E4590068A275 /* hyvip@3x.png */,
-				5B8F5F9A2328E4590068A275 /* hyvip@3x@2x.png */,
-				5B8F5F9B2328E4590068A275 /* hyvip@3x@3x.png */,
+				5BFF3D7F2338C5B900F8D3F9 /* hyvip@2x.png */,
 			);
 			path = "会员";
 			sourceTree = "<group>";
@@ -1106,6 +1118,33 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
+		5BFF3D702338A70200F8D3F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BFF3D712338A73E00F8D3F9 /* BorringProcessView.h */,
+				5BFF3D722338A73E00F8D3F9 /* BorringProcessView.m */,
+				5BFF3D742338A88700F8D3F9 /* BorringProcessView.xib */,
+				5BFF3D762338AEB900F8D3F9 /* StepModel.h */,
+				5BFF3D772338AEB900F8D3F9 /* StepModel.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BFF3D792338B2DF00F8D3F9 /* BorringVC */ = {
+			isa = PBXGroup;
+			children = (
+				5B0D66DB2334CFA50058F9AF /* BorringHomeViewController.h */,
+				5B0D66DC2334CFA50058F9AF /* BorringHomeViewController.m */,
+				5BFF3D7A2338C4A400F8D3F9 /* BorringInfoViewController.h */,
+				5BFF3D7B2338C4A400F8D3F9 /* BorringInfoViewController.m */,
+				5BFF3D7C2338C4A400F8D3F9 /* BorringInfoViewController.xib */,
+				5BFF3D6D2338A66500F8D3F9 /* BookScanViewController.h */,
+				5BFF3D6E2338A66500F8D3F9 /* BookScanViewController.m */,
+				5B0D66DD2334CFA50058F9AF /* BorringHomeViewController.xib */,
+			);
+			path = BorringVC;
+			sourceTree = "<group>";
+		};
 		EA6A11E2232E695D0062DC04 /* UtilityClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1275,7 @@
 				5BFD82A3233340430024FDCF /* YYhxItemDescribleTableViewCell.xib in Resources */,
 				5B8F604A2328E4590068A275 /* loading@3x.png in Resources */,
 				5B263CEC2331DD45005FAF16 /* FunctionTableViewCell.xib in Resources */,
+				5BFF3D7E2338C4A400F8D3F9 /* BorringInfoViewController.xib in Resources */,
 				5B8F60022328E4590068A275 /* bus@3x.png in Resources */,
 				5B8F601E2328E4590068A275 /* tsjy@3x.png in Resources */,
 				5B263CF623320606005FAF16 /* navBack@2x.png in Resources */,
@@ -1246,6 +1286,7 @@
 				5BFD829E23333FE40024FDCF /* YYhxItemDetailsTableViewCell.xib in Resources */,
 				5B263CFF23320E78005FAF16 /* youjiantou@3x.png in Resources */,
 				5B8F5FEE2328E4590068A275 /* search@3x.png in Resources */,
+				5BFF3D802338C5BA00F8D3F9 /* hyvip@2x.png in Resources */,
 				5B8F60102328E4590068A275 /* bsbg@3x.png in Resources */,
 				5B8F60262328E4590068A275 /* lock@3x.png in Resources */,
 				5B8F60082328E4590068A275 /* kcpd@2x.png in Resources */,
@@ -1287,8 +1328,8 @@
 				5BFD8285233313DB0024FDCF /* HXTableViewCell.xib in Resources */,
 				5B8F602F2328E4590068A275 /* home1@2x.png in Resources */,
 				5B8F5FF22328E4590068A275 /* reset.png in Resources */,
-				5B8F60062328E4590068A275 /* hyvip@3x@3x.png in Resources */,
 				5B6628122325E29200084F97 /* Assets.xcassets in Resources */,
+				5BFF3D752338A88700F8D3F9 /* BorringProcessView.xib in Resources */,
 				5B8F60382328E4590068A275 /* onLight1@3x.png in Resources */,
 				5B8F603B2328E4590068A275 /* onLight@3x.png in Resources */,
 				5B8F60362328E4590068A275 /* man@3x.png in Resources */,
@@ -1299,7 +1340,6 @@
 				5B0D66DF2334CFA50058F9AF /* BorringHomeViewController.xib in Resources */,
 				5B8F60002328E4590068A275 /* yihx@3x.png in Resources */,
 				5B8F60152328E4590068A275 /* bsbg.png in Resources */,
-				5B8F60052328E4590068A275 /* hyvip@3x@2x.png in Resources */,
 				5B8F60452328E4590068A275 /* NoNetwork@2x.png in Resources */,
 				5BFD829923333FC20024FDCF /* YYhxItemTableViewCell.xib in Resources */,
 				5B8F5FF02328E4590068A275 /* search1.png in Resources */,
@@ -1386,6 +1426,8 @@
 			files = (
 				5B263CE62331D0BB005FAF16 /* HomePageTableViewController.m in Sources */,
 				5B047608232F37FE0016134E /* NSArray+TRCLog.m in Sources */,
+				5BFF3D6F2338A66500F8D3F9 /* BookScanViewController.m in Sources */,
+				5BFF3D7D2338C4A400F8D3F9 /* BorringInfoViewController.m in Sources */,
 				5B047622232F37FE0016134E /* TRCRequest.m in Sources */,
 				5B047609232F37FE0016134E /* NSDictionary+TRCLog.m in Sources */,
 				5B047617232F37FE0016134E /* NSString+Verification.m in Sources */,
@@ -1402,6 +1444,7 @@
 				5B0D66D423347B800058F9AF /* HXScanViewController.m in Sources */,
 				5B04762A232F3C2F0016134E /* TRCResult+AssistantResult.m in Sources */,
 				5B04761B232F37FE0016134E /* NSArray+Extension.m in Sources */,
+				5BFF3D732338A73E00F8D3F9 /* BorringProcessView.m in Sources */,
 				5BDCF2DA2330850A00AB10D3 /* BaseTableViewCell.m in Sources */,
 				5B047619232F37FE0016134E /* TRCBaseSharedInstance.m in Sources */,
 				5B04760B232F37FE0016134E /* TRCBase64.m in Sources */,
@@ -1425,6 +1468,7 @@
 				5B04761D232F37FE0016134E /* TRCURLParser.m in Sources */,
 				5B04760C232F37FE0016134E /* UITableView+HYBCacheHeight.m in Sources */,
 				5B6628182325E29200084F97 /* main.m in Sources */,
+				5BFF3D782338AEB900F8D3F9 /* StepModel.m in Sources */,
 				5B047623232F37FE0016134E /* TRCRequestCacheManager.m in Sources */,
 				5B047607232F37FE0016134E /* NSDictionary+JSON.m in Sources */,
 				5B04761E232F37FE0016134E /* TRCStringUtil.m in Sources */,

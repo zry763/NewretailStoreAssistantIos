@@ -78,7 +78,7 @@
                 <outlet property="hxPersonName" destination="kNy-Ny-XSD" id="KWN-pa-jTc"/>
                 <outlet property="hxTime" destination="zjg-2N-cOm" id="ReW-qg-7Wr"/>
             </connections>
-            <point key="canvasLocation" x="72.799999999999997" y="135.832083958021"/>
+            <point key="canvasLocation" x="72" y="135.832083958021"/>
         </view>
     </objects>
 </document>
