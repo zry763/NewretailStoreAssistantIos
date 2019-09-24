@@ -18,34 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"stepNum===%ld",(long)self.stepNum);
-    NSLog(@"stepNum===%ld",(long)self.stepNum);
-    
-    if (self.stepNum) {
-        self.stepModel.currentStep = self.stepNum;
-        
-    }else
-        self.stepModel.currentStep =1;
-    if (self.borringOrReturn) {
-        self.stepModel.firstSteptTitle = @"1.关联会员";
-        self.stepModel.secondSteptTitle = @"2.扫码借书";
-        self.stepModel.thirdSteptTitle = @"3.完成借阅";
-        
-    }else{
-        self.stepModel.firstSteptTitle = @"1.关联会员";
-        self.stepModel.secondSteptTitle = @"2.图书核对";
-        self.stepModel.thirdSteptTitle = @"3.完成归还";
-    }
+ 
     // Do any additional setup after loading the view.
 }
--(StepModel *)stepModel
-{
-    if (!_stepModel) {
-        _stepModel = [[StepModel alloc]init];
- 
-    }
-    return _stepModel;
-}
+
 
 -(void)addSomeSubviews{
     
@@ -68,8 +44,6 @@
 -(BorringProcessView *)processView{
     if (!_processView) {
         _processView = [BorringProcessView viewFromNib];
-    
-        
     }
     return _processView;
 }

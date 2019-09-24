@@ -11,8 +11,9 @@
 
 
 #import "BorringBookScanViewController.h"
-
+#import "AssociateMemberViewController.h"
 @interface BorringHomeViewController ()
+- (IBAction)pushAssocationVC:(id)sender;
 - (IBAction)扫码借书按钮:(id)sender;
 @end
 
@@ -63,5 +64,8 @@
     
     [self.navigationController pushViewController:[[BorringBookScanViewController alloc]init] animated:YES];
     
+}
+- (IBAction)pushAssocationVC:(id)sender {
+        [self.navigationController pushViewController:[[AssociateMemberViewController alloc]init] animated:YES];
 }
 @end

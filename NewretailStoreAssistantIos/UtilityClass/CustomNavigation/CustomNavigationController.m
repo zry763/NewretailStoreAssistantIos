@@ -65,7 +65,8 @@
      [barButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
      [barButtonItem setTitleTextAttributes:dict forState:UIControlStateHighlighted];
     
-    
+        [navigationBar setBackIndicatorImage:[UIImage imageNamed:@"navBack"]];
+        [navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"navBack"]];
     
     //     修改item上面的文字样式
     //     NSDictionary *dict =@{NSForegroundColorAttributeName : [TRCColor colorFromHexCode:@"#353535"],NSShadowAttributeName : shadow};

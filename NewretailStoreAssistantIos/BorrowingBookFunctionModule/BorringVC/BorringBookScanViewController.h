@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BorringBookScanViewController : BookScanViewController
+@interface BorringBookScanViewController : BookScanViewController<UIViewControllerTransitioningDelegate>
 
 @end
 

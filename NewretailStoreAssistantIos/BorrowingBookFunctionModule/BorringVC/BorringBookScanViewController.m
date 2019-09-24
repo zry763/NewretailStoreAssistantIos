@@ -7,14 +7,18 @@
 //
 
 #import "BorringBookScanViewController.h"
+#import "OrderInfoViewController.h"
+#import "OrderInfoPresentationController.h"
+#import "BookResultDetailViewController.h"
+#import "BorringInputViewController.h"
 
 @interface BorringBookScanViewController ()
 
 
 @property (strong ,nonatomic) UIButton *scaninputBT;//输码借阅
 @property(strong ,nonatomic) UIButton *confirmBt;//确认借阅
-@property(strong ,nonatomic) UIButton *orderBt;//确认借阅
-@property(strong ,nonatomic) UILabel *orderCountLable;//确认借阅
+@property(strong ,nonatomic) UIButton *orderBt;//详单按钮
+@property(strong ,nonatomic) UILabel *orderCountLable;//详单数量
 
 @end
 
@@ -92,6 +96,12 @@
 //输码借书
 -(void)pushInputNumber{
     
+    BorringInputViewController *booknumVC =[[BorringInputViewController alloc]init];
+
+    [self resetBackButtonTitleWith:@"输码借阅" and:[UIColor clearColor]];
+    [self.navigationController pushViewController:booknumVC animated:YES];
+    
+    
 }
 
 //确认借阅
@@ -101,12 +111,19 @@
         _confirmBt.backgroundColor = [TRCColor colorFromHexCode:@"#D33A31"];
         [_confirmBt.titleLabel setFont:[UIFont systemFontOfSize:16]];
         [_confirmBt setTitle:@"确认借阅" forState:UIControlStateNormal];
+        [_confirmBt addTarget:self action:@selector(confirmBorring) forControlEvents:UIControlEventTouchUpInside];
         _confirmBt.layer.cornerRadius = 22;
         _confirmBt.layer.masksToBounds = YES;
     }
     return _confirmBt;
 }
-
+-(void)confirmBorring{
+    
+    [self resetBackButtonTitleWith:@"图书借阅" and: [UIColor clearColor]];
+    BookResultDetailViewController *bookResultVC =[[BookResultDetailViewController alloc]init];
+    bookResultVC.stepNum = 3;
+    [self.navigationController pushViewController: bookResultVC animated:YES];
+}
 //订单
 -(UIButton *)orderBt{
     if (!_orderBt) {
@@ -117,6 +134,7 @@
         _orderBt.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         [_orderBt.titleLabel setFont:[UIFont systemFontOfSize:14]];
         [_orderBt setTitle:@"详单" forState:UIControlStateNormal];
+        [_orderBt addTarget:self action:@selector(orderInfo) forControlEvents:UIControlEventTouchUpInside];
         _orderBt.layer.cornerRadius = 18;
         _orderBt.layer.masksToBounds = YES;
     }
@@ -136,7 +154,24 @@
     }
     return _orderCountLable;
 }
+//详单按钮
+-(void)orderInfo{
+    NSLog(@"详单");
+    
+    OrderInfoViewController *orderInfoVC = [[OrderInfoViewController alloc]init];
+    orderInfoVC.transitioningDelegate = self;// 此对象要实现 UIViewControllerTransitioningDelegate 协议
+    
+    orderInfoVC.modalPresentationStyle=UIModalPresentationCustom;
 
+    [self presentViewController:orderInfoVC animated:NO completion:nil];
+    
+}
+
+- (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source{
+
+   return [[OrderInfoPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+    
+}
 
 
 /*

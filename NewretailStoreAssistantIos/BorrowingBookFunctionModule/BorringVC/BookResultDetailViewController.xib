@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookResultDetailViewController">
+            <connections>
+                <outlet property="bookContainView" destination="mXk-DX-xwx" id="4ZF-Ew-J35"/>
+                <outlet property="finalResult" destination="t6k-Ny-NF6" id="01G-9E-Hif"/>
+                <outlet property="goHomeBT" destination="YQ7-LP-Orp" id="W1h-bJ-at2"/>
+                <outlet property="goonBorringBT" destination="HoN-jk-wuB" id="bgb-Ru-9vW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sucess.png" translatesAutoresizingMaskIntoConstraints="NO" id="69U-Hi-dYB">
+                    <rect key="frame" x="157.5" y="224" width="60" height="60"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="借阅成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6k-Ny-NF6">
+                    <rect key="frame" x="146.5" y="296" width="82" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.1803921568627451" green="0.66274509803921566" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5iS-Ii-kVF">
+                    <rect key="frame" x="15" y="588" width="345" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoN-jk-wuB">
+                            <rect key="frame" x="0.0" y="0.0" width="167.5" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="MuR-9T-Xig"/>
+                            </constraints>
+                            <state key="normal" title="继续借书">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="goonBorringBook:" destination="-1" eventType="touchUpInside" id="5P6-wd-GP1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQ7-LP-Orp">
+                            <rect key="frame" x="177.5" y="0.0" width="167.5" height="44"/>
+                            <color key="backgroundColor" red="0.1803921568627451" green="0.66274509803921566" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="返回首页">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="goHomeView:" destination="-1" eventType="touchUpInside" id="pLD-Ko-Xb7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXk-DX-xwx">
+                    <rect key="frame" x="30" y="345" width="315" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="dr8-64-NkS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5iS-Ii-kVF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="15" id="1aE-sc-cxe"/>
+                <constraint firstItem="mXk-DX-xwx" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="1tm-iJ-WVz"/>
+                <constraint firstItem="t6k-Ny-NF6" firstAttribute="top" secondItem="69U-Hi-dYB" secondAttribute="bottom" constant="12" id="8O0-hr-3ts"/>
+                <constraint firstItem="mXk-DX-xwx" firstAttribute="top" secondItem="t6k-Ny-NF6" secondAttribute="bottom" constant="25" id="LEg-uH-3cn"/>
+                <constraint firstItem="t6k-Ny-NF6" firstAttribute="centerX" secondItem="69U-Hi-dYB" secondAttribute="centerX" id="W7f-WQ-mCZ"/>
+                <constraint firstItem="69U-Hi-dYB" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="160" id="avK-Of-pQb"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="mXk-DX-xwx" secondAttribute="trailing" constant="30" id="imz-r3-lam"/>
+                <constraint firstItem="69U-Hi-dYB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jJg-YI-PcH"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="5iS-Ii-kVF" secondAttribute="bottom" constant="35" id="v0Z-jd-WHc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="5iS-Ii-kVF" secondAttribute="trailing" constant="15" id="wNC-pE-xAm"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="53.600000000000001" y="48.125937031484263"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sucess.png" width="60" height="60"/>
+    </resources>
+</document>

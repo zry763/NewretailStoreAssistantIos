@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Wxh-Ov-vSd" customClass="ReturnBookHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="OPD-5x-cY3">
+                    <rect key="frame" x="20" y="4" width="355" height="43.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="LB8-U2-B3v">
+                            <rect key="frame" x="0.0" y="0.0" width="119.5" height="17"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择借阅记录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcI-DG-iO5">
+                                    <rect key="frame" x="0.0" y="0.0" width="86" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(3)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCB-JB-35U">
+                                    <rect key="frame" x="100" y="0.0" width="19.5" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.94117647058823528" green="0.54509803921568623" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已定损记录不显示，如需操作请联系店长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oB-4l-UBz">
+                            <rect key="frame" x="0.0" y="29" width="221" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="OPD-5x-cY3" firstAttribute="leading" secondItem="LVq-Ue-hPh" secondAttribute="leading" constant="20" id="5lC-wG-cnu"/>
+                <constraint firstItem="OPD-5x-cY3" firstAttribute="top" secondItem="LVq-Ue-hPh" secondAttribute="top" constant="4" id="Ko6-FQ-mes"/>
+                <constraint firstItem="LVq-Ue-hPh" firstAttribute="bottom" secondItem="OPD-5x-cY3" secondAttribute="bottom" constant="2.5" id="rtv-e3-L7c"/>
+                <constraint firstItem="LVq-Ue-hPh" firstAttribute="trailing" secondItem="OPD-5x-cY3" secondAttribute="trailing" id="t8K-mb-yQL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="LVq-Ue-hPh"/>
+            <connections>
+                <outlet property="dataCount" destination="NCB-JB-35U" id="KZb-tx-qHU"/>
+                <outlet property="describeLable" destination="9oB-4l-UBz" id="43z-Gz-18f"/>
+                <outlet property="headerTitle" destination="bcI-DG-iO5" id="pD1-3V-mdY"/>
+            </connections>
+            <point key="canvasLocation" x="-17" y="235"/>
+        </view>
+    </objects>
+</document>

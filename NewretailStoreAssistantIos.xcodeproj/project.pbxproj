@@ -50,8 +50,6 @@
 		5B263CEC2331DD45005FAF16 /* FunctionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B263CEA2331DD45005FAF16 /* FunctionTableViewCell.xib */; };
 		5B263CF12331F148005FAF16 /* HxListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263CEF2331F148005FAF16 /* HxListViewController.m */; };
 		5B263CF22331F148005FAF16 /* HxListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B263CF02331F148005FAF16 /* HxListViewController.xib */; };
-		5B263CF523320606005FAF16 /* navBack@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B263CF323320605005FAF16 /* navBack@3x.png */; };
-		5B263CF623320606005FAF16 /* navBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B263CF423320605005FAF16 /* navBack@2x.png */; };
 		5B263CFB23320B0B005FAF16 /* YYListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263CF923320B0B005FAF16 /* YYListTableViewCell.m */; };
 		5B263CFC23320B0B005FAF16 /* YYListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B263CFA23320B0B005FAF16 /* YYListTableViewCell.xib */; };
 		5B263CFF23320E78005FAF16 /* youjiantou@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B263CFD23320E78005FAF16 /* youjiantou@3x.png */; };
@@ -62,6 +60,31 @@
 		5B263D1023322A7E005FAF16 /* UIView+TRCViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263D0F23322A7D005FAF16 /* UIView+TRCViewUtils.m */; };
 		5B394AB12327A09D00C37DAF /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B394AAB2327A09D00C37DAF /* CustomNavigationController.m */; };
 		5B394AB22327A09D00C37DAF /* NSArray+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */; };
+		5B63F6462339AA7600DD7924 /* OrderInfoPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6452339AA7600DD7924 /* OrderInfoPresentationController.m */; };
+		5B63F6492339B2E900DD7924 /* OrderInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6482339B2E900DD7924 /* OrderInfoViewController.m */; };
+		5B63F64B2339B4DA00DD7924 /* chahao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F64A2339B4DA00DD7924 /* chahao@2x.png */; };
+		5B63F64F2339B7C300DD7924 /* OrderInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F64D2339B7C300DD7924 /* OrderInfoTableViewCell.m */; };
+		5B63F6502339B7C300DD7924 /* OrderInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F64E2339B7C300DD7924 /* OrderInfoTableViewCell.xib */; };
+		5B63F6542339EA6E00DD7924 /* BookResultDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6522339EA6E00DD7924 /* BookResultDetailViewController.m */; };
+		5B63F6552339EA6E00DD7924 /* BookResultDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F6532339EA6E00DD7924 /* BookResultDetailViewController.xib */; };
+		5B63F65C2339ECD200DD7924 /* navBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F6562339ECD100DD7924 /* navBack@2x.png */; };
+		5B63F65D2339ECD200DD7924 /* sucess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F6572339ECD100DD7924 /* sucess@2x.png */; };
+		5B63F65E2339ECD200DD7924 /* navBack@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F6582339ECD100DD7924 /* navBack@3x.png */; };
+		5B63F65F2339ECD200DD7924 /* goonReturn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F6592339ECD100DD7924 /* goonReturn@3x.png */; };
+		5B63F6602339ECD200DD7924 /* sucess@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F65A2339ECD200DD7924 /* sucess@3x.png */; };
+		5B63F6612339ECD200DD7924 /* goonReturn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F65B2339ECD200DD7924 /* goonReturn@2x.png */; };
+		5B63F6642339F1F900DD7924 /* BorringResultInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6632339F1F900DD7924 /* BorringResultInfoView.m */; };
+		5B63F6672339F21A00DD7924 /* ReturnResultInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6662339F21A00DD7924 /* ReturnResultInfoView.m */; };
+		5B63F6692339F23C00DD7924 /* BorringResultInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F6682339F23C00DD7924 /* BorringResultInfoView.xib */; };
+		5B63F66D233A052A00DD7924 /* BorringInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F66B233A052A00DD7924 /* BorringInputViewController.m */; };
+		5B63F66E233A052A00DD7924 /* BorringInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F66C233A052A00DD7924 /* BorringInputViewController.xib */; };
+		5B63F672233A102500DD7924 /* AssociateMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F671233A102500DD7924 /* AssociateMemberViewController.m */; };
+		5B63F677233A11C000DD7924 /* BorringInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F675233A11C000DD7924 /* BorringInfoTableViewCell.m */; };
+		5B63F678233A11C000DD7924 /* BorringInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F676233A11C000DD7924 /* BorringInfoTableViewCell.xib */; };
+		5B63F67C233A155B00DD7924 /* CheckBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F67A233A155B00DD7924 /* CheckBookTableViewCell.m */; };
+		5B63F67D233A155B00DD7924 /* CheckBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F67B233A155B00DD7924 /* CheckBookTableViewCell.xib */; };
+		5B63F680233A193E00DD7924 /* ReturnBookHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F67F233A193E00DD7924 /* ReturnBookHeaderView.m */; };
+		5B63F682233A197100DD7924 /* ReturnBookHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B63F681233A197100DD7924 /* ReturnBookHeaderView.xib */; };
 		5B66280A2325E28600084F97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B6628092325E28600084F97 /* AppDelegate.m */; };
 		5B6628102325E28600084F97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B66280E2325E28600084F97 /* Main.storyboard */; };
 		5B6628122325E29200084F97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6628112325E29200084F97 /* Assets.xcassets */; };
@@ -278,8 +301,6 @@
 		5B263CEE2331F148005FAF16 /* HxListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HxListViewController.h; sourceTree = "<group>"; };
 		5B263CEF2331F148005FAF16 /* HxListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HxListViewController.m; sourceTree = "<group>"; };
 		5B263CF02331F148005FAF16 /* HxListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HxListViewController.xib; sourceTree = "<group>"; };
-		5B263CF323320605005FAF16 /* navBack@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBack@3x.png"; sourceTree = "<group>"; };
-		5B263CF423320605005FAF16 /* navBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBack@2x.png"; sourceTree = "<group>"; };
 		5B263CF823320B0B005FAF16 /* YYListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYListTableViewCell.h; sourceTree = "<group>"; };
 		5B263CF923320B0B005FAF16 /* YYListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYListTableViewCell.m; sourceTree = "<group>"; };
 		5B263CFA23320B0B005FAF16 /* YYListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YYListTableViewCell.xib; sourceTree = "<group>"; };
@@ -297,6 +318,42 @@
 		5B394AAB2327A09D00C37DAF /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		5B394AAE2327A09D00C37DAF /* NSArray+Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Crash.h"; sourceTree = "<group>"; };
 		5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Crash.m"; sourceTree = "<group>"; };
+		5B63F6442339AA7600DD7924 /* OrderInfoPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderInfoPresentationController.h; sourceTree = "<group>"; };
+		5B63F6452339AA7600DD7924 /* OrderInfoPresentationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderInfoPresentationController.m; sourceTree = "<group>"; };
+		5B63F6472339B2E900DD7924 /* OrderInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderInfoViewController.h; sourceTree = "<group>"; };
+		5B63F6482339B2E900DD7924 /* OrderInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderInfoViewController.m; sourceTree = "<group>"; };
+		5B63F64A2339B4DA00DD7924 /* chahao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chahao@2x.png"; sourceTree = "<group>"; };
+		5B63F64C2339B7C300DD7924 /* OrderInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderInfoTableViewCell.h; sourceTree = "<group>"; };
+		5B63F64D2339B7C300DD7924 /* OrderInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderInfoTableViewCell.m; sourceTree = "<group>"; };
+		5B63F64E2339B7C300DD7924 /* OrderInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderInfoTableViewCell.xib; sourceTree = "<group>"; };
+		5B63F6512339EA6E00DD7924 /* BookResultDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookResultDetailViewController.h; sourceTree = "<group>"; };
+		5B63F6522339EA6E00DD7924 /* BookResultDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookResultDetailViewController.m; sourceTree = "<group>"; };
+		5B63F6532339EA6E00DD7924 /* BookResultDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookResultDetailViewController.xib; sourceTree = "<group>"; };
+		5B63F6562339ECD100DD7924 /* navBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBack@2x.png"; sourceTree = "<group>"; };
+		5B63F6572339ECD100DD7924 /* sucess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sucess@2x.png"; sourceTree = "<group>"; };
+		5B63F6582339ECD100DD7924 /* navBack@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBack@3x.png"; sourceTree = "<group>"; };
+		5B63F6592339ECD100DD7924 /* goonReturn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goonReturn@3x.png"; sourceTree = "<group>"; };
+		5B63F65A2339ECD200DD7924 /* sucess@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sucess@3x.png"; sourceTree = "<group>"; };
+		5B63F65B2339ECD200DD7924 /* goonReturn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goonReturn@2x.png"; sourceTree = "<group>"; };
+		5B63F6622339F1F900DD7924 /* BorringResultInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorringResultInfoView.h; sourceTree = "<group>"; };
+		5B63F6632339F1F900DD7924 /* BorringResultInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorringResultInfoView.m; sourceTree = "<group>"; };
+		5B63F6652339F21A00DD7924 /* ReturnResultInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReturnResultInfoView.h; sourceTree = "<group>"; };
+		5B63F6662339F21A00DD7924 /* ReturnResultInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReturnResultInfoView.m; sourceTree = "<group>"; };
+		5B63F6682339F23C00DD7924 /* BorringResultInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorringResultInfoView.xib; sourceTree = "<group>"; };
+		5B63F66A233A052A00DD7924 /* BorringInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorringInputViewController.h; sourceTree = "<group>"; };
+		5B63F66B233A052A00DD7924 /* BorringInputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorringInputViewController.m; sourceTree = "<group>"; };
+		5B63F66C233A052A00DD7924 /* BorringInputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorringInputViewController.xib; sourceTree = "<group>"; };
+		5B63F670233A102500DD7924 /* AssociateMemberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssociateMemberViewController.h; sourceTree = "<group>"; };
+		5B63F671233A102500DD7924 /* AssociateMemberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssociateMemberViewController.m; sourceTree = "<group>"; };
+		5B63F674233A11C000DD7924 /* BorringInfoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorringInfoTableViewCell.h; sourceTree = "<group>"; };
+		5B63F675233A11C000DD7924 /* BorringInfoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorringInfoTableViewCell.m; sourceTree = "<group>"; };
+		5B63F676233A11C000DD7924 /* BorringInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorringInfoTableViewCell.xib; sourceTree = "<group>"; };
+		5B63F679233A155B00DD7924 /* CheckBookTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckBookTableViewCell.h; sourceTree = "<group>"; };
+		5B63F67A233A155B00DD7924 /* CheckBookTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckBookTableViewCell.m; sourceTree = "<group>"; };
+		5B63F67B233A155B00DD7924 /* CheckBookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckBookTableViewCell.xib; sourceTree = "<group>"; };
+		5B63F67E233A193E00DD7924 /* ReturnBookHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReturnBookHeaderView.h; sourceTree = "<group>"; };
+		5B63F67F233A193E00DD7924 /* ReturnBookHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReturnBookHeaderView.m; sourceTree = "<group>"; };
+		5B63F681233A197100DD7924 /* ReturnBookHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnBookHeaderView.xib; sourceTree = "<group>"; };
 		5B6628052325E28600084F97 /* NewretailStoreAssistantIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewretailStoreAssistantIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6628082325E28600084F97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5B6628092325E28600084F97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -742,6 +799,9 @@
 		5B0D66DA2334CEF60058F9AF /* BorrowingBookFunctionModule */ = {
 			isa = PBXGroup;
 			children = (
+				5B63F673233A119000DD7924 /* ReturnView */,
+				5B63F66F233A0FC700DD7924 /* ReturnVC */,
+				5B63F6432339A9C000DD7924 /* Model */,
 				5BFF3D792338B2DF00F8D3F9 /* BorringVC */,
 				5BFF3D702338A70200F8D3F9 /* View */,
 			);
@@ -858,6 +918,40 @@
 				5B6628092325E28600084F97 /* AppDelegate.m */,
 			);
 			path = APPEntrance;
+			sourceTree = "<group>";
+		};
+		5B63F6432339A9C000DD7924 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BFF3D762338AEB900F8D3F9 /* StepModel.h */,
+				5BFF3D772338AEB900F8D3F9 /* StepModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B63F66F233A0FC700DD7924 /* ReturnVC */ = {
+			isa = PBXGroup;
+			children = (
+				5B63F670233A102500DD7924 /* AssociateMemberViewController.h */,
+				5B63F671233A102500DD7924 /* AssociateMemberViewController.m */,
+			);
+			path = ReturnVC;
+			sourceTree = "<group>";
+		};
+		5B63F673233A119000DD7924 /* ReturnView */ = {
+			isa = PBXGroup;
+			children = (
+				5B63F674233A11C000DD7924 /* BorringInfoTableViewCell.h */,
+				5B63F675233A11C000DD7924 /* BorringInfoTableViewCell.m */,
+				5B63F676233A11C000DD7924 /* BorringInfoTableViewCell.xib */,
+				5B63F679233A155B00DD7924 /* CheckBookTableViewCell.h */,
+				5B63F67A233A155B00DD7924 /* CheckBookTableViewCell.m */,
+				5B63F67B233A155B00DD7924 /* CheckBookTableViewCell.xib */,
+				5B63F67E233A193E00DD7924 /* ReturnBookHeaderView.h */,
+				5B63F67F233A193E00DD7924 /* ReturnBookHeaderView.m */,
+				5B63F681233A197100DD7924 /* ReturnBookHeaderView.xib */,
+			);
+			path = ReturnView;
 			sourceTree = "<group>";
 		};
 		5B6627FC2325E28600084F97 = {
@@ -994,6 +1088,13 @@
 			isa = PBXGroup;
 			children = (
 				5B8F5F9D2328E4590068A275 /* book@3x.png */,
+				5B63F64A2339B4DA00DD7924 /* chahao@2x.png */,
+				5B63F65B2339ECD200DD7924 /* goonReturn@2x.png */,
+				5B63F6592339ECD100DD7924 /* goonReturn@3x.png */,
+				5B63F6562339ECD100DD7924 /* navBack@2x.png */,
+				5B63F6582339ECD100DD7924 /* navBack@3x.png */,
+				5B63F6572339ECD100DD7924 /* sucess@2x.png */,
+				5B63F65A2339ECD200DD7924 /* sucess@3x.png */,
 				5B8F5F9E2328E4590068A275 /* kcpd@2x.png */,
 				5B8F5F9F2328E4590068A275 /* yyhx@3x.png */,
 				5B8F5FA12328E4590068A275 /* yyhx@2x.png */,
@@ -1021,8 +1122,6 @@
 		5B8F5FBC2328E4590068A275 /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
-				5B263CF423320605005FAF16 /* navBack@2x.png */,
-				5B263CF323320605005FAF16 /* navBack@3x.png */,
 				5B8F5FBD2328E4590068A275 /* lock@2x.png */,
 				5B8F5FBE2328E4590068A275 /* lock@3x.png */,
 				5B8F5FBF2328E4590068A275 /* LogoIcon@3x.png */,
@@ -1127,8 +1226,14 @@
 				5BFF3D712338A73E00F8D3F9 /* BorringProcessView.h */,
 				5BFF3D722338A73E00F8D3F9 /* BorringProcessView.m */,
 				5BFF3D742338A88700F8D3F9 /* BorringProcessView.xib */,
-				5BFF3D762338AEB900F8D3F9 /* StepModel.h */,
-				5BFF3D772338AEB900F8D3F9 /* StepModel.m */,
+				5B63F64C2339B7C300DD7924 /* OrderInfoTableViewCell.h */,
+				5B63F64D2339B7C300DD7924 /* OrderInfoTableViewCell.m */,
+				5B63F64E2339B7C300DD7924 /* OrderInfoTableViewCell.xib */,
+				5B63F6622339F1F900DD7924 /* BorringResultInfoView.h */,
+				5B63F6632339F1F900DD7924 /* BorringResultInfoView.m */,
+				5B63F6682339F23C00DD7924 /* BorringResultInfoView.xib */,
+				5B63F6652339F21A00DD7924 /* ReturnResultInfoView.h */,
+				5B63F6662339F21A00DD7924 /* ReturnResultInfoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1146,6 +1251,16 @@
 				5BFF3D6E2338A66500F8D3F9 /* BookScanViewController.m */,
 				EA8ADB092338FED2004FC1BC /* BorringBookScanViewController.h */,
 				EA8ADB0A2338FED2004FC1BC /* BorringBookScanViewController.m */,
+				5B63F66A233A052A00DD7924 /* BorringInputViewController.h */,
+				5B63F66B233A052A00DD7924 /* BorringInputViewController.m */,
+				5B63F66C233A052A00DD7924 /* BorringInputViewController.xib */,
+				5B63F6472339B2E900DD7924 /* OrderInfoViewController.h */,
+				5B63F6482339B2E900DD7924 /* OrderInfoViewController.m */,
+				5B63F6442339AA7600DD7924 /* OrderInfoPresentationController.h */,
+				5B63F6452339AA7600DD7924 /* OrderInfoPresentationController.m */,
+				5B63F6512339EA6E00DD7924 /* BookResultDetailViewController.h */,
+				5B63F6522339EA6E00DD7924 /* BookResultDetailViewController.m */,
+				5B63F6532339EA6E00DD7924 /* BookResultDetailViewController.xib */,
 			);
 			path = BorringVC;
 			sourceTree = "<group>";
@@ -1269,6 +1384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B263CF22331F148005FAF16 /* HxListViewController.xib in Resources */,
+				5B63F6612339ECD200DD7924 /* goonReturn@2x.png in Resources */,
 				5B8F5FEA2328E4590068A275 /* search@2x.png in Resources */,
 				5B6628152325E29200084F97 /* LaunchScreen.storyboard in Resources */,
 				5B8F60072328E4590068A275 /* book@3x.png in Resources */,
@@ -1278,12 +1394,13 @@
 				5B0D66D92334BEA10058F9AF /* HXInputViewController.xib in Resources */,
 				5B8F60482328E4590068A275 /* NoContent@2x.png in Resources */,
 				5BFD82A3233340430024FDCF /* YYhxItemDescribleTableViewCell.xib in Resources */,
+				5B63F67D233A155B00DD7924 /* CheckBookTableViewCell.xib in Resources */,
 				5B8F604A2328E4590068A275 /* loading@3x.png in Resources */,
 				5B263CEC2331DD45005FAF16 /* FunctionTableViewCell.xib in Resources */,
+				5B63F65C2339ECD200DD7924 /* navBack@2x.png in Resources */,
 				5BFF3D7E2338C4A400F8D3F9 /* BorringInfoViewController.xib in Resources */,
 				5B8F60022328E4590068A275 /* bus@3x.png in Resources */,
 				5B8F601E2328E4590068A275 /* tsjy@3x.png in Resources */,
-				5B263CF623320606005FAF16 /* navBack@2x.png in Resources */,
 				5B8F60122328E4590068A275 /* cdbg@3x.png in Resources */,
 				5B8F60112328E4590068A275 /* bsbg@2x.png in Resources */,
 				5B8F5FF32328E4590068A275 /* search1@2x.png in Resources */,
@@ -1294,14 +1411,17 @@
 				5BFF3D802338C5BA00F8D3F9 /* hyvip@2x.png in Resources */,
 				5B8F60102328E4590068A275 /* bsbg@3x.png in Resources */,
 				5B8F60262328E4590068A275 /* lock@3x.png in Resources */,
+				5B63F682233A197100DD7924 /* ReturnBookHeaderView.xib in Resources */,
+				5B63F6602339ECD200DD7924 /* sucess@3x.png in Resources */,
 				5B8F60082328E4590068A275 /* kcpd@2x.png in Resources */,
-				5B263CF523320606005FAF16 /* navBack@3x.png in Resources */,
 				5B8F600F2328E4590068A275 /* bdbg.png in Resources */,
 				5B263CFC23320B0B005FAF16 /* YYListTableViewCell.xib in Resources */,
+				5B63F678233A11C000DD7924 /* BorringInfoTableViewCell.xib in Resources */,
 				5B8F5FF52328E4590068A275 /* backTop@2x.png in Resources */,
 				5B8F601C2328E4590068A275 /* cdbg.png in Resources */,
 				5B8F60012328E4590068A275 /* fieldbg.png in Resources */,
 				5B8F5FF62328E4590068A275 /* daihx@2x.png in Resources */,
+				5B63F6502339B7C300DD7924 /* OrderInfoTableViewCell.xib in Resources */,
 				5B8F5FEB2328E4590068A275 /* reset@3x.png in Resources */,
 				5B8F60132328E4590068A275 /* homeBG@3x.png in Resources */,
 				5B8F60312328E4590068A275 /* home1@3x.png in Resources */,
@@ -1310,16 +1430,19 @@
 				5B8F601D2328E4590068A275 /* tsjy@2x.png in Resources */,
 				5B8F602E2328E4590068A275 /* home@3x.png in Resources */,
 				5B8F60252328E4590068A275 /* lock@2x.png in Resources */,
+				5B63F65D2339ECD200DD7924 /* sucess@2x.png in Resources */,
 				5B8F602C2328E4590068A275 /* man1@3x.png in Resources */,
 				5B8F5FFB2328E4590068A275 /* bus@2x.png in Resources */,
 				5B8F5FED2328E4590068A275 /* reset@2x.png in Resources */,
 				5B8F5FF92328E4590068A275 /* fieldbg@2x.png in Resources */,
+				5B63F64B2339B4DA00DD7924 /* chahao@2x.png in Resources */,
 				5B8F60202328E4590068A275 /* bdbg@2x.png in Resources */,
 				5B8F60472328E4590068A275 /* NoContent.png in Resources */,
 				5B8F5FF72328E4590068A275 /* daihx@3x.png in Resources */,
 				5B8F5FEF2328E4590068A275 /* Bento@2x.png in Resources */,
 				5BDCF2D32330821B00AB10D3 /* StoreDetailTableViewCell.xib in Resources */,
 				5B8F60032328E4590068A275 /* fieldbg@3x.png in Resources */,
+				5B63F65E2339ECD200DD7924 /* navBack@3x.png in Resources */,
 				5B8F5FFF2328E4590068A275 /* yihx@2x.png in Resources */,
 				5B8F5FF82328E4590068A275 /* backTop@3x.png in Resources */,
 				5B8F60272328E4590068A275 /* LogoIcon@3x.png in Resources */,
@@ -1328,6 +1451,7 @@
 				5BFD82892333162D0024FDCF /* hxzw@2x.png in Resources */,
 				5B8F60192328E4590068A275 /* tsgh@3x.png in Resources */,
 				5B8F60342328E4590068A275 /* man@2x.png in Resources */,
+				5B63F66E233A052A00DD7924 /* BorringInputViewController.xib in Resources */,
 				5BFD829123332FDA0024FDCF /* HXfootView.xib in Resources */,
 				5B8F603A2328E4590068A275 /* onLight@2x.png in Resources */,
 				5BFD8285233313DB0024FDCF /* HXTableViewCell.xib in Resources */,
@@ -1345,6 +1469,7 @@
 				5B0D66DF2334CFA50058F9AF /* BorringHomeViewController.xib in Resources */,
 				5B8F60002328E4590068A275 /* yihx@3x.png in Resources */,
 				5B8F60152328E4590068A275 /* bsbg.png in Resources */,
+				5B63F6692339F23C00DD7924 /* BorringResultInfoView.xib in Resources */,
 				5B8F60452328E4590068A275 /* NoNetwork@2x.png in Resources */,
 				5BFD829923333FC20024FDCF /* YYhxItemTableViewCell.xib in Resources */,
 				5B8F5FF02328E4590068A275 /* search1.png in Resources */,
@@ -1354,12 +1479,14 @@
 				5B8F60432328E4590068A275 /* NoNetwork@3x.png in Resources */,
 				5B8F60142328E4590068A275 /* homeBG@2x.png in Resources */,
 				5B8F60282328E4590068A275 /* LogoIcon@2x.png in Resources */,
+				5B63F6552339EA6E00DD7924 /* BookResultDetailViewController.xib in Resources */,
 				5BFD82882333162D0024FDCF /* hxzw@3x.png in Resources */,
 				5B8F60392328E4590068A275 /* onLight1@2x.png in Resources */,
 				5B8F602B2328E4590068A275 /* home@2x.png in Resources */,
 				5B8F60492328E4590068A275 /* loading@2x.png in Resources */,
 				5B8F60212328E4590068A275 /* tsgh@2x.png in Resources */,
 				5B8F5FE92328E4590068A275 /* Bento@3x.png in Resources */,
+				5B63F65F2339ECD200DD7924 /* goonReturn@3x.png in Resources */,
 				5B8F5FF12328E4590068A275 /* search1@3x.png in Resources */,
 				5B8F60162328E4590068A275 /* cdbg@2x.png in Resources */,
 				5B8F5F742328CC1F0068A275 /* LoginStoryboard.storyboard in Resources */,
@@ -1432,9 +1559,12 @@
 				5B263CE62331D0BB005FAF16 /* HomePageTableViewController.m in Sources */,
 				5B047608232F37FE0016134E /* NSArray+TRCLog.m in Sources */,
 				5BFF3D6F2338A66500F8D3F9 /* BookScanViewController.m in Sources */,
+				5B63F680233A193E00DD7924 /* ReturnBookHeaderView.m in Sources */,
 				5BFF3D7D2338C4A400F8D3F9 /* BorringInfoViewController.m in Sources */,
+				5B63F6462339AA7600DD7924 /* OrderInfoPresentationController.m in Sources */,
 				5B047622232F37FE0016134E /* TRCRequest.m in Sources */,
 				5B047609232F37FE0016134E /* NSDictionary+TRCLog.m in Sources */,
+				5B63F66D233A052A00DD7924 /* BorringInputViewController.m in Sources */,
 				5B047617232F37FE0016134E /* NSString+Verification.m in Sources */,
 				5B8F604F2328F2700068A275 /* TRCColor.m in Sources */,
 				5B047618232F37FE0016134E /* NSString+Size.m in Sources */,
@@ -1445,14 +1575,17 @@
 				5B047621232F37FE0016134E /* TRCResult.m in Sources */,
 				5B394AB22327A09D00C37DAF /* NSArray+Crash.m in Sources */,
 				5BFD82A1233340240024FDCF /* YYhxItemDescribleTableViewCell.m in Sources */,
+				5B63F6492339B2E900DD7924 /* OrderInfoViewController.m in Sources */,
 				5B263D0C23322858005FAF16 /* HXStateViewController.m in Sources */,
 				5B0D66D423347B800058F9AF /* HXScanViewController.m in Sources */,
 				5B04762A232F3C2F0016134E /* TRCResult+AssistantResult.m in Sources */,
 				5B04761B232F37FE0016134E /* NSArray+Extension.m in Sources */,
 				5BFF3D732338A73E00F8D3F9 /* BorringProcessView.m in Sources */,
 				5BDCF2DA2330850A00AB10D3 /* BaseTableViewCell.m in Sources */,
+				5B63F67C233A155B00DD7924 /* CheckBookTableViewCell.m in Sources */,
 				5B047619232F37FE0016134E /* TRCBaseSharedInstance.m in Sources */,
 				5B04760B232F37FE0016134E /* TRCBase64.m in Sources */,
+				5B63F6542339EA6E00DD7924 /* BookResultDetailViewController.m in Sources */,
 				EA8ADB0B2338FED2004FC1BC /* BorringBookScanViewController.m in Sources */,
 				5BDCF2DD23308F1E00AB10D3 /* BaseViewController.m in Sources */,
 				5BFD8284233313DB0024FDCF /* HXTableViewCell.m in Sources */,
@@ -1463,13 +1596,17 @@
 				5B263CF12331F148005FAF16 /* HxListViewController.m in Sources */,
 				5BFD82AC2333A46F0024FDCF /* BaseScanViewController.m in Sources */,
 				5B047615232F37FE0016134E /* NSString+JSON.m in Sources */,
+				5B63F6672339F21A00DD7924 /* ReturnResultInfoView.m in Sources */,
 				5B394AB12327A09D00C37DAF /* CustomNavigationController.m in Sources */,
 				5B047616232F37FE0016134E /* NSString+Contains.m in Sources */,
 				5B04760A232F37FE0016134E /* MD5.m in Sources */,
 				5B8F5F7A2328DCA10068A275 /* LoginViewController.m in Sources */,
 				5B047610232F37FE0016134E /* TRCRSAUtil.m in Sources */,
+				5B63F6642339F1F900DD7924 /* BorringResultInfoView.m in Sources */,
+				5B63F672233A102500DD7924 /* AssociateMemberViewController.m in Sources */,
 				5BDCF2D22330821B00AB10D3 /* StoreDetailTableViewCell.m in Sources */,
 				5BFD829D23333FE40024FDCF /* YYhxItemDetailsTableViewCell.m in Sources */,
+				5B63F64F2339B7C300DD7924 /* OrderInfoTableViewCell.m in Sources */,
 				5B047620232F37FE0016134E /* TRCHTTPSessionManager.m in Sources */,
 				5B04761D232F37FE0016134E /* TRCURLParser.m in Sources */,
 				5B04760C232F37FE0016134E /* UITableView+HYBCacheHeight.m in Sources */,
@@ -1481,6 +1618,7 @@
 				5B66280A2325E28600084F97 /* AppDelegate.m in Sources */,
 				5B263D08233227F0005FAF16 /* THCustomSegmentView.m in Sources */,
 				5B047611232F37FE0016134E /* TRCDeviceInfo.m in Sources */,
+				5B63F677233A11C000DD7924 /* BorringInfoTableViewCell.m in Sources */,
 				5B04760F232F37FE0016134E /* NSData+AES.m in Sources */,
 				5B263CFB23320B0B005FAF16 /* YYListTableViewCell.m in Sources */,
 				5B04760E232F37FE0016134E /* TRCAESUtil.m in Sources */,

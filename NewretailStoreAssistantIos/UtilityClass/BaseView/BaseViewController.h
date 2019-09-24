@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StepModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
@@ -63,6 +64,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(void)resetBackButtonTitleWith:(NSString * )backTitle and:(UIColor *)colorl;
 
+
+/**
+ *  借还书步骤
+ */
+@property (strong ,nonatomic) StepModel   *stepModel;
+@property (assign ,nonatomic) BOOL  borringOrReturn;
+@property (assign ,nonatomic) NSInteger  stepNum;
 
 @end
 
