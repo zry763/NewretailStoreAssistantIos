@@ -25,6 +25,14 @@
 - (void)awakeFromNib {
     
     [super awakeFromNib];
+    [self.continueReturnBT setTitleEdgeInsets:UIEdgeInsetsMake(0, -
+                                             self.continueReturnBT.imageView.frame.size.width, 0, self.continueReturnBT.imageView.frame.size.width)];
+    [self.continueReturnBT setImageEdgeInsets:UIEdgeInsetsMake(0, self.continueReturnBT.titleLabel.bounds.size.width, 0, - self.continueReturnBT.titleLabel.bounds.size.width)];
     
+}
+- (IBAction)contiuneReturnMyself:(id)sender {
+    if (self.ContinueReturnBlock) {
+        self.ContinueReturnBlock();
+    }
 }
 @end

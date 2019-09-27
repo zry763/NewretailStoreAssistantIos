@@ -52,6 +52,7 @@
 #define LBXScan_Define_ZXing   //下载了ZXing模块
 #define LBXScan_Define_ZBar   //下载了ZBar模块
 #define LBXScan_Define_UI     //下载了界面模块
+extern BOOL  borringOrReturnFlag;
 
 
 #endif /* GlobalHeader_h */

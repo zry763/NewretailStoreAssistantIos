@@ -41,13 +41,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barStyle    = UIBarStyleDefault;
-    
-    //如果不想让其他页面的导航栏变为透明 需要重置
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    
+
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
     
     [self stopScan];
@@ -56,26 +50,6 @@
     [_qRScanView stopScanAnimation];
 #endif
     
-    [self.navigationController.navigationBar setTintColor:[TRCColor colorFromHexCode:@"#353535"]];
-    
-    
- 
-
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.translucent = YES;
-    
-    self.navigationController.navigationBar.barStyle    = UIBarStyleBlackTranslucent;
-    
-    //设置导航栏背景图片为一个空的image，这样就透明了
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setTintColor:[TRCColor colorFromHexCode:@"#ffffff"]];
-
-    
-    //
 }
 
 -(LBXScanViewStyle*)style{
@@ -182,32 +156,19 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController.navigationBar setTintColor:[TRCColor colorFromHexCode:@"#ffffff"]];
-    UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
-    NSDictionary *dict =@{NSForegroundColorAttributeName : [TRCColor colorFromHexCode:@"#ffffff"]};
-    
-    [barButtonItem setTitleTextAttributes:dict forState:UIControlStateNormal];
-    [barButtonItem setTitleTextAttributes:dict forState:UIControlStateHighlighted];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [TRCColor colorFromHexCode:@"#ffffff"], NSFontAttributeName : [UIFont systemFontOfSize:16]};
-    // Do any additional setup after loading the view.
+
 
     self.view.backgroundColor = [UIColor blackColor];
+
+    self.hbd_barAlpha = 0.0;
     
+    self.hbd_barStyle = UIBarStyleBlack;
+    self.hbd_tintColor = UIColor.whiteColor;
     
-//    switch (_libraryType) {
-//        case SLT_Native:
-//            self.title = @"native";
-//            break;
-//        case SLT_ZXing:
-//            self.title = @"ZXing";
-//            break;
-//        case SLT_ZBar:
-//            self.title = @"ZBar";
-//            break;
-//        default:
-//            break;
-//    }
-//    [self setupSubviews];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+    }
 }
 -(void)setupSubviews{
     [self drawScanView];

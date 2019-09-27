@@ -20,8 +20,17 @@
 
     // Configure the view for the selected state
 }
+-(void)setUpWithModel:(id)model{
+    
+    
+    
+}
 
 - (IBAction)bookReturn:(id)sender {
     //图书归还按钮
+
+    if (self.bookreturn) {
+        self.bookreturn();
+    }
 }
 @end

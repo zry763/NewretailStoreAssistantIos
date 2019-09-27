@@ -8,10 +8,15 @@
 
 #import "BookResultDetailViewController.h"
 #import "BorringResultInfoView.h"
+#import "ReturnResultInfoView.h"
 #import "BorringProcessView.h"
+#import "BookScanViewController.h"
+#import "AssociateMemberViewController.h"
 
 @interface BookResultDetailViewController ()
 @property (strong ,nonatomic)BorringResultInfoView *borringResultView;
+@property (strong ,nonatomic)ReturnResultInfoView *returnResultView;
+
 @property (strong ,nonatomic) BorringProcessView *processView;
 
 
@@ -33,10 +38,23 @@
 }
 
 -(void)setupSubviews{
-    [self.bookContainView addSubview:self.borringResultView];
-    [self.borringResultView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.bookContainView);
-    }];
+    if (borringOrReturnFlag) {
+        [self.goonBorringBT setTitle:@"继续借书" forState:UIControlStateNormal];
+        [self.bookContainView addSubview:self.borringResultView];
+        [self.borringResultView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.bookContainView);
+        }];
+    }else
+    {
+        [self.goonBorringBT setTitle:@"继续还书" forState:UIControlStateNormal];
+
+        [self.bookContainView addSubview:self.returnResultView];
+        [self.returnResultView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.bookContainView);
+        }];
+    }
+    
+
     
     [self.view addSubview:self.processView];
     TRC_BLOCK_WEAK_SELF
@@ -57,6 +75,19 @@
         _borringResultView = [BorringResultInfoView viewFromNib];
     }
     return _borringResultView;
+}
+-(ReturnResultInfoView *)returnResultView{
+    if (!_returnResultView) {
+        _returnResultView = [ReturnResultInfoView viewFromNib];
+        TRC_BLOCK_WEAK_SELF
+        _returnResultView.ContinueReturnBlock = ^{
+            NSLog(@"继续归还当前用户的书籍");
+            [weakSelf.navigationController popToViewController:[weakSelf.navigationController.viewControllers objectAtIndex:2]
+                                                  animated:YES];
+            
+        };
+    }
+    return _returnResultView;
 }
 
 
@@ -85,12 +116,16 @@
 */
 
 - (IBAction)goonBorringBook:(id)sender {
+   
+    [self.navigationController popToViewController:[[BookScanViewController alloc]init] animated:YES];
+
     
     NSLog(@"继续借还书");
 }
 
 - (IBAction)goHomeView:(id)sender {
-    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+
     NSLog(@"返回首页");
 }
 @end

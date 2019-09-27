@@ -122,6 +122,8 @@
     [self resetBackButtonTitleWith:@"图书借阅" and: [UIColor clearColor]];
     BookResultDetailViewController *bookResultVC =[[BookResultDetailViewController alloc]init];
     bookResultVC.stepNum = 3;
+    [bookResultVC.goonBorringBT setTitle:@"继续借书" forState:UIControlStateNormal];
+
     [self.navigationController pushViewController: bookResultVC animated:YES];
 }
 //订单

@@ -12,6 +12,10 @@
 
 #import "BorringBookScanViewController.h"
 #import "AssociateMemberViewController.h"
+
+BOOL  borringOrReturnFlag;
+
+
 @interface BorringHomeViewController ()
 - (IBAction)pushAssocationVC:(id)sender;
 - (IBAction)扫码借书按钮:(id)sender;
@@ -43,12 +47,13 @@
     UIView *desView = gest.view;
     NSLog(@"%ld",(long)desView.tag);
     if (desView.tag == 100) {
-        bookScanVC.borringOrReturn = YES;
+        borringOrReturnFlag =YES;
         [self resetBackButtonTitleWith:@"图书借阅" and: [UIColor whiteColor]];
 
     }else
     {
-        bookScanVC.borringOrReturn = NO;
+        borringOrReturnFlag =NO;
+
 
     [self resetBackButtonTitleWith:@"图书归还" and: [UIColor whiteColor]];
     }

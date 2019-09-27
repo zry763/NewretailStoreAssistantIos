@@ -9,9 +9,14 @@
 
 #import "TRCBaseView.h"
 
+typedef void(^ContinueReturnMyself)(void);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReturnResultInfoView : TRCBaseView
+@property (weak, nonatomic) IBOutlet UILabel *titleLable;
+- (IBAction)contiuneReturnMyself:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *continueReturnBT;
+@property(copy ,nonatomic ) ContinueReturnMyself  ContinueReturnBlock;
 
 @end
 

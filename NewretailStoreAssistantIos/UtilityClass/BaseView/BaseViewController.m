@@ -18,13 +18,18 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 //从容器顶部开始布局UIRectEdgeNone
-//    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-//
-//        self.edgesForExtendedLayout = UIRectEdgeNone;
-//    }
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    self.hbd_barAlpha = 1;
+    self.hbd_barTintColor =  UIColor.whiteColor;
+    self.hbd_barStyle = UIBarStyleDefault;
+    self.hbd_tintColor = UIColor.blackColor;;
+    
     NSLog(@"stepNum===%@",[NSNumber numberWithBool:self.borringOrReturn]);
     NSLog(@"stepNum===%ld",(long)self.stepNum);
-    
+    self.borringOrReturn = borringOrReturnFlag;
     if (self.stepNum) {
         self.stepModel.currentStep = self.stepNum;
         

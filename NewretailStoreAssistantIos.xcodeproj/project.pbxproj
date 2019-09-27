@@ -39,6 +39,11 @@
 		5B047623232F37FE0016134E /* TRCRequestCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B047601232F37FE0016134E /* TRCRequestCacheManager.m */; };
 		5B047627232F39A90016134E /* AssistantRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B047626232F39A90016134E /* AssistantRequest.m */; };
 		5B04762A232F3C2F0016134E /* TRCResult+AssistantResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B047629232F3C2F0016134E /* TRCResult+AssistantResult.m */; };
+		5B082FC5233B15C000A264E3 /* CheckBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B082FC4233B15C000A264E3 /* CheckBookViewController.m */; };
+		5B082FC7233B40F600A264E3 /* ReturnResultInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B082FC6233B40F600A264E3 /* ReturnResultInfoView.xib */; };
+		5B082FCA233B42D200A264E3 /* contiuneReturn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B082FC8233B42D200A264E3 /* contiuneReturn@2x.png */; };
+		5B082FCB233B42D200A264E3 /* contiuneReturn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B082FC9233B42D200A264E3 /* contiuneReturn@3x.png */; };
+		5B082FCF233B4DD600A264E3 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B082FCE233B4DD600A264E3 /* PersonalViewController.m */; };
 		5B0D66D423347B800058F9AF /* HXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D66D323347B800058F9AF /* HXScanViewController.m */; };
 		5B0D66D82334BEA10058F9AF /* HXInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B0D66D62334BEA10058F9AF /* HXInputViewController.m */; };
 		5B0D66D92334BEA10058F9AF /* HXInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B0D66D72334BEA10058F9AF /* HXInputViewController.xib */; };
@@ -58,7 +63,6 @@
 		5B263D08233227F0005FAF16 /* THCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263D05233227F0005FAF16 /* THCustomSegmentView.m */; };
 		5B263D0C23322858005FAF16 /* HXStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263D0A23322858005FAF16 /* HXStateViewController.m */; };
 		5B263D1023322A7E005FAF16 /* UIView+TRCViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263D0F23322A7D005FAF16 /* UIView+TRCViewUtils.m */; };
-		5B394AB12327A09D00C37DAF /* CustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B394AAB2327A09D00C37DAF /* CustomNavigationController.m */; };
 		5B394AB22327A09D00C37DAF /* NSArray+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */; };
 		5B63F6462339AA7600DD7924 /* OrderInfoPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6452339AA7600DD7924 /* OrderInfoPresentationController.m */; };
 		5B63F6492339B2E900DD7924 /* OrderInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6482339B2E900DD7924 /* OrderInfoViewController.m */; };
@@ -167,6 +171,9 @@
 		5B8F604A2328E4590068A275 /* loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8F5FE72328E4590068A275 /* loading@3x.png */; };
 		5B8F604F2328F2700068A275 /* TRCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F604E2328F2700068A275 /* TRCColor.m */; };
 		5B8F60522328FCC30068A275 /* ResetTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8F60512328FCC30068A275 /* ResetTextField.m */; };
+		5BAF7137233DEA24002263BC /* HBDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF7133233DEA24002263BC /* HBDNavigationController.m */; };
+		5BAF7138233DEA24002263BC /* UIViewController+HBD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF7134233DEA24002263BC /* UIViewController+HBD.m */; };
+		5BAF7139233DEA24002263BC /* HBDNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF7135233DEA24002263BC /* HBDNavigationBar.m */; };
 		5BDCF2D22330821B00AB10D3 /* StoreDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCF2D02330821B00AB10D3 /* StoreDetailTableViewCell.m */; };
 		5BDCF2D32330821B00AB10D3 /* StoreDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDCF2D12330821B00AB10D3 /* StoreDetailTableViewCell.xib */; };
 		5BDCF2DA2330850A00AB10D3 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCF2D92330850A00AB10D3 /* BaseTableViewCell.m */; };
@@ -283,6 +290,13 @@
 		5B047628232F3C2F0016134E /* TRCResult+AssistantResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TRCResult+AssistantResult.h"; sourceTree = "<group>"; };
 		5B047629232F3C2F0016134E /* TRCResult+AssistantResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TRCResult+AssistantResult.m"; sourceTree = "<group>"; };
 		5B04762B232F73E60016134E /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
+		5B082FC3233B15C000A264E3 /* CheckBookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckBookViewController.h; sourceTree = "<group>"; };
+		5B082FC4233B15C000A264E3 /* CheckBookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckBookViewController.m; sourceTree = "<group>"; };
+		5B082FC6233B40F600A264E3 /* ReturnResultInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReturnResultInfoView.xib; sourceTree = "<group>"; };
+		5B082FC8233B42D200A264E3 /* contiuneReturn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contiuneReturn@2x.png"; sourceTree = "<group>"; };
+		5B082FC9233B42D200A264E3 /* contiuneReturn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contiuneReturn@3x.png"; sourceTree = "<group>"; };
+		5B082FCD233B4DD600A264E3 /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		5B082FCE233B4DD600A264E3 /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		5B0D66D223347B800058F9AF /* HXScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HXScanViewController.h; sourceTree = "<group>"; };
 		5B0D66D323347B800058F9AF /* HXScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HXScanViewController.m; sourceTree = "<group>"; };
 		5B0D66D52334BEA10058F9AF /* HXInputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HXInputViewController.h; sourceTree = "<group>"; };
@@ -314,8 +328,6 @@
 		5B263D0A23322858005FAF16 /* HXStateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HXStateViewController.m; sourceTree = "<group>"; };
 		5B263D0E23322A7D005FAF16 /* UIView+TRCViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TRCViewUtils.h"; sourceTree = "<group>"; };
 		5B263D0F23322A7D005FAF16 /* UIView+TRCViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TRCViewUtils.m"; sourceTree = "<group>"; };
-		5B394AA92327A09D00C37DAF /* CustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigationController.h; sourceTree = "<group>"; };
-		5B394AAB2327A09D00C37DAF /* CustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigationController.m; sourceTree = "<group>"; };
 		5B394AAE2327A09D00C37DAF /* NSArray+Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Crash.h"; sourceTree = "<group>"; };
 		5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Crash.m"; sourceTree = "<group>"; };
 		5B63F6442339AA7600DD7924 /* OrderInfoPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderInfoPresentationController.h; sourceTree = "<group>"; };
@@ -446,6 +458,12 @@
 		5B8F604E2328F2700068A275 /* TRCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRCColor.m; sourceTree = "<group>"; };
 		5B8F60502328FCC30068A275 /* ResetTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResetTextField.h; sourceTree = "<group>"; };
 		5B8F60512328FCC30068A275 /* ResetTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResetTextField.m; sourceTree = "<group>"; };
+		5BAF7131233DEA24002263BC /* UIViewController+HBD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HBD.h"; sourceTree = "<group>"; };
+		5BAF7132233DEA24002263BC /* HBDNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDNavigationBar.h; sourceTree = "<group>"; };
+		5BAF7133233DEA24002263BC /* HBDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBDNavigationController.m; sourceTree = "<group>"; };
+		5BAF7134233DEA24002263BC /* UIViewController+HBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HBD.m"; sourceTree = "<group>"; };
+		5BAF7135233DEA24002263BC /* HBDNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBDNavigationBar.m; sourceTree = "<group>"; };
+		5BAF7136233DEA24002263BC /* HBDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBDNavigationController.h; sourceTree = "<group>"; };
 		5BDCF2CF2330821B00AB10D3 /* StoreDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreDetailTableViewCell.h; sourceTree = "<group>"; };
 		5BDCF2D02330821B00AB10D3 /* StoreDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreDetailTableViewCell.m; sourceTree = "<group>"; };
 		5BDCF2D12330821B00AB10D3 /* StoreDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -796,6 +814,15 @@
 			path = HomeModule;
 			sourceTree = "<group>";
 		};
+		5B082FCC233B4DAF00A264E3 /* PersonalModuel */ = {
+			isa = PBXGroup;
+			children = (
+				5B082FCD233B4DD600A264E3 /* PersonalViewController.h */,
+				5B082FCE233B4DD600A264E3 /* PersonalViewController.m */,
+			);
+			path = PersonalModuel;
+			sourceTree = "<group>";
+		};
 		5B0D66DA2334CEF60058F9AF /* BorrowingBookFunctionModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,8 +923,12 @@
 		5B394AA82327A09D00C37DAF /* CustomNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				5B394AA92327A09D00C37DAF /* CustomNavigationController.h */,
-				5B394AAB2327A09D00C37DAF /* CustomNavigationController.m */,
+				5BAF7132233DEA24002263BC /* HBDNavigationBar.h */,
+				5BAF7135233DEA24002263BC /* HBDNavigationBar.m */,
+				5BAF7136233DEA24002263BC /* HBDNavigationController.h */,
+				5BAF7133233DEA24002263BC /* HBDNavigationController.m */,
+				5BAF7131233DEA24002263BC /* UIViewController+HBD.h */,
+				5BAF7134233DEA24002263BC /* UIViewController+HBD.m */,
 			);
 			path = CustomNavigation;
 			sourceTree = "<group>";
@@ -934,6 +965,8 @@
 			children = (
 				5B63F670233A102500DD7924 /* AssociateMemberViewController.h */,
 				5B63F671233A102500DD7924 /* AssociateMemberViewController.m */,
+				5B082FC3233B15C000A264E3 /* CheckBookViewController.h */,
+				5B082FC4233B15C000A264E3 /* CheckBookViewController.m */,
 			);
 			path = ReturnVC;
 			sourceTree = "<group>";
@@ -993,6 +1026,7 @@
 				5B6628112325E29200084F97 /* Assets.xcassets */,
 				5B6628132325E29200084F97 /* LaunchScreen.storyboard */,
 				5B04762B232F73E60016134E /* GlobalHeader.h */,
+				5B082FCC233B4DAF00A264E3 /* PersonalModuel */,
 				EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */,
 				5B6628162325E29200084F97 /* Info.plist */,
 				5B6628172325E29200084F97 /* main.m */,
@@ -1096,6 +1130,8 @@
 				5B63F6572339ECD100DD7924 /* sucess@2x.png */,
 				5B63F65A2339ECD200DD7924 /* sucess@3x.png */,
 				5B8F5F9E2328E4590068A275 /* kcpd@2x.png */,
+				5B082FC8233B42D200A264E3 /* contiuneReturn@2x.png */,
+				5B082FC9233B42D200A264E3 /* contiuneReturn@3x.png */,
 				5B8F5F9F2328E4590068A275 /* yyhx@3x.png */,
 				5B8F5FA12328E4590068A275 /* yyhx@2x.png */,
 				5B8F5FA22328E4590068A275 /* kcpd@3x.png */,
@@ -1234,6 +1270,7 @@
 				5B63F6682339F23C00DD7924 /* BorringResultInfoView.xib */,
 				5B63F6652339F21A00DD7924 /* ReturnResultInfoView.h */,
 				5B63F6662339F21A00DD7924 /* ReturnResultInfoView.m */,
+				5B082FC6233B40F600A264E3 /* ReturnResultInfoView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1411,6 +1448,7 @@
 				5BFF3D802338C5BA00F8D3F9 /* hyvip@2x.png in Resources */,
 				5B8F60102328E4590068A275 /* bsbg@3x.png in Resources */,
 				5B8F60262328E4590068A275 /* lock@3x.png in Resources */,
+				5B082FCA233B42D200A264E3 /* contiuneReturn@2x.png in Resources */,
 				5B63F682233A197100DD7924 /* ReturnBookHeaderView.xib in Resources */,
 				5B63F6602339ECD200DD7924 /* sucess@3x.png in Resources */,
 				5B8F60082328E4590068A275 /* kcpd@2x.png in Resources */,
@@ -1446,6 +1484,7 @@
 				5B8F5FFF2328E4590068A275 /* yihx@2x.png in Resources */,
 				5B8F5FF82328E4590068A275 /* backTop@3x.png in Resources */,
 				5B8F60272328E4590068A275 /* LogoIcon@3x.png in Resources */,
+				5B082FC7233B40F600A264E3 /* ReturnResultInfoView.xib in Resources */,
 				5B8F600D2328E4590068A275 /* book@2x.png in Resources */,
 				5B8F601A2328E4590068A275 /* bdbg@3x.png in Resources */,
 				5BFD82892333162D0024FDCF /* hxzw@2x.png in Resources */,
@@ -1471,6 +1510,7 @@
 				5B8F60152328E4590068A275 /* bsbg.png in Resources */,
 				5B63F6692339F23C00DD7924 /* BorringResultInfoView.xib in Resources */,
 				5B8F60452328E4590068A275 /* NoNetwork@2x.png in Resources */,
+				5B082FCB233B42D200A264E3 /* contiuneReturn@3x.png in Resources */,
 				5BFD829923333FC20024FDCF /* YYhxItemTableViewCell.xib in Resources */,
 				5B8F5FF02328E4590068A275 /* search1.png in Resources */,
 				5B8F600C2328E4590068A275 /* kcpd@3x.png in Resources */,
@@ -1587,6 +1627,7 @@
 				5B04760B232F37FE0016134E /* TRCBase64.m in Sources */,
 				5B63F6542339EA6E00DD7924 /* BookResultDetailViewController.m in Sources */,
 				EA8ADB0B2338FED2004FC1BC /* BorringBookScanViewController.m in Sources */,
+				5BAF7139233DEA24002263BC /* HBDNavigationBar.m in Sources */,
 				5BDCF2DD23308F1E00AB10D3 /* BaseViewController.m in Sources */,
 				5BFD8284233313DB0024FDCF /* HXTableViewCell.m in Sources */,
 				5BFD828C23332E340024FDCF /* HXDetailsViewController.m in Sources */,
@@ -1597,13 +1638,13 @@
 				5BFD82AC2333A46F0024FDCF /* BaseScanViewController.m in Sources */,
 				5B047615232F37FE0016134E /* NSString+JSON.m in Sources */,
 				5B63F6672339F21A00DD7924 /* ReturnResultInfoView.m in Sources */,
-				5B394AB12327A09D00C37DAF /* CustomNavigationController.m in Sources */,
 				5B047616232F37FE0016134E /* NSString+Contains.m in Sources */,
 				5B04760A232F37FE0016134E /* MD5.m in Sources */,
 				5B8F5F7A2328DCA10068A275 /* LoginViewController.m in Sources */,
 				5B047610232F37FE0016134E /* TRCRSAUtil.m in Sources */,
 				5B63F6642339F1F900DD7924 /* BorringResultInfoView.m in Sources */,
 				5B63F672233A102500DD7924 /* AssociateMemberViewController.m in Sources */,
+				5BAF7137233DEA24002263BC /* HBDNavigationController.m in Sources */,
 				5BDCF2D22330821B00AB10D3 /* StoreDetailTableViewCell.m in Sources */,
 				5BFD829D23333FE40024FDCF /* YYhxItemDetailsTableViewCell.m in Sources */,
 				5B63F64F2339B7C300DD7924 /* OrderInfoTableViewCell.m in Sources */,
@@ -1619,6 +1660,7 @@
 				5B263D08233227F0005FAF16 /* THCustomSegmentView.m in Sources */,
 				5B047611232F37FE0016134E /* TRCDeviceInfo.m in Sources */,
 				5B63F677233A11C000DD7924 /* BorringInfoTableViewCell.m in Sources */,
+				5B082FCF233B4DD600A264E3 /* PersonalViewController.m in Sources */,
 				5B04760F232F37FE0016134E /* NSData+AES.m in Sources */,
 				5B263CFB23320B0B005FAF16 /* YYListTableViewCell.m in Sources */,
 				5B04760E232F37FE0016134E /* TRCAESUtil.m in Sources */,
@@ -1630,8 +1672,10 @@
 				5B04761F232F37FE0016134E /* TRCTimeUtil.m in Sources */,
 				5B0D66DE2334CFA50058F9AF /* BorringHomeViewController.m in Sources */,
 				5B04760D232F37FE0016134E /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,
+				5BAF7138233DEA24002263BC /* UIViewController+HBD.m in Sources */,
 				5BFD8294233331FB0024FDCF /* TRCBaseView.m in Sources */,
 				5B263D07233227F0005FAF16 /* THBageLabl.m in Sources */,
+				5B082FC5233B15C000A264E3 /* CheckBookViewController.m in Sources */,
 				5B047613232F37FE0016134E /* NSString+URL.m in Sources */,
 				5BFD829823333FC20024FDCF /* YYhxItemTableViewCell.m in Sources */,
 				5B04761A232F37FE0016134E /* TRCCurrencyUtil.m in Sources */,

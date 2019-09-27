@@ -128,6 +128,7 @@
     
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *destVC = [main instantiateInitialViewController];
+    destVC.modalPresentationStyle =  UIModalPresentationFullScreen;
     [self.navigationController presentViewController:destVC animated:YES completion:nil];
 
 //    [self.view addSubview:self.maskView];

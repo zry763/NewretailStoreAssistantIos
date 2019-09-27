@@ -26,6 +26,8 @@
     //隐藏键盘上面的toolBar,默认是开启的
     keyboardManager.enableAutoToolbar = NO;
     self.window.backgroundColor = [UIColor whiteColor];
+    [[UINavigationBar appearance] setTintColor:UIColor.blackColor];
+
 
 
     // Override point for customization after application launch.

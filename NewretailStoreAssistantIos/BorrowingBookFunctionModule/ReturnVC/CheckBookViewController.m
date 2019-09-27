@@ -1,29 +1,28 @@
 //
-//  AssociateMemberViewController.m
+//  CheckBookViewController.m
 //  NewretailStoreAssistantIos
 //
-//  Created by zry on 2019/9/24.
+//  Created by zry on 2019/9/25.
 //  Copyright © 2019 zry. All rights reserved.
 //
 
-#import "AssociateMemberViewController.h"
-#import "BorringProcessView.h"
-#import "BorringInfoTableViewCell.h"
-#import "ReturnBookHeaderView.h"
 #import "CheckBookViewController.h"
+#import "BorringProcessView.h"
+#import "CheckBookTableViewCell.h"
+#import "ReturnBookHeaderView.h"
+#import "BookResultDetailViewController.h"
 
-@interface AssociateMemberViewController ()
+@interface CheckBookViewController ()
 @property (strong ,nonatomic) BorringProcessView *processView;
 @property (strong ,nonatomic) ReturnBookHeaderView *checkListHeaderView;
-
-
 @end
 
-@implementation AssociateMemberViewController
+@implementation CheckBookViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self registerCellWithNibName:NSStringFromClass([BorringInfoTableViewCell class]) reuseIdentifier:NSStringFromClass([BorringInfoTableViewCell class])];
+    [self registerCellWithNibName:NSStringFromClass([CheckBookTableViewCell class]) reuseIdentifier:NSStringFromClass([CheckBookTableViewCell class])];
     // Do any additional setup after loading the view.
 }
 -(void)setupTableView{
@@ -47,9 +46,34 @@
         
     }];
     
+    UIButton *confirmReturnBT = [UIButton buttonWithType:UIButtonTypeCustom];
+    [confirmReturnBT setTitle:@"经核对无缺失和损坏，确定归还" forState:UIControlStateNormal];
+    [confirmReturnBT.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [confirmReturnBT setBackgroundColor:[TRCColor colorFromHexCode:@"#D33A31"]];
+    [confirmReturnBT setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [confirmReturnBT addTarget:self action:@selector(confirmReturnBook) forControlEvents:UIControlEventTouchUpInside];
+    confirmReturnBT.layer.cornerRadius = 22;
+    confirmReturnBT.layer.masksToBounds =YES;
+    [self.view addSubview:confirmReturnBT];
+    [confirmReturnBT mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.left.equalTo(self.view).with.offset(30);
+        make.bottom.equalTo(self.view).with.offset(-30);
+        make.height.equalTo(@(44));
+    }];
+    
+    
     
 }
-
+-(void)confirmReturnBook{
+    
+    [self resetBackButtonTitleWith:@"图书归还" and: [UIColor clearColor]];
+    BookResultDetailViewController *bookResultVC =[[BookResultDetailViewController alloc]init];
+    bookResultVC.stepNum = 3;
+    [bookResultVC.goonBorringBT setTitle:@"继续归还" forState:UIControlStateNormal];
+    [self.navigationController pushViewController: bookResultVC animated:YES];
+    NSLog(@"确认归还");
+}
 -(BorringProcessView *)processView{
     if (!_processView) {
         _processView = [BorringProcessView viewFromNib];
@@ -64,10 +88,9 @@
 -(ReturnBookHeaderView *)checkListHeaderView{
     if (!_checkListHeaderView) {
         _checkListHeaderView = [ReturnBookHeaderView viewFromNib];
-        _checkListHeaderView.headerTitle.text = @"选择借阅记录";
+        _checkListHeaderView.headerTitle.text = @"本次记录明细";
         _checkListHeaderView.dataCount.text =@"";
-        _checkListHeaderView.describeLable.text =@"已定损的不显示，如需操作请联系店长";
-
+        _checkListHeaderView.describeLable.text =@"请确保一次归还所有借阅图书，不支持部分归还";
     }
     return _checkListHeaderView;
 }
@@ -83,14 +106,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BorringInfoTableViewCell *cell =[self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BorringInfoTableViewCell class]) forIndexPath:indexPath];
-    cell.bookreturn = ^{
-        CheckBookViewController *checkBookVC =[[CheckBookViewController alloc]init];
-        checkBookVC.stepNum = 2;
-        [self.navigationController pushViewController:checkBookVC animated:YES];
-        
-        NSLog(@"归还图书");
-    };
+    CheckBookTableViewCell *cell =[self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CheckBookTableViewCell class]) forIndexPath:indexPath];
 
     return cell;
 }
@@ -100,7 +116,7 @@
     
     
     return self.checkListHeaderView;
-
+    
 }
 /*
 #pragma mark - Navigation
