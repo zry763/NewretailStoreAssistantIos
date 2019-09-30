@@ -129,7 +129,35 @@
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *destVC = [main instantiateInitialViewController];
     destVC.modalPresentationStyle =  UIModalPresentationFullScreen;
-    [self.navigationController presentViewController:destVC animated:YES completion:nil];
+    if ([[self endEditTextFiled:self.storeIDField] isEqualToString:@""]) {
+          [self.view makeToast:@"请输入门店编号" duration:1 position:CSToastPositionCenter];
+          return;
+          
+      }
+    if ([[self endEditTextFiled:self.userPhoneID] isEqualToString:@""]) {
+        [self.view makeToast:@"请输入电话号码" duration:1 position:CSToastPositionCenter];
+        return;
+    }
+    if ([[self endEditTextFiled:self.userPassword] isEqualToString:@""]) {
+        [self.view makeToast:@"请输入密码" duration:1 position:CSToastPositionCenter];
+        return;
+        
+    }
+  
+    
+    
+    [AssistantTask loginWithPhoneNumber:@"18012341234" password:@"admin@123" storeID:@"3462715" successBlock:^(NSDictionary * _Nonnull outPut) {
+        
+        
+        [self.navigationController presentViewController:destVC animated:YES completion:nil];
+
+        
+    } failureBlock:^(TRCResult *result) {
+        
+        [self.view makeToast:@"请联系管理员" duration:3 position:CSToastPositionCenter];
+
+    }];
+    
 
 //    [self.view addSubview:self.maskView];
 //    [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -189,8 +217,8 @@
     return result;
 }
 
-- (NSString *)endEditPhoneIDText {
-    return [self.userPhoneID.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+- (NSString *)endEditTextFiled:(UITextField *)desText {
+    return [desText.text stringByReplacingOccurrencesOfString:@" " withString:@""];
 }
 
 #pragma mark - UITextField Delegate

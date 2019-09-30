@@ -178,6 +178,8 @@
 		5BDCF2D32330821B00AB10D3 /* StoreDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BDCF2D12330821B00AB10D3 /* StoreDetailTableViewCell.xib */; };
 		5BDCF2DA2330850A00AB10D3 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCF2D92330850A00AB10D3 /* BaseTableViewCell.m */; };
 		5BDCF2DD23308F1E00AB10D3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDCF2DC23308F1E00AB10D3 /* BaseViewController.m */; };
+		5BF57FD02341D2C50088BDCE /* AssistantHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF57FCF2341D2C50088BDCE /* AssistantHttpSessionManager.m */; };
+		5BF57FD32341D66D0088BDCE /* AssistantTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF57FD22341D66D0088BDCE /* AssistantTask.m */; };
 		5BFD8284233313DB0024FDCF /* HXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BFD8282233313DB0024FDCF /* HXTableViewCell.m */; };
 		5BFD8285233313DB0024FDCF /* HXTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFD8283233313DB0024FDCF /* HXTableViewCell.xib */; };
 		5BFD82882333162D0024FDCF /* hxzw@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFD82862333162D0024FDCF /* hxzw@3x.png */; };
@@ -471,6 +473,10 @@
 		5BDCF2D92330850A00AB10D3 /* BaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		5BDCF2DB23308F1E00AB10D3 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		5BDCF2DC23308F1E00AB10D3 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		5BF57FCE2341D2C50088BDCE /* AssistantHttpSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssistantHttpSessionManager.h; sourceTree = "<group>"; };
+		5BF57FCF2341D2C50088BDCE /* AssistantHttpSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssistantHttpSessionManager.m; sourceTree = "<group>"; };
+		5BF57FD12341D66D0088BDCE /* AssistantTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssistantTask.h; sourceTree = "<group>"; };
+		5BF57FD22341D66D0088BDCE /* AssistantTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssistantTask.m; sourceTree = "<group>"; };
 		5BFD8281233313DB0024FDCF /* HXTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HXTableViewCell.h; sourceTree = "<group>"; };
 		5BFD8282233313DB0024FDCF /* HXTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HXTableViewCell.m; sourceTree = "<group>"; };
 		5BFD8283233313DB0024FDCF /* HXTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HXTableViewCell.xib; sourceTree = "<group>"; };
@@ -782,14 +788,14 @@
 		5B0475FD232F37FE0016134E /* TRCNetworkKit */ = {
 			isa = PBXGroup;
 			children = (
+				5B047603232F37FE0016134E /* TRCHTTPSessionManager.h */,
 				5B0475FE232F37FE0016134E /* TRCHTTPSessionManager.m */,
 				5B0475FF232F37FE0016134E /* TRCResult.m */,
-				5B047600232F37FE0016134E /* TRCRequest.m */,
-				5B047601232F37FE0016134E /* TRCRequestCacheManager.m */,
-				5B047602232F37FE0016134E /* TRCResult.h */,
-				5B047603232F37FE0016134E /* TRCHTTPSessionManager.h */,
-				5B047604232F37FE0016134E /* TRCRequestCacheManager.h */,
 				5B047605232F37FE0016134E /* TRCRequest.h */,
+				5B047600232F37FE0016134E /* TRCRequest.m */,
+				5B047602232F37FE0016134E /* TRCResult.h */,
+				5B047601232F37FE0016134E /* TRCRequestCacheManager.m */,
+				5B047604232F37FE0016134E /* TRCRequestCacheManager.h */,
 			);
 			path = TRCNetworkKit;
 			sourceTree = "<group>";
@@ -801,6 +807,10 @@
 				5B047626232F39A90016134E /* AssistantRequest.m */,
 				5B047628232F3C2F0016134E /* TRCResult+AssistantResult.h */,
 				5B047629232F3C2F0016134E /* TRCResult+AssistantResult.m */,
+				5BF57FCE2341D2C50088BDCE /* AssistantHttpSessionManager.h */,
+				5BF57FCF2341D2C50088BDCE /* AssistantHttpSessionManager.m */,
+				5BF57FD12341D66D0088BDCE /* AssistantTask.h */,
+				5BF57FD22341D66D0088BDCE /* AssistantTask.m */,
 			);
 			path = AssistantRequest;
 			sourceTree = "<group>";
@@ -1621,6 +1631,7 @@
 				5B04762A232F3C2F0016134E /* TRCResult+AssistantResult.m in Sources */,
 				5B04761B232F37FE0016134E /* NSArray+Extension.m in Sources */,
 				5BFF3D732338A73E00F8D3F9 /* BorringProcessView.m in Sources */,
+				5BF57FD02341D2C50088BDCE /* AssistantHttpSessionManager.m in Sources */,
 				5BDCF2DA2330850A00AB10D3 /* BaseTableViewCell.m in Sources */,
 				5B63F67C233A155B00DD7924 /* CheckBookTableViewCell.m in Sources */,
 				5B047619232F37FE0016134E /* TRCBaseSharedInstance.m in Sources */,
@@ -1669,6 +1680,7 @@
 				5B047614232F37FE0016134E /* NSString+Sha1.m in Sources */,
 				5B8F60522328FCC30068A275 /* ResetTextField.m in Sources */,
 				5BFD828F23332FBF0024FDCF /* HXfootView.m in Sources */,
+				5BF57FD32341D66D0088BDCE /* AssistantTask.m in Sources */,
 				5B04761F232F37FE0016134E /* TRCTimeUtil.m in Sources */,
 				5B0D66DE2334CFA50058F9AF /* BorringHomeViewController.m in Sources */,
 				5B04760D232F37FE0016134E /* UITableViewCell+HYBMasonryAutoCellHeight.m in Sources */,

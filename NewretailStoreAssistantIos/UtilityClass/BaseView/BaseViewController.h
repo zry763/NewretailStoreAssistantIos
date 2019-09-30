@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  重置返回标题
  */
 -(void)resetBackButtonTitleWith:(NSString * )backTitle and:(UIColor *)colorl;
-
++ (BOOL)isPhoneX;
 
 /**
  *  借还书步骤

@@ -27,20 +27,25 @@
     
     [super addSomeSubviews];
 
-    [self.qRScanView addSubview:self.processView];
+    [self.view addSubview:self.processView];
     TRC_BLOCK_WEAK_SELF
 
     [self.processView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.qRScanView).with.offset(15);
         make.centerX.equalTo(weakSelf.qRScanView);
-        make.top.equalTo(weakSelf.qRScanView).with.offset(64);
-
+        if ([BookScanViewController isPhoneX]) {
+            make.top.equalTo(weakSelf.view).with.offset(88);
+            
+        }else
+            make.top.equalTo(weakSelf.view).with.offset(64);
+        
     }];
 
     self.toastLable.text= @"请扫描出示的二维码";
     [self.processView setupViewWithModel:self.stepModel];
     
 }
+
 -(BorringProcessView *)processView{
     if (!_processView) {
         _processView = [BorringProcessView viewFromNib];

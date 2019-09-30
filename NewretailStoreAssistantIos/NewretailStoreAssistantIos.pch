@@ -22,5 +22,7 @@
 #import "BaseTableViewController.h"
 #import "TRCBaseView.h"
 #import "UIViewController+HBD.h"
+#import "AssistantRequest.h"
+#import "AssistantTask.h"
 
 #endif /* NewretailStoreAssistantIos_pch */

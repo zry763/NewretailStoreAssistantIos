@@ -148,6 +148,21 @@
     }
     return _stepModel;
 }
+
+
++ (BOOL)isPhoneX {
+   BOOL iPhoneX = NO;
+     if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {//判断是否是手机
+           return iPhoneX;
+       }
+       if (@available(iOS 11.0, *)) {
+           UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+           if (mainWindow.safeAreaInsets.bottom > 0.0) {
+               iPhoneX = YES;
+           }
+       }
+    return iPhoneX;
+}
 /*
 #pragma mark - Navigation
 
