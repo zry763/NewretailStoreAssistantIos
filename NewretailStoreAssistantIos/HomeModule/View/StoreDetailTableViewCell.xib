@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,11 +14,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="195.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42A-KE-SxX">
-                        <rect key="frame" x="-8" y="-5" width="391" height="215.5"/>
+                        <rect key="frame" x="-8" y="-5" width="391" height="216"/>
                         <state key="normal" backgroundImage="homeBG.png"/>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ib1-t2-FL7">
@@ -41,7 +39,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9kk-kU-NBO">
-                        <rect key="frame" x="20" y="122" width="78" height="43.5"/>
+                        <rect key="frame" x="20" y="122.5" width="78" height="43.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日进店/人次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-h3-lD7">
                                 <rect key="frame" x="0.0" y="0.0" width="78" height="14.5"/>
@@ -58,7 +56,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="mCA-l0-stZ">
-                        <rect key="frame" x="267" y="122" width="78" height="43.5"/>
+                        <rect key="frame" x="267" y="122.5" width="78" height="43.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增会员/人数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7e-DZ-NAJ">
                                 <rect key="frame" x="0.0" y="0.0" width="78" height="14.5"/>
@@ -91,6 +89,9 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="backColorBT" destination="42A-KE-SxX" id="iZt-nQ-nlz"/>
+                <outlet property="increasedMember" destination="HOu-Th-ZNf" id="FF0-HM-I9h"/>
+                <outlet property="shopkeepersNumber" destination="B0S-DC-H43" id="Ak2-SO-Cd2"/>
+                <outlet property="storeIncome" destination="Fyj-W0-JmN" id="odx-Wy-8rG"/>
             </connections>
             <point key="canvasLocation" x="139.85507246376812" y="85.044642857142847"/>
         </tableViewCell>

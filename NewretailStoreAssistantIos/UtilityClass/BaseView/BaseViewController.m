@@ -46,6 +46,7 @@
         self.stepModel.thirdSteptTitle = @"3.完成归还";
     }
     [self setupSubviews];
+    [self requestTableViewDataSource];
     
     // Do any additional setup after loading the view.
 }

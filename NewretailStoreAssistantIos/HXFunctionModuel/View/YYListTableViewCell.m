@@ -55,7 +55,21 @@
 }
 -(void)setUpWithModel:(id)model{
     
-    
+    ProjectItemModel *itemMode = (ProjectItemModel *)model;
+    if ([itemMode.typeId integerValue] == 1) {
+        //便当
+        [self.backgroundImageView  setImage:[UIImage imageNamed:@"Bento"]];
+    }
+    if ([itemMode.typeId integerValue] == 2) {
+        //班车
+           [self.backgroundImageView  setImage:[UIImage imageNamed:@"bus"]];
+       }
+    NSInteger sumCount = [itemMode.completedNum integerValue] + [itemMode.incompleteNum integerValue];
+    self.yyProjectTitle.text = itemMode.typeName;
+    self.yySummuryCount.text = [NSString stringWithFormat:@"%ld",(long)sumCount];
+    self.dhxCount.text = itemMode.incompleteNum;
+    self.yhxCount.text = itemMode.completedNum;
+
     
     
 }

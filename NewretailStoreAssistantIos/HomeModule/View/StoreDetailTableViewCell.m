@@ -26,9 +26,12 @@
 #pragma mark 数据填充
 
 -(void)setUpWithModel:(id)model{
-    
-    
-    
+
+    StoreInfoModel *storeModel = (StoreInfoModel *)model;
+    self.storeIncome.text = storeModel.actualAmount;
+    self.shopkeepersNumber.text = storeModel.customerCount;
+    self.increasedMember.text = storeModel.refundAmount;
+
 }
 #pragma mark 统一设置内边距
 - (void)setFrame:(CGRect)frame

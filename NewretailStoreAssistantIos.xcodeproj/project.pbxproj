@@ -63,6 +63,9 @@
 		5B263D08233227F0005FAF16 /* THCustomSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263D05233227F0005FAF16 /* THCustomSegmentView.m */; };
 		5B263D0C23322858005FAF16 /* HXStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263D0A23322858005FAF16 /* HXStateViewController.m */; };
 		5B263D1023322A7E005FAF16 /* UIView+TRCViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B263D0F23322A7D005FAF16 /* UIView+TRCViewUtils.m */; };
+		5B289667234D7F3D0025F4DD /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B289666234D7F3D0025F4DD /* UserInfoModel.m */; };
+		5B28966B234DC0A30025F4DD /* StoreInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B28966A234DC0A30025F4DD /* StoreInfoModel.m */; };
+		5B28966F234DD5B90025F4DD /* ProjectItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B28966E234DD5B90025F4DD /* ProjectItemModel.m */; };
 		5B394AB22327A09D00C37DAF /* NSArray+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */; };
 		5B63F6462339AA7600DD7924 /* OrderInfoPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6452339AA7600DD7924 /* OrderInfoPresentationController.m */; };
 		5B63F6492339B2E900DD7924 /* OrderInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6482339B2E900DD7924 /* OrderInfoViewController.m */; };
@@ -330,6 +333,12 @@
 		5B263D0A23322858005FAF16 /* HXStateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HXStateViewController.m; sourceTree = "<group>"; };
 		5B263D0E23322A7D005FAF16 /* UIView+TRCViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TRCViewUtils.h"; sourceTree = "<group>"; };
 		5B263D0F23322A7D005FAF16 /* UIView+TRCViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TRCViewUtils.m"; sourceTree = "<group>"; };
+		5B289665234D7F3D0025F4DD /* UserInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
+		5B289666234D7F3D0025F4DD /* UserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
+		5B289669234DC0A30025F4DD /* StoreInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreInfoModel.h; sourceTree = "<group>"; };
+		5B28966A234DC0A30025F4DD /* StoreInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreInfoModel.m; sourceTree = "<group>"; };
+		5B28966D234DD5B90025F4DD /* ProjectItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectItemModel.h; sourceTree = "<group>"; };
+		5B28966E234DD5B90025F4DD /* ProjectItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectItemModel.m; sourceTree = "<group>"; };
 		5B394AAE2327A09D00C37DAF /* NSArray+Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Crash.h"; sourceTree = "<group>"; };
 		5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Crash.m"; sourceTree = "<group>"; };
 		5B63F6442339AA7600DD7924 /* OrderInfoPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderInfoPresentationController.h; sourceTree = "<group>"; };
@@ -818,6 +827,7 @@
 		5B04762C232F8F820016134E /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				5B289668234DC0800025F4DD /* HomeModel */,
 				5BDCF2CE2330817C00AB10D3 /* View */,
 				5B263CE72331DBC8005FAF16 /* HomeViewController */,
 			);
@@ -857,6 +867,7 @@
 		5B263CED2331F0F3005FAF16 /* HXFunctionModuel */ = {
 			isa = PBXGroup;
 			children = (
+				5B28966C234DD5930025F4DD /* HxModel */,
 				5B263CF723320AE0005FAF16 /* View */,
 				5B263D01233220EC005FAF16 /* HXViewController */,
 			);
@@ -920,6 +931,33 @@
 				5B263D06233227F0005FAF16 /* THBageLabl.h */,
 			);
 			path = THCustomSegmentView;
+			sourceTree = "<group>";
+		};
+		5B289664234D7E2C0025F4DD /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B289665234D7F3D0025F4DD /* UserInfoModel.h */,
+				5B289666234D7F3D0025F4DD /* UserInfoModel.m */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
+		5B289668234DC0800025F4DD /* HomeModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B289669234DC0A30025F4DD /* StoreInfoModel.h */,
+				5B28966A234DC0A30025F4DD /* StoreInfoModel.m */,
+			);
+			path = HomeModel;
+			sourceTree = "<group>";
+		};
+		5B28966C234DD5930025F4DD /* HxModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B28966D234DD5B90025F4DD /* ProjectItemModel.h */,
+				5B28966E234DD5B90025F4DD /* ProjectItemModel.m */,
+			);
+			path = HxModel;
 			sourceTree = "<group>";
 		};
 		5B394AA72327A00400C37DAF /* CommonCategory */ = {
@@ -1065,6 +1103,7 @@
 		5B8F5F772328DC650068A275 /* loginModule */ = {
 			isa = PBXGroup;
 			children = (
+				5B289664234D7E2C0025F4DD /* LoginModel */,
 				5B0475B4232F33890016134E /* ViewManager */,
 				5B0475B3232F335A0016134E /* ViewController */,
 			);
@@ -1618,6 +1657,7 @@
 				5B047617232F37FE0016134E /* NSString+Verification.m in Sources */,
 				5B8F604F2328F2700068A275 /* TRCColor.m in Sources */,
 				5B047618232F37FE0016134E /* NSString+Size.m in Sources */,
+				5B28966B234DC0A30025F4DD /* StoreInfoModel.m in Sources */,
 				5B263CE32331C82A005FAF16 /* BaseTableViewController.m in Sources */,
 				5B047627232F39A90016134E /* AssistantRequest.m in Sources */,
 				5B0D66D82334BEA10058F9AF /* HXInputViewController.m in Sources */,
@@ -1641,6 +1681,7 @@
 				5BAF7139233DEA24002263BC /* HBDNavigationBar.m in Sources */,
 				5BDCF2DD23308F1E00AB10D3 /* BaseViewController.m in Sources */,
 				5BFD8284233313DB0024FDCF /* HXTableViewCell.m in Sources */,
+				5B28966F234DD5B90025F4DD /* ProjectItemModel.m in Sources */,
 				5BFD828C23332E340024FDCF /* HXDetailsViewController.m in Sources */,
 				5B047612232F37FE0016134E /* NSUserDefaults+Secure.m in Sources */,
 				5B047606232F37FE0016134E /* NSDictionary+Extension.m in Sources */,
@@ -1662,6 +1703,7 @@
 				5B047620232F37FE0016134E /* TRCHTTPSessionManager.m in Sources */,
 				5B04761D232F37FE0016134E /* TRCURLParser.m in Sources */,
 				5B04760C232F37FE0016134E /* UITableView+HYBCacheHeight.m in Sources */,
+				5B289667234D7F3D0025F4DD /* UserInfoModel.m in Sources */,
 				5B6628182325E29200084F97 /* main.m in Sources */,
 				5BFF3D782338AEB900F8D3F9 /* StepModel.m in Sources */,
 				5B047623232F37FE0016134E /* TRCRequestCacheManager.m in Sources */,

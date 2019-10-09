@@ -18,8 +18,20 @@ static const NSString *KEY_OUTPUT = @"OUTPUT";
     TRCResult *result = [TRCResult new];
     
     if ([responseObject isKindOfClass:[NSDictionary class]]) {
-        
+        if ([responseObject.allKeys containsObject:@"code"]&&[responseObject.allKeys containsObject:@"msg"]&&[responseObject.allKeys containsObject:@"data"]) {
+            
+            result.responseCode = [[responseObject objectForKey:@"code"] integerValue];
+            result.responseContent = [responseObject objectForKey:@"msg"];
+            result.output = [responseObject objectForKey:@"data"];
+            return result;
+            
+        }
+
     }
+    
+    
+    
+    
     return result;
     
     

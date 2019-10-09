@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HXScanViewController : BaseScanViewController
+@property(nonatomic ,copy) NSString *typeId;//项目类型id
 
 @end
 

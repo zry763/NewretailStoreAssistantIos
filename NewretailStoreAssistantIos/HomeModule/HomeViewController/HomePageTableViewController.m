@@ -9,9 +9,14 @@
 #import "HomePageTableViewController.h"
 #import "HxListViewController.h"
 #import "BorringHomeViewController.h"
+#import "StoreInfoModel.h"
+UserInfoModel *infomodel =nil;
 
 @interface HomePageTableViewController ()
-
+{
+    AssistantRequest *storeInfoRequest;
+    StoreInfoModel *storeModel;
+}
 @end
 
 @implementation HomePageTableViewController
@@ -20,6 +25,29 @@
     [super viewDidLoad];
 
     // Do any additional setup after loading the view.
+}
+-(void)requestTableViewDataSource{
+    
+    infomodel = [[UserInfoModel sharedInstance] accountInfoUnarchiver];
+
+    if (storeInfoRequest) {
+        storeInfoRequest =nil;
+    }
+    storeInfoRequest = [AssistantTask storeInfoWithStoreId:infomodel.storeId startTime:@"" endTime:@"" token:infomodel.token successBlock:^(StoreInfoModel *storeinfoModel) {
+        if (storeinfoModel) {
+            self->storeModel = storeinfoModel;
+            [self.tableView reloadData];
+            
+        }
+        
+    } failureBlock:^(TRCResult *result) {
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+    }];
+    
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    storeInfoRequest = nil;
 }
 -(StoreDetailTableViewCell *)storeDetailCell{
     if (!_storeDetailCell) {
@@ -87,6 +115,9 @@
     
     // Configure the cell...
     if (indexPath.row ==0) {
+        if (infomodel) {
+            [self.storeDetailCell setUpWithModel:storeModel];
+        }
         return self.storeDetailCell;
 
     }else if (indexPath.row == 1){

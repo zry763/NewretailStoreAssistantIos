@@ -11,9 +11,15 @@
 #import "HXStateViewController.h"
 #import "HXScanViewController.h"
 
+extern UserInfoModel *infomodel;
 
 @interface HxListViewController ()
-@property(strong ,nonatomic) YYListTableViewCell *yylistCell;
+{
+    
+    AssistantRequest *itemRequest;
+    
+    NSArray *projectItemArray;
+}
 
 
 
@@ -23,52 +29,73 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self registerCellWithNibName:NSStringFromClass([YYListTableViewCell class]) reuseIdentifier:NSStringFromClass([YYListTableViewCell class])];
+
     // Do any additional setup after loading the view from its nib.
 }
 
-
--(YYListTableViewCell *)yylistCell{
-    if (!_yylistCell) {
-        
-        [self registerCellWithNibName:NSStringFromClass([YYListTableViewCell class]) reuseIdentifier:NSStringFromClass([YYListTableViewCell class])];
-        _yylistCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([YYListTableViewCell class])];
-        TRC_BLOCK_WEAK_SELF
-        //去核销
-        _yylistCell.yyHXProject = ^(NSInteger index) {
-            NSString  *backTitle =@"扫码核销";
-            [weakSelf resetBackButtonTitleWith:backTitle and:[UIColor whiteColor]];
-            HXScanViewController *scanVC =[[HXScanViewController alloc]init];
-            [weakSelf.navigationController pushViewController:scanVC animated:YES];
-
-            
-        };
-        //去预约列表
-        _yylistCell.yylistProject = ^(NSInteger index) {
-            NSString  *backTitle =@"预约列表";
-            [weakSelf resetBackButtonTitleWith:backTitle and:[UIColor clearColor]];
-
-            [weakSelf.navigationController pushViewController:[[HXStateViewController alloc]init] animated:YES];
-            
-        };
-        
-        
-    }
-    return _yylistCell;
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    itemRequest = nil;
 }
+-(void)requestTableViewDataSource{
+    
+    if (itemRequest) {
+        itemRequest = nil;
+    }
+    itemRequest = [AssistantTask hxListInfoWithToken:infomodel.token successBlock:^(NSArray * _Nonnull projectItemModelArray) {
+        
+        self->projectItemArray = [projectItemModelArray copy];
+        [self.tableView reloadData];
+        
+    } failureBlock:^(TRCResult *result) {
+        
+    }];
+    
+}
+    
+    
+
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return self->projectItemArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-  
+    YYListTableViewCell *yylistCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([YYListTableViewCell class])];
+    ProjectItemModel *itemModel = [self->projectItemArray objectAtIndex:indexPath.row];
     
-    return self.yylistCell;
+    [yylistCell setUpWithModel:itemModel];
+    
+    TRC_BLOCK_WEAK_SELF
+    //去核销
+    yylistCell.yyHXProject = ^(NSInteger index) {
+        NSString  *backTitle =@"扫码核销";
+        [weakSelf resetBackButtonTitleWith:backTitle and:[UIColor whiteColor]];
+        HXScanViewController *scanVC =[[HXScanViewController alloc]init];
+        scanVC.typeId = itemModel.typeId;
+        [weakSelf.navigationController pushViewController:scanVC animated:YES];
+        
+        
+    };
+    //去预约列表
+    yylistCell.yylistProject = ^(NSInteger index) {
+        NSString  *backTitle =@"预约列表";
+        [weakSelf resetBackButtonTitleWith:backTitle and:[UIColor clearColor]];
+        HXStateViewController *HXStateVC =[[HXStateViewController alloc]init];
+        HXStateVC.typeId = itemModel.typeId;
+        [weakSelf.navigationController pushViewController:HXStateVC animated:YES];
+        
+    };
+    
+    
+    return yylistCell;
 }
 /*
 #pragma mark - Navigation

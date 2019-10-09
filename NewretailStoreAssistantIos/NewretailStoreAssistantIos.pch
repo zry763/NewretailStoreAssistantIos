@@ -24,5 +24,6 @@
 #import "UIViewController+HBD.h"
 #import "AssistantRequest.h"
 #import "AssistantTask.h"
-
+#import "MJExtension.h"
+#import "UserInfoModel.h"
 #endif /* NewretailStoreAssistantIos_pch */

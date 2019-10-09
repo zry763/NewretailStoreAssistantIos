@@ -12,7 +12,10 @@
 #import "HXSearchViewController.h"
 
 @interface HXStateViewController ()
-
+{
+    AssistantRequest *HxStateRequest;
+    NSString *orderStatus;
+}
 @property(strong ,nonatomic) THCustomSegmentView *segmentView;
 @property(assign,nonatomic) NSInteger selectIndex;
 @property(strong ,nonatomic) UIButton *scrollTopBT;
@@ -32,7 +35,6 @@
     // Do any additional setup after loading the view from its nib.
 }
 -(void)setupSubviews{
-    [self.view addSubview:self.segmentView];
     UIBarButtonItem *searchItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchSomeDetail)];
     self.navigationItem.rightBarButtonItem = searchItem;
     self.scrollToTopEnable = YES;
@@ -58,6 +60,26 @@
 
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    HxStateRequest = nil;
+}
+-(void)requestTableViewDataSource{
+    orderStatus = @"300";
+    if (HxStateRequest) {
+        HxStateRequest = nil;
+    }
+    HxStateRequest = [AssistantTask hxListInfoWithTypeId:self.typeId orderStatus:orderStatus page:@"1" limit:@"10" successBlock:^(NSArray * _Nonnull orderArray) {
+        
+        [self.tableView reloadData];
+    } failureBlock:^(TRCResult *result) {
+        
+    }];
+ 
+    
+}
+
+
 -(UIButton *)scrollTopBT{
     
     if (!_scrollTopBT) {
@@ -76,10 +98,14 @@
         
         NSArray *titleArray = @[@"待核销",@"已核销"];
         self.segmentView = [[THCustomSegmentView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,40 ) withTitleArray:titleArray block:^(id segment, NSInteger index) {
-            
             if (self.selectIndex == index) {
                 return ;
             }
+            NSLog(@"selectIndex=%ld",(long)index);
+            if (index == 0) {
+                self->orderStatus=@"300";
+            }else
+                self->orderStatus=@"301";
 
             [self requestTableViewDataSource];
         }];
@@ -92,10 +118,12 @@
 }
 - (void)setupTableView {
     [super setupTableView];
-   
     
+    [self.view addSubview:self.segmentView];
+
+
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-        
+
         make.top.equalTo(self.view).with.offset(45);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);

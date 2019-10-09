@@ -54,5 +54,4 @@
 #define LBXScan_Define_UI     //下载了界面模块
 extern BOOL  borringOrReturnFlag;
 
-
 #endif /* GlobalHeader_h */

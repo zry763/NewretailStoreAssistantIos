@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StoreDetailTableViewCell : BaseTableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *backColorBT;
+@property (weak, nonatomic) IBOutlet UILabel *storeIncome;
+@property (weak, nonatomic) IBOutlet UILabel *shopkeepersNumber;
+@property (weak, nonatomic) IBOutlet UILabel *increasedMember;
 
 @end
 

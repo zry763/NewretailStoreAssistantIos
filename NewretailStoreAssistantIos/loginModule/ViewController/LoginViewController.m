@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "MBProgressHUD.h"
-
+#import "UserInfoModel.h"
 /*
  *  在手机输入框中插入第一个空格的
  */
@@ -129,24 +129,24 @@
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *destVC = [main instantiateInitialViewController];
     destVC.modalPresentationStyle =  UIModalPresentationFullScreen;
-    if ([[self endEditTextFiled:self.storeIDField] isEqualToString:@""]) {
-          [self.view makeToast:@"请输入门店编号" duration:1 position:CSToastPositionCenter];
-          return;
-          
-      }
-    if ([[self endEditTextFiled:self.userPhoneID] isEqualToString:@""]) {
-        [self.view makeToast:@"请输入电话号码" duration:1 position:CSToastPositionCenter];
-        return;
-    }
-    if ([[self endEditTextFiled:self.userPassword] isEqualToString:@""]) {
-        [self.view makeToast:@"请输入密码" duration:1 position:CSToastPositionCenter];
-        return;
-        
-    }
+//    if ([[self endEditTextFiled:self.storeIDField] isEqualToString:@""]) {
+//          [self.view makeToast:@"请输入门店编号" duration:1 position:CSToastPositionCenter];
+//          return;
+//
+//      }
+//    if ([[self endEditTextFiled:self.userPhoneID] isEqualToString:@""]) {
+//        [self.view makeToast:@"请输入电话号码" duration:1 position:CSToastPositionCenter];
+//        return;
+//    }
+//    if ([[self endEditTextFiled:self.userPassword] isEqualToString:@""]) {
+//        [self.view makeToast:@"请输入密码" duration:1 position:CSToastPositionCenter];
+//        return;
+//
+//    }
   
+
     
-    
-    [AssistantTask loginWithPhoneNumber:@"18012341234" password:@"admin@123" storeID:@"3462715" successBlock:^(NSDictionary * _Nonnull outPut) {
+    [AssistantTask loginWithPhoneNumber:@"18012341234" password:@"admin@123" storeID:@"3462715" successBlock:^(UserInfoModel * _Nonnull infoModel) {
         
         
         [self.navigationController presentViewController:destVC animated:YES completion:nil];
