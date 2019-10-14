@@ -23,6 +23,7 @@ UserInfoModel *infomodel =nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.mj_footer = nil;
 
     // Do any additional setup after loading the view.
 }
@@ -31,11 +32,14 @@ UserInfoModel *infomodel =nil;
     infomodel = [[UserInfoModel sharedInstance] accountInfoUnarchiver];
 
     if (storeInfoRequest) {
+        [storeInfoRequest cancel];
+
         storeInfoRequest =nil;
     }
     storeInfoRequest = [AssistantTask storeInfoWithStoreId:infomodel.storeId startTime:@"" endTime:@"" token:infomodel.token successBlock:^(StoreInfoModel *storeinfoModel) {
         if (storeinfoModel) {
             self->storeModel = storeinfoModel;
+            [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
             [self.tableView reloadData];
             
         }

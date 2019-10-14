@@ -25,4 +25,12 @@
     self.backgroundColor= [TRCColor colorFromHexCode:@"#f6f6f6"];
 }
 
+
+- (void)setupViewWithModel:(id)model {
+    hxStateDetailInfoModel *detailInfoModel = (hxStateDetailInfoModel *)model;
+    
+    [self.hxPersonName setText:detailInfoModel.confirmUserName];
+    [self.hxTime setText:detailInfoModel.confirmTime];
+    
+}
 @end

@@ -13,6 +13,14 @@
 #import "YYhxItemDetailsTableViewCell.h"
 
 @interface HXDetailsViewController ()
+{
+    
+    AssistantRequest *HxStateDetailInfoRequest;
+    AssistantRequest *HxconfirmRequest;
+    hxStateDetailInfoModel *detailInfoModel;
+
+
+}
 @property(strong ,nonatomic) HXfootView *hxfootView;
 @property(strong ,nonatomic) YYhxItemTableViewCell *hxItemCell;
 @property(strong ,nonatomic) YYhxItemDetailsTableViewCell *hxItemDetailsCell;
@@ -28,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.mj_footer = nil;
 
     // Do any additional setup after loading the view.
 }
@@ -57,6 +66,34 @@
  
     
 }
+
+-(void)requestTableViewDataSource
+{
+    if (HxStateDetailInfoRequest) {
+        [HxStateDetailInfoRequest cancel];
+        HxStateDetailInfoRequest = nil;
+    }
+    HxStateDetailInfoRequest =  [AssistantTask hxItemDetailInfoWithreservationCode:self.reservationCode successBlock:^(hxStateDetailInfoModel * _Nonnull DetailInfoModel) {
+        self->detailInfoModel =DetailInfoModel;
+        
+        if (DetailInfoModel.orderStatus == 301) {//=已核销
+            [self.hxfootView setupViewWithModel:DetailInfoModel];
+
+        }
+
+        [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
+        [self.tableView reloadData];
+    } failureBlock:^(TRCResult *result) {
+        
+    }];
+    
+//    [self.hxfootView.hxPersonName setText:@"12312312"];
+    
+    
+    
+    
+}
+                                
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear: animated];
     if (self.isDisplay) {
@@ -73,10 +110,21 @@
         _hxConfirmBt.backgroundColor = [TRCColor colorFromHexCode:@"#D33A31"];
         [_hxConfirmBt.titleLabel setFont:[UIFont systemFontOfSize:16]];
         [_hxConfirmBt setTitle:@"确认核销" forState:UIControlStateNormal];
+        [_hxConfirmBt addTarget:self action:@selector(confirmItem) forControlEvents:UIControlEventTouchUpInside];
+        
         _hxConfirmBt.layer.cornerRadius = 22;
         _hxConfirmBt.layer.masksToBounds = YES;
     }
     return _hxConfirmBt;
+}
+
+-(void)confirmItem{
+    if (HxconfirmRequest) {
+        [HxconfirmRequest cancel];
+         
+    }
+    
+    
 }
 -(HXfootView *)hxfootView{
     if (!_hxfootView) {
@@ -119,20 +167,28 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (detailInfoModel.goodsList.count == 0) {
+        return 2;
+    }
     return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.row == 0) {
+        [self.hxItemCell setUpWithModel:detailInfoModel];
+        
         return self.hxItemCell;
     }else
     if (indexPath.row == 1) {
+        [self.hxItemDetailsCell setUpWithModel:detailInfoModel];
+
         return self.hxItemDetailsCell;
 
     }else
     if (indexPath.row == 2) {
-
+        [self.hxItemDescribleCell setUpWithModel:detailInfoModel];
         return self.hxItemDescribleCell;
 
     }

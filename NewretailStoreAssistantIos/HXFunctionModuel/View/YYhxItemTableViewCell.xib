@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hig-Ja-6iv">
-                        <rect key="frame" x="0.0" y="10" width="320" height="63"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这里是会员名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-lf-u5q">
@@ -39,8 +39,8 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yihx.png" translatesAutoresizingMaskIntoConstraints="NO" id="U8S-fo-mel">
-                        <rect key="frame" x="192" y="0.0" width="120" height="91"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daihx" translatesAutoresizingMaskIntoConstraints="NO" id="U8S-fo-mel">
+                        <rect key="frame" x="252" y="0.0" width="60" height="45.5"/>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -51,7 +51,7 @@
                     <constraint firstItem="qQP-lf-u5q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="F2P-RB-LNk"/>
                     <constraint firstAttribute="trailing" secondItem="Hig-Ja-6iv" secondAttribute="trailing" id="HSQ-qT-Nwe"/>
                     <constraint firstItem="Hig-Ja-6iv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Lkm-6W-A7S"/>
-                    <constraint firstItem="Hig-Ja-6iv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Pdf-Ru-zBm"/>
+                    <constraint firstItem="Hig-Ja-6iv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Pdf-Ru-zBm"/>
                     <constraint firstItem="65Q-UI-5fr" firstAttribute="top" secondItem="qQP-lf-u5q" secondAttribute="bottom" constant="13" id="YYk-jp-rzK"/>
                     <constraint firstAttribute="trailing" secondItem="0hr-Uh-4qv" secondAttribute="trailing" constant="8" id="avQ-EP-dvt"/>
                     <constraint firstItem="65Q-UI-5fr" firstAttribute="leading" secondItem="qQP-lf-u5q" secondAttribute="leading" id="cja-Oo-NIy"/>
@@ -70,6 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="yihx.png" width="60" height="45.5"/>
+        <image name="daihx" width="60" height="45.5"/>
     </resources>
 </document>

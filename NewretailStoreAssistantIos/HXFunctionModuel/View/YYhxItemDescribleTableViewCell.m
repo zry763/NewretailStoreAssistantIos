@@ -20,5 +20,17 @@
 
     // Configure the view for the selected state
 }
+-(void)setUpWithModel:(id)model
+{
+    hxStateDetailInfoModel *detailInfoModel = (hxStateDetailInfoModel *)model;
+    GoodslistModel *goodModel =[detailInfoModel.goodsList objectAtIndex:0];
+    if (goodModel) {
+        
+            [self.itemDescribleLable setText:goodModel.goodsName];
+        [self.itemCount setText:[NSString stringWithFormat:@"%ld",(long)goodModel.number]];
+        
+    }
 
+
+}
 @end

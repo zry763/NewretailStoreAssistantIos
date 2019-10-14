@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "AssistantRequest.h"
+
+
+#import "PageModel.h"
 #import "UserInfoModel.h"
 #import "StoreInfoModel.h"
 #import "ProjectItemModel.h"
+#import "ProjectItemListModel.h"
+#import "ProjectItemDetailModel.h"
+#import "hxStateDetailInfoModel.h"
+#import "libraryRecordModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AssistantTask : NSObject
@@ -44,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
                               successBlock:(void(^) (StoreInfoModel *storeinfoModel))successBlock
                               failureBlock:(TRCRequestFinishedBlock)failureBlock;
 /**
- *核销项目列表
+ *预约项目列表(登录用户所属门店存在待核销的项目列表)
  *storeId 门店id
  *
  */
@@ -59,10 +67,97 @@ NS_ASSUME_NONNULL_BEGIN
 */
 + (AssistantRequest *)hxListInfoWithTypeId:(NSString*)typeId
                                orderStatus:(NSString*)orderStatus
-                                      page:(NSString*)page
-                                     limit:(NSString*)limit
-                              successBlock:(void(^) (NSArray *orderArray))successBlock
+                                      pageInfo:(PageModel*)pageInfo
+                              successBlock:(void(^) (NSArray *orderArray,NSString *uncompleteCount,NSString *completeCount,PageModel *pageInfo))successBlock
                               failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+/**
+*预约活动详情
+*
+*
+*/
++ (AssistantRequest *)hxItemDetailInfoWithreservationCode :(NSString*)reservationCode
+                              successBlock:(void(^) (hxStateDetailInfoModel *DetailInfoModel))successBlock
+                              failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+
+/**
+*确认核销
+*
+*
+*/
++ (AssistantRequest *)hxConfirmItemWithTypeId:(NSString*)typeId
+                             reservationCode :(NSString*)reservationCode
+                                 successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                 failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+/**
+*预约搜索
+*
+*
+*/
++ (AssistantRequest *)hxSearchItemInfoWithTypeId:(NSString*)typeId
+                                        content :(NSString*)content
+                                        pageInfo:(PageModel*)pageInfo
+                                    successBlock:(void(^) (NSArray *orderArray,PageModel *pageInfo))successBlock
+                                    failureBlock:(TRCRequestFinishedBlock)failureBlock;
+/**
+*预约码校验
+*
+*
+ */
++ (AssistantRequest *)hxCheckItemInfoWithTypeId:(NSString*)typeId
+                               reservationCode :(NSString*)reservationCode
+                                   successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                   failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+/**
+*图书借阅查询会员借阅信息
+
+*
+*
+ */
++ (AssistantRequest *)libraryManageInfoWithUserId:(NSString*)userId
+                               type :(NSString*)type
+                                   successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                   failureBlock:(TRCRequestFinishedBlock)failureBlock;
+/**
+*图书借阅归还
+
+*
+*
+ */
++ (AssistantRequest *)libraryManageReturnInfoWithId:(NSString*)jyId
+                                     successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                     failureBlock:(TRCRequestFinishedBlock)failureBlock;
+/**
+*图书借阅新增
+
+*
+*
+ */
++ (AssistantRequest *)libraryManageSaveInfoWithRecord:(libraryRecordModel*)record
+                                     successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                     failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+/**
+*图书借阅校验
+*goodsSn 商品条码
+*userId 会员id
+ */
++ (AssistantRequest *)libraryManagevlidateWithUserId:(NSString*)userId
+                                             goodsSn:(NSString*)goodsSn
+                                        successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                        failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+
+/**
+*
+*根据会员二维码查询用户信息
+ */
++ (AssistantRequest *)accountInfoWithNumber:(NSString*)number
+                                        successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                        failureBlock:(TRCRequestFinishedBlock)failureBlock;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,7 +19,7 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42A-KE-SxX">
                         <rect key="frame" x="-8" y="-5" width="391" height="216"/>
-                        <state key="normal" backgroundImage="homeBG.png"/>
+                        <state key="normal" backgroundImage="homeBG"/>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ib1-t2-FL7">
                         <rect key="frame" x="20" y="24" width="65.5" height="43.5"/>
@@ -97,6 +97,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="homeBG.png" width="350" height="190"/>
+        <image name="homeBG" width="350" height="190"/>
     </resources>
 </document>

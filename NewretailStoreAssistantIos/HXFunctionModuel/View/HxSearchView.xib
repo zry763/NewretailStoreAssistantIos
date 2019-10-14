@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="EMC-dD-CIT" customClass="HxSearchView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aO8-5n-NIl">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" placeholder="输入会员手机号、活动名称搜索" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-au-zag">
+                            <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-At-Mbr">
+                            <rect key="frame" x="358" y="5" width="56" height="30"/>
+                            <state key="normal" title="取消"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="aO8-5n-NIl" firstAttribute="leading" secondItem="mor-oQ-czl" secondAttribute="leading" id="2Lt-eh-QR7"/>
+                <constraint firstItem="aO8-5n-NIl" firstAttribute="top" secondItem="EMC-dD-CIT" secondAttribute="top" id="ISs-hS-l4K"/>
+                <constraint firstAttribute="bottom" secondItem="aO8-5n-NIl" secondAttribute="bottom" id="OOv-7R-L4P"/>
+                <constraint firstItem="mor-oQ-czl" firstAttribute="trailing" secondItem="aO8-5n-NIl" secondAttribute="trailing" id="kfO-kY-3xH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="mor-oQ-czl"/>
+            <point key="canvasLocation" x="-51.200000000000003" y="-418.29085457271367"/>
+        </view>
+    </objects>
+</document>

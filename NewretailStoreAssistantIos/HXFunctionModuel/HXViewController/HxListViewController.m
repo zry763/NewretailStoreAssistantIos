@@ -29,6 +29,7 @@ extern UserInfoModel *infomodel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.mj_footer = nil;
     [self registerCellWithNibName:NSStringFromClass([YYListTableViewCell class]) reuseIdentifier:NSStringFromClass([YYListTableViewCell class])];
 
     // Do any additional setup after loading the view from its nib.
@@ -47,7 +48,8 @@ extern UserInfoModel *infomodel;
         
         self->projectItemArray = [projectItemModelArray copy];
         [self.tableView reloadData];
-        
+        [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
+
     } failureBlock:^(TRCResult *result) {
         
     }];

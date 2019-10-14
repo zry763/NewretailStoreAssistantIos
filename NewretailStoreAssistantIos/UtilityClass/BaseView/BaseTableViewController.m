@@ -8,6 +8,7 @@
 
 #import "BaseTableViewController.h"
 
+
 @interface BaseTableViewController ()
 
 @end
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tableViewEndRefresh) name:tableViewEndRefreshing object:nil];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
     [self.view addSubview:self.tableView];
     
@@ -63,10 +65,36 @@
     
     
 }
+
+-(void)tableViewEndRefresh{
+    if ([self.tableView.mj_header isRefreshing]) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer resetNoMoreData];
+        
+
+    }
+    if ([self.tableView.mj_footer isRefreshing]) {
+        [self.tableView.mj_footer endRefreshing];
+        if (self.pageInfo.currPage == self.pageInfo.totalPage ) {
+            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+
+        }
+     }
+}
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
     
+}
+
+- (PageModel *)pageInfo {
+    
+    if (!_pageInfo) {
+        
+        _pageInfo = [[PageModel alloc] init];
+    }
+    
+    return _pageInfo;
 }
 
 #pragma mark - Public
@@ -76,6 +104,29 @@
     self.tableView.sectionFooterHeight = 20;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44;
+  
+    
+    
+    // 默认的下拉刷新和上拉加载
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        self.pageInfo.currPage = 1;
+        [self requestTableViewDataSource];
+        // 这个地方是网络请求的处理
+  
+    }];
+    
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        if (self.pageInfo.currPage<self.pageInfo.totalPage) {
+            self.pageInfo.currPage++;
+            [self requestTableViewDataSource];
+        }else
+            self.tableView.mj_footer.state = MJRefreshStateNoMoreData;
+
+        
+        // 这个地方是网络请求的处理
+    }];
+
+
     // 注册默认的cell
     NSString *className = @"BaseTableViewCell";
     [self registerCellWithClassName:className reuseIdentifier:className];

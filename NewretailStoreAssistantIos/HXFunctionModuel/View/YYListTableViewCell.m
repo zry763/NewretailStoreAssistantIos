@@ -62,8 +62,12 @@
     }
     if ([itemMode.typeId integerValue] == 2) {
         //班车
-           [self.backgroundImageView  setImage:[UIImage imageNamed:@"bus"]];
-       }
+        [self.backgroundImageView  setImage:[UIImage imageNamed:@"Bento"]];
+    }
+    if ([itemMode.typeId integerValue] == 3) {
+        //场地
+        [self.backgroundImageView  setImage:[UIImage imageNamed:@"Bento"]];
+    }
     NSInteger sumCount = [itemMode.completedNum integerValue] + [itemMode.incompleteNum integerValue];
     self.yyProjectTitle.text = itemMode.typeName;
     self.yySummuryCount.text = [NSString stringWithFormat:@"%ld",(long)sumCount];

@@ -7,10 +7,16 @@
 //
 
 #import "BaseViewController.h"
+#import <MJRefresh/MJRefresh.h>
+#import "PageModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
+/**
+ *  PageModel
+ */
+@property (nonatomic, strong) PageModel *pageInfo;
 
 /**
  *  列表界面

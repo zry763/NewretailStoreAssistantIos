@@ -26,4 +26,5 @@
 #import "AssistantTask.h"
 #import "MJExtension.h"
 #import "UserInfoModel.h"
+#import <SDWebImage/SDWebImage.h>
 #endif /* NewretailStoreAssistantIos_pch */

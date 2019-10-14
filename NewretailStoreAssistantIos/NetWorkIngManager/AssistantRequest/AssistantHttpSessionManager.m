@@ -28,7 +28,9 @@ static AssistantHttpSessionManager *assistantManager = nil;
     
 }
 -(void)initPreBaseUrl{
-    
+//    dev  http://10.200.167.42:8092/app/
+//    test  http://10.200.167.44:8092/app/
+//    online  https://nrstore.tairanmall.com/app/
     
     self.accountCenterDomain=@"http://10.200.167.42:8092";
 

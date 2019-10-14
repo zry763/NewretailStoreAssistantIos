@@ -146,7 +146,7 @@
   
 
     
-    [AssistantTask loginWithPhoneNumber:@"18012341234" password:@"admin@123" storeID:@"3462715" successBlock:^(UserInfoModel * _Nonnull infoModel) {
+    [AssistantTask loginWithPhoneNumber:@"admin" password:@"admin@123" storeID:@"3462566" successBlock:^(UserInfoModel * _Nonnull infoModel) {
         
         
         [self.navigationController presentViewController:destVC animated:YES completion:nil];

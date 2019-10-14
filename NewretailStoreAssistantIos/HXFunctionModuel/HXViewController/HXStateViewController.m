@@ -15,6 +15,10 @@
 {
     AssistantRequest *HxStateRequest;
     NSString *orderStatus;
+    NSMutableArray *dataArray;
+    NSString *uncompleteCount;
+    NSString *completeCount;
+
 }
 @property(strong ,nonatomic) THCustomSegmentView *segmentView;
 @property(assign,nonatomic) NSInteger selectIndex;
@@ -25,10 +29,12 @@
 @implementation HXStateViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
+    orderStatus = @"300";
+    dataArray = [[NSMutableArray alloc]init];
 
+    [super viewDidLoad];
     [self registerCellWithNibName:NSStringFromClass([HXTableViewCell class]) reuseIdentifier:NSStringFromClass([HXTableViewCell class])];
+    self.selectIndex = 0;
 
     
     
@@ -49,8 +55,9 @@
 }
 -(void)searchSomeDetail{
     NSLog(@"搜索");
+    [self.navigationController presentViewController:[[HXSearchViewController alloc]init] animated:YES completion:nil];
     
-    [self.navigationController pushViewController:[[HXSearchViewController alloc]init] animated:YES];
+//    [self.navigationController pushViewController:[[HXSearchViewController alloc]init] animated:YES];
     
 }
 
@@ -65,16 +72,25 @@
     HxStateRequest = nil;
 }
 -(void)requestTableViewDataSource{
-    orderStatus = @"300";
     if (HxStateRequest) {
+        [HxStateRequest cancel];
         HxStateRequest = nil;
     }
-    HxStateRequest = [AssistantTask hxListInfoWithTypeId:self.typeId orderStatus:orderStatus page:@"1" limit:@"10" successBlock:^(NSArray * _Nonnull orderArray) {
+    HxStateRequest = [AssistantTask hxListInfoWithTypeId:self.typeId orderStatus:orderStatus pageInfo:self.pageInfo successBlock:^(NSArray * _Nonnull orderArray, NSString * _Nonnull uncompleteCount, NSString * _Nonnull completeCount, PageModel * _Nonnull pageInfo) {
+        
+        self->uncompleteCount = uncompleteCount;
+        self->completeCount = completeCount;
+        if ([self.tableView.mj_header isRefreshing]) {
+            [self->dataArray removeAllObjects];
+        }
+        [self->dataArray addObjectsFromArray:orderArray];
+        [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
         
         [self.tableView reloadData];
     } failureBlock:^(TRCResult *result) {
         
     }];
+  
  
     
 }
@@ -101,13 +117,16 @@
             if (self.selectIndex == index) {
                 return ;
             }
+            self.selectIndex = index;
             NSLog(@"selectIndex=%ld",(long)index);
             if (index == 0) {
                 self->orderStatus=@"300";
             }else
                 self->orderStatus=@"301";
+            [self->dataArray removeAllObjects];
 
             [self requestTableViewDataSource];
+
         }];
         
         _segmentView.titleSelectColor = [TRCColor colorFromHexCode:@"#D33A31"];
@@ -139,22 +158,34 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     HXTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([HXTableViewCell class]) forIndexPath:indexPath];
+    ProjectItemListModel  *listModel = [dataArray objectAtIndex:indexPath.row];
+    [cell setUpWithModel:listModel];
     cell.hxItemStateImage.hidden = YES;
 
-    
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self resetBackButtonTitleWith:@"预约详情"and:[UIColor clearColor]];
-    [self.navigationController pushViewController:[[HXDetailsViewController alloc]init] animated:YES];
+    HXDetailsViewController *hxDetailVC =[[HXDetailsViewController alloc]init];
+    ProjectItemListModel  *listModel = [dataArray objectAtIndex:indexPath.row];
+
+    hxDetailVC.reservationCode = listModel.reservationCode;
+    if (self.selectIndex == 0) {
+        hxDetailVC.isDisplay = NO;
+    }else
+        hxDetailVC.isDisplay = YES;
+
+        
+    [self.navigationController pushViewController:hxDetailVC animated:YES];
 }
 
 /*

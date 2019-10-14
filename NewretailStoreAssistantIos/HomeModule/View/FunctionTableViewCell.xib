@@ -23,21 +23,21 @@
                         <subviews>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBJ-Ou-OVt">
                                 <rect key="frame" x="0.0" y="0.0" width="141.5" height="181"/>
-                                <state key="normal" image="kcpd.png"/>
+                                <state key="normal" image="kcpd"/>
                                 <connections>
                                     <action selector="selectFunctionModuel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4Ik-7t-LtF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZq-fE-qBj">
                                 <rect key="frame" x="149.5" y="0.0" width="141" height="181"/>
-                                <state key="normal" image="yyhx.png"/>
+                                <state key="normal" image="yyhx"/>
                                 <connections>
                                     <action selector="selectFunctionModuel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="EPB-f2-Jp0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvL-KP-e6X">
                                 <rect key="frame" x="298.5" y="0.0" width="141.5" height="181"/>
-                                <state key="normal" image="book.png"/>
+                                <state key="normal" image="book"/>
                                 <connections>
                                     <action selector="selectFunctionModuel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4Lq-Fn-tRK"/>
                                 </connections>
@@ -57,8 +57,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="book.png" width="104" height="130"/>
-        <image name="kcpd.png" width="104" height="130"/>
-        <image name="yyhx.png" width="104" height="130"/>
+        <image name="book" width="104" height="130"/>
+        <image name="kcpd" width="104" height="130"/>
+        <image name="yyhx" width="104" height="130"/>
     </resources>
 </document>

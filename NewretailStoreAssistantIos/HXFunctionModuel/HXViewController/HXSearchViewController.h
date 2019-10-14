@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HXSearchViewController : BaseViewController
+@interface HXSearchViewController : BaseTableViewController
 
 @end
 
