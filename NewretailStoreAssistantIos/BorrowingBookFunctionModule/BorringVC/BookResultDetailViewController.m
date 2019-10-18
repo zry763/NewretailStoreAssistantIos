@@ -44,9 +44,11 @@
         [self.borringResultView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.bookContainView);
         }];
+        self.finalResult.text = @"借阅成功";
     }else
     {
         [self.goonBorringBT setTitle:@"继续还书" forState:UIControlStateNormal];
+        self.finalResult.text = @"归还成功";
 
         [self.bookContainView addSubview:self.returnResultView];
         [self.returnResultView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -82,7 +84,7 @@
         TRC_BLOCK_WEAK_SELF
         _returnResultView.ContinueReturnBlock = ^{
             NSLog(@"继续归还当前用户的书籍");
-            [weakSelf.navigationController popToViewController:[weakSelf.navigationController.viewControllers objectAtIndex:2]
+            [weakSelf.navigationController popToViewController:[weakSelf.navigationController.viewControllers objectAtIndex:3]
                                                   animated:YES];
             
         };
@@ -117,7 +119,7 @@
 
 - (IBAction)goonBorringBook:(id)sender {
    
-    [self.navigationController popToViewController:[[BookScanViewController alloc]init] animated:YES];
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
 
     
     NSLog(@"继续借还书");

@@ -26,7 +26,13 @@ static const NSString *KEY_OUTPUT = @"OUTPUT";
             return result;
             
         }
-
+        if ([responseObject.allKeys containsObject:@"code"]&&[responseObject.allKeys containsObject:@"msg"]) {
+            
+            result.responseCode = [[responseObject objectForKey:@"code"] integerValue];
+            result.responseContent = [responseObject objectForKey:@"msg"];
+            return result;
+            
+        }
     }
     
     

@@ -51,7 +51,9 @@ extern UserInfoModel *infomodel;
         [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
 
     } failureBlock:^(TRCResult *result) {
-        
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+        [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
+
     }];
     
 }
@@ -92,6 +94,8 @@ extern UserInfoModel *infomodel;
         [weakSelf resetBackButtonTitleWith:backTitle and:[UIColor clearColor]];
         HXStateViewController *HXStateVC =[[HXStateViewController alloc]init];
         HXStateVC.typeId = itemModel.typeId;
+        HXStateVC.incompleteNum = itemModel.incompleteNum;
+        HXStateVC.completedNum = itemModel.completedNum;
         [weakSelf.navigationController pushViewController:HXStateVC animated:YES];
         
     };

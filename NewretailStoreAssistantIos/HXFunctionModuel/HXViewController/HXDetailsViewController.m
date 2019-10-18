@@ -49,9 +49,9 @@
             make.right.equalTo(self.view).with.offset(-10);
             make.bottom.equalTo(self.view).with.offset(-20);
         }];
-    }else{
+    }
         
-        
+    if (self.confirmBtDisplay) {
         [self.view addSubview:self.hxConfirmBt];
         [self.hxConfirmBt mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view).with.offset(70);
@@ -60,11 +60,7 @@
             make.height.equalTo(@(44));
             
         }];
-        
     }
-    
- 
-    
 }
 
 -(void)requestTableViewDataSource
@@ -84,10 +80,10 @@
         [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
         [self.tableView reloadData];
     } failureBlock:^(TRCResult *result) {
-        
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+        [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
     }];
     
-//    [self.hxfootView.hxPersonName setText:@"12312312"];
     
     
     
@@ -123,6 +119,18 @@
         [HxconfirmRequest cancel];
          
     }
+    HxconfirmRequest = [AssistantTask hxConfirmItemWithTypeId:self.typeId reservationCode:self.reservationCode successBlock:^(TRCResult *result) {
+        
+        if (result.responseCode == 0) {
+            [self.view makeToast:@"核销成功" duration:1 position:CSToastPositionBottom];
+        }else
+            [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+
+            
+    } failureBlock:^(TRCResult *result) {
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+
+    }];
     
     
 }

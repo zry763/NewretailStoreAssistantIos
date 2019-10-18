@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BorringInfoViewController : BaseViewController
+@property (nonatomic,copy) NSString *strScannedUserId;
 @property (weak, nonatomic) IBOutlet UILabel *nikeName;
 @property (weak, nonatomic) IBOutlet UIImageView *nikeImage;
 @property (weak, nonatomic) IBOutlet UILabel *remmantBorringCount;

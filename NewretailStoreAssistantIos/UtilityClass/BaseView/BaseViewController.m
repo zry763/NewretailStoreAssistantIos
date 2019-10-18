@@ -46,7 +46,6 @@
         self.stepModel.thirdSteptTitle = @"3.完成归还";
     }
     [self setupSubviews];
-    [self requestTableViewDataSource];
     
     // Do any additional setup after loading the view.
 }
@@ -69,6 +68,8 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
 
     }
+    [self requestTableViewDataSource];
+
 }
 #pragma mark - Public
 #pragma mark 设置子界面（需重写）

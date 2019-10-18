@@ -31,10 +31,24 @@ static AssistantHttpSessionManager *assistantManager = nil;
 //    dev  http://10.200.167.42:8092/app/
 //    test  http://10.200.167.44:8092/app/
 //    online  https://nrstore.tairanmall.com/app/
-    
-    self.accountCenterDomain=@"http://10.200.167.42:8092";
+    NSString *baseHost;
+    #ifdef DEBUG
+        baseHost = @"http://10.200.167.44:8092";//开发
+    #else
+        
+    #ifdef TestRelease
+        baseHost = @"http://10.200.167.44:8092";//测试
 
-    
+    #else
+        baseHost = @"https://nrstore.tairanmall.com"; //正式
+    #endif
+        
+    #endif
+
+
+        
+    self.accountCenterDomain = baseHost;
+
     self.hxBaseURLString = @"";
     self.bookBaseURLString = @"";
     

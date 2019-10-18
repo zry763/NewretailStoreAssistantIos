@@ -16,7 +16,8 @@
 - (void)setupRequestHeaderInfoWithSessionManager:(AFHTTPSessionManager *)sessionManager {
     
     NSMutableDictionary * headerInfo = [[[TRCDeviceInfo defaultInfo] generateDictionary] mutableCopy];
-    
+    UserInfoModel *infomodel = [[UserInfoModel sharedInstance] accountInfoUnarchiver];
+    [headerInfo setValue:infomodel.token forKey:@"token"];
 
 //
 //
@@ -66,10 +67,13 @@
                 
                 successBlock(result);
                 
-            } else {
-                
+            } else if(result.responseCode == TRCAccountCenterStatusCodeTypeServerError || result.responseCode == TRCAccountCenterStatusCodeTypeServerError || result.responseCode == TRCAccountCenterStatusCodeTypeSessionTimeOut){
                 failureBlock(result);
-            }
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"STORELOGINERROR" object: nil];
+
+            }else
+                failureBlock(result);
+
         }
         
     }

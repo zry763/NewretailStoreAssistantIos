@@ -13,6 +13,11 @@
 #import "CheckBookViewController.h"
 
 @interface AssociateMemberViewController ()
+{
+    AssistantRequest *returnBookListRequest;
+    NSString *vipId;
+    VipReturnInfoModel *returnRecordModel;
+}
 @property (strong ,nonatomic) BorringProcessView *processView;
 @property (strong ,nonatomic) ReturnBookHeaderView *checkListHeaderView;
 
@@ -25,6 +30,22 @@
     [super viewDidLoad];
     [self registerCellWithNibName:NSStringFromClass([BorringInfoTableViewCell class]) reuseIdentifier:NSStringFromClass([BorringInfoTableViewCell class])];
     // Do any additional setup after loading the view.
+}
+
+-(void)requestTableViewDataSource{
+    
+    if (returnBookListRequest) {
+        [returnBookListRequest cancel];
+        returnBookListRequest = nil;
+    }
+    returnBookListRequest = [AssistantTask libraryManageReturnInfoWithUserId:self.strScannedUserId successBlock:^(VipReturnInfoModel * _Nonnull returnInfoModel) {
+        self->returnRecordModel =returnInfoModel;
+        [self.tableView reloadData];
+        
+    } failureBlock:^(TRCResult *result) {
+        
+    }];
+    
 }
 -(void)setupTableView{
     [super setupTableView];
@@ -79,18 +100,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return returnRecordModel.records.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BorringInfoTableViewCell *cell =[self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([BorringInfoTableViewCell class]) forIndexPath:indexPath];
+    ReturnRecords *returnRecord = [returnRecordModel.records objectAtIndex:indexPath.row];
+
     cell.bookreturn = ^{
         CheckBookViewController *checkBookVC =[[CheckBookViewController alloc]init];
         checkBookVC.stepNum = 2;
+        checkBookVC.returnRecordInfo = returnRecord;
+        
         [self.navigationController pushViewController:checkBookVC animated:YES];
         
         NSLog(@"归还图书");
     };
+
+    [cell setUpWithModel:returnRecord];
+    
 
     return cell;
 }

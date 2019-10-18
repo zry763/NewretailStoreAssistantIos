@@ -18,7 +18,8 @@
 #import "ProjectItemDetailModel.h"
 #import "hxStateDetailInfoModel.h"
 #import "libraryRecordModel.h"
-
+#import "VipLendInfoModel.h"
+#import "VipReturnInfoModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AssistantTask : NSObject
@@ -36,6 +37,29 @@ NS_ASSUME_NONNULL_BEGIN
                              storeID:(NSString*)storeID
                       successBlock:(void(^) (UserInfoModel *infoModel))successBlock
                       failureBlock:(TRCRequestFinishedBlock)failureBlock;
+/**
+ *  登出
+ *
+ *
+ *
+ *
+ *
+ */
++ (AssistantRequest *)loginoutsuccessBlock:(void(^) (TRCResult *loginResult))successBlock
+                              failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+/**
+ *  获取登录人信息
+ *
+ *
+ *
+ *
+ *
+ */
++ (AssistantRequest *)getloginUserWithToken:(NSString *)token successBlock:(void(^) (UserInfoModel *userinfoModel))successBlock
+                              failureBlock:(TRCRequestFinishedBlock)failureBlock;
+
+
 /**
  *门店信息统计
  *storeId 门店id
@@ -88,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 + (AssistantRequest *)hxConfirmItemWithTypeId:(NSString*)typeId
                              reservationCode :(NSString*)reservationCode
-                                 successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                 successBlock:(void(^) (TRCResult *result))successBlock
                                  failureBlock:(TRCRequestFinishedBlock)failureBlock;
 
 /**
@@ -112,14 +136,22 @@ NS_ASSUME_NONNULL_BEGIN
                                    failureBlock:(TRCRequestFinishedBlock)failureBlock;
 
 /**
-*图书借阅查询会员借阅信息
+*图书借阅查询会员借阅信息 还书
 
 *
 *
  */
-+ (AssistantRequest *)libraryManageInfoWithUserId:(NSString*)userId
-                               type :(NSString*)type
-                                   successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
++ (AssistantRequest *)libraryManageReturnInfoWithUserId:(NSString*)userId
+                                   successBlock:(void(^) (VipReturnInfoModel *returnInfoModel))successBlock
+                                   failureBlock:(TRCRequestFinishedBlock)failureBlock;
+/**
+*图书借阅查询会员借阅信息 借书
+
+*
+*
+ */
++ (AssistantRequest *)libraryManageLendInfoWithUserId:(NSString*)userId
+                                   successBlock:(void(^) (VipLendInfoModel *lendInfoModel))successBlock
                                    failureBlock:(TRCRequestFinishedBlock)failureBlock;
 /**
 *图书借阅归还
@@ -127,8 +159,8 @@ NS_ASSUME_NONNULL_BEGIN
 *
 *
  */
-+ (AssistantRequest *)libraryManageReturnInfoWithId:(NSString*)jyId
-                                     successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
++ (AssistantRequest *)libraryManageReturnBookWithBookId:(NSString*)jyId
+                                     successBlock:(void(^) (TRCResult *resultInfo))successBlock
                                      failureBlock:(TRCRequestFinishedBlock)failureBlock;
 /**
 *图书借阅新增
@@ -155,8 +187,8 @@ NS_ASSUME_NONNULL_BEGIN
 *
 *根据会员二维码查询用户信息
  */
-+ (AssistantRequest *)accountInfoWithNumber:(NSString*)number
-                                        successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
++ (AssistantRequest *)vipInfoWithNumber:(NSString*)number
+                                        successBlock:(void(^) ( NSString *vipInfoID))successBlock
                                         failureBlock:(TRCRequestFinishedBlock)failureBlock;
 @end
 

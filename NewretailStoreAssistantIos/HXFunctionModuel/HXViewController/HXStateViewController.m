@@ -34,9 +34,9 @@
 
     [super viewDidLoad];
     [self registerCellWithNibName:NSStringFromClass([HXTableViewCell class]) reuseIdentifier:NSStringFromClass([HXTableViewCell class])];
-    self.selectIndex = 0;
 
-    
+    self.selectIndex = 0;
+    [self.pageInfo initData];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -55,9 +55,10 @@
 }
 -(void)searchSomeDetail{
     NSLog(@"搜索");
-    [self.navigationController presentViewController:[[HXSearchViewController alloc]init] animated:YES completion:nil];
-    
-//    [self.navigationController pushViewController:[[HXSearchViewController alloc]init] animated:YES];
+//    [self.navigationController presentViewController:[[HXSearchViewController alloc]init] animated:YES completion:nil];
+    HXSearchViewController *searchVC  = [[HXSearchViewController alloc]init];
+    searchVC.typeId = self.typeId;
+    [self.navigationController pushViewController:searchVC animated:YES];
     
 }
 
@@ -70,12 +71,15 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     HxStateRequest = nil;
+    [self->dataArray removeAllObjects];
+
 }
 -(void)requestTableViewDataSource{
     if (HxStateRequest) {
         [HxStateRequest cancel];
         HxStateRequest = nil;
     }
+
     HxStateRequest = [AssistantTask hxListInfoWithTypeId:self.typeId orderStatus:orderStatus pageInfo:self.pageInfo successBlock:^(NSArray * _Nonnull orderArray, NSString * _Nonnull uncompleteCount, NSString * _Nonnull completeCount, PageModel * _Nonnull pageInfo) {
         
         self->uncompleteCount = uncompleteCount;
@@ -83,12 +87,15 @@
         if ([self.tableView.mj_header isRefreshing]) {
             [self->dataArray removeAllObjects];
         }
+        self.pageInfo = pageInfo;
         [self->dataArray addObjectsFromArray:orderArray];
+      
         [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
         
         [self.tableView reloadData];
     } failureBlock:^(TRCResult *result) {
-        
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+        [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
     }];
   
  
@@ -112,7 +119,7 @@
     
     if (!_segmentView) {
         
-        NSArray *titleArray = @[@"待核销",@"已核销"];
+        NSArray *titleArray = @[[NSString stringWithFormat:@"待核销%@",self.incompleteNum],[NSString stringWithFormat:@"已核销%@",self.completedNum]];
         self.segmentView = [[THCustomSegmentView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,40 ) withTitleArray:titleArray block:^(id segment, NSInteger index) {
             if (self.selectIndex == index) {
                 return ;
@@ -123,6 +130,7 @@
                 self->orderStatus=@"300";
             }else
                 self->orderStatus=@"301";
+            [self.pageInfo initData];
             [self->dataArray removeAllObjects];
 
             [self requestTableViewDataSource];
@@ -179,10 +187,12 @@
     ProjectItemListModel  *listModel = [dataArray objectAtIndex:indexPath.row];
 
     hxDetailVC.reservationCode = listModel.reservationCode;
-    if (self.selectIndex == 0) {
-        hxDetailVC.isDisplay = NO;
-    }else
-        hxDetailVC.isDisplay = YES;
+    hxDetailVC.typeId = [NSString stringWithFormat:@"%@",[NSNumber numberWithInteger:listModel.typeId]];
+    if (listModel.orderStatus == 300) {//待核销
+          hxDetailVC.isDisplay = NO;
+      }else
+          hxDetailVC.isDisplay = YES;
+
 
         
     [self.navigationController pushViewController:hxDetailVC animated:YES];

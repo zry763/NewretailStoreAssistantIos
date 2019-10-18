@@ -29,6 +29,11 @@
     [self.hxItemTime setText:listModel.addTime];
     [self.hxItemdes setText:listModel.activityName];
     [self.hxItemImage sd_setImageWithURL:[NSURL URLWithString:listModel.activityImg] placeholderImage:[UIImage imageNamed:@"hxzw"]];
+    if (listModel.orderStatus == 300) {
+            [self.hxItemStateImage setImage:[UIImage imageNamed:@"daihx"]];
+    }else
+    [self.hxItemStateImage setImage:[UIImage imageNamed:@"yihx"]];
+    
 
 
     

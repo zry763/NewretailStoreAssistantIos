@@ -66,6 +66,82 @@
     
     
 }
+#pragma mark 登出
+
++ (AssistantRequest *)loginoutsuccessBlock:(void(^) (TRCResult *loginResult))successBlock
+failureBlock:(TRCRequestFinishedBlock)failureBlock
+{
+    
+  
+    
+    AssistantRequest *request = [[AssistantRequest alloc] init];
+    
+    NSString *url = @"app/system/logout";
+    NSDictionary *params = @{@"url":url};
+    
+    request.contentType = TRCHTTPContentTypeURLEncoded;
+    
+    AFHTTPSessionManager *manager = [AssistantHttpSessionManager defaultManager].loginCenterSessionManager;
+    
+    [request startWithSessionManager:manager requestType:TRCHTTPRequestTypePOST params:params successBlock:^(TRCResult *result) {
+        
+            successBlock(result);
+        
+    } failureBlock:^(TRCResult *result) {
+        
+        
+        failureBlock(result);
+        
+        
+    }];
+    
+    
+    return request;
+    
+    
+    
+}
+#pragma mark 获取登录人信息
+
++ (AssistantRequest *)getloginUserWithToken:(NSString *)token successBlock:(void(^) (UserInfoModel *userinfoModel))successBlock
+failureBlock:(TRCRequestFinishedBlock)failureBlock
+{
+    
+  
+    
+    AssistantRequest *request = [[AssistantRequest alloc] init];
+    
+    NSString *url = @"app/system/getLoginUser";
+    NSDictionary *params = @{@"url":url,@"token":token};
+    
+    request.contentType = TRCHTTPContentTypeURLEncoded;
+    
+    AFHTTPSessionManager *manager = [AssistantHttpSessionManager defaultManager].loginCenterSessionManager;
+    
+    [request startWithSessionManager:manager requestType:TRCHTTPRequestTypePOST params:params successBlock:^(TRCResult *result) {
+        
+        if ([result.output isKindOfClass:[NSDictionary class]]) {
+            UserInfoModel *infoModel = [UserInfoModel mj_objectWithKeyValues:result.output];
+            successBlock(infoModel);
+            
+        }else{
+            successBlock(nil);
+            
+        }
+    } failureBlock:^(TRCResult *result) {
+        
+        
+        failureBlock(result);
+        
+        
+    }];
+    
+    
+    return request;
+    
+    
+    
+}
 #pragma mark 门店信息纵览
 + (AssistantRequest *)storeInfoWithStoreId:(NSString*)storeId
                                  startTime:(NSString*)startTime
@@ -89,7 +165,7 @@
     
     AssistantRequest *request = [[AssistantRequest alloc] init];
     NSString *url = @"app/homePage/getHomePageStat";
-    NSDictionary *params = @{@"url":url,@"storeId":storeId,@"startTime":startTime,@"endTime":endTime,@"token":token};
+    NSDictionary *params = @{@"url":url,@"storeId":storeId,@"startTime":startTime,@"endTime":endTime};
     
     request.contentType = TRCHTTPContentTypeURLEncoded;
     
@@ -264,7 +340,7 @@
 
 + (AssistantRequest *)hxConfirmItemWithTypeId:(NSString*)typeId
                              reservationCode :(NSString*)reservationCode
-                                 successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                 successBlock:(void(^) (TRCResult *result))successBlock
                                  failureBlock:(TRCRequestFinishedBlock)failureBlock
 {
     
@@ -285,13 +361,8 @@
     
     [request startWithSessionManager:manager requestType:TRCHTTPRequestTypeGET params:params successBlock:^(TRCResult *result) {
         
-        if ([result.output isKindOfClass:[NSDictionary class]]) {
-            
-            ProjectItemDetailModel *infoModel = [ProjectItemDetailModel mj_objectWithKeyValues:result.output];
-            successBlock(infoModel);
-            
-        }else{
-            successBlock(nil);
+        if (result) {
+            successBlock(result);
             
         }
     } failureBlock:^(TRCResult *result) {
@@ -394,11 +465,10 @@
     return request;
     
 }
-#pragma mark 图书借阅查询会员借阅信息
-
-+ (AssistantRequest *)libraryManageInfoWithUserId:(NSString*)userId
-                               type :(NSString*)type
-                                   successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+#pragma mark 图书借阅查询会员借阅信息 还书
+ 
++ (AssistantRequest *)libraryManageReturnInfoWithUserId:(NSString*)userId
+                                   successBlock:(void(^) (VipReturnInfoModel *returnInfoModel))successBlock
                                    failureBlock:(TRCRequestFinishedBlock)failureBlock
 {
     
@@ -411,7 +481,52 @@
     
     AssistantRequest *request = [[AssistantRequest alloc] init];
     NSString *url = @"app/librarymanage/queryByUserId";
-    NSDictionary *params = @{@"url":url,@"userId":userId,@"type":type};
+    NSDictionary *params = @{@"url":url,@"userId":userId,@"type":@"return"};
+
+    request.contentType = TRCHTTPContentTypeURLEncoded;
+    
+    AFHTTPSessionManager *manager = [AssistantHttpSessionManager defaultManager].loginCenterSessionManager;
+    
+    [request startWithSessionManager:manager requestType:TRCHTTPRequestTypeGET params:params successBlock:^(TRCResult *result) {
+        
+        if ([result.output isKindOfClass:[NSDictionary class]]) {
+            VipReturnInfoModel *returnInfoModel = [VipReturnInfoModel mj_objectWithKeyValues:result.output];
+            successBlock(returnInfoModel);
+
+        }else{
+            successBlock(nil);
+            
+        }
+    } failureBlock:^(TRCResult *result) {
+        
+        
+        failureBlock(result);
+        
+        
+    }];
+    
+    
+    return request;
+    
+}
+
+#pragma mark 图书借阅查询会员借阅信息 借书
+
++ (AssistantRequest *)libraryManageLendInfoWithUserId:(NSString*)userId
+                                   successBlock:(void(^) (VipLendInfoModel *lendInfoModel))successBlock
+                                   failureBlock:(TRCRequestFinishedBlock)failureBlock
+{
+    
+    
+    if ([TRCStringUtil isEmpty:userId]) {
+        
+        return nil;
+        
+    }
+    
+    AssistantRequest *request = [[AssistantRequest alloc] init];
+    NSString *url = @"app/librarymanage/queryByUserId";
+    NSDictionary *params = @{@"url":url,@"userId":userId,@"type":@"lend"};
 
     request.contentType = TRCHTTPContentTypeURLEncoded;
     
@@ -439,10 +554,12 @@
 }
 
 
+
+
 #pragma mark 图书借阅归还
 
-+ (AssistantRequest *)libraryManageReturnInfoWithId:(NSString*)jyId
-                                     successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
++ (AssistantRequest *)libraryManageReturnBookWithBookId:(NSString*)jyId
+                                     successBlock:(void(^) (TRCResult *resultInfo))successBlock
                                      failureBlock:(TRCRequestFinishedBlock)failureBlock
 {
     
@@ -462,12 +579,9 @@
     AFHTTPSessionManager *manager = [AssistantHttpSessionManager defaultManager].loginCenterSessionManager;
     
     [request startWithSessionManager:manager requestType:TRCHTTPRequestTypeGET params:params successBlock:^(TRCResult *result) {
-        
-        if ([result.output isKindOfClass:[NSDictionary class]]) {
-            
-        }else{
-            successBlock(nil);
-            
+        if (result) {
+            successBlock(result);
+
         }
     } failureBlock:^(TRCResult *result) {
         
@@ -568,8 +682,8 @@
 
 #pragma mark 根据会员二维码查询用户信息
 
-+ (AssistantRequest *)accountInfoWithNumber:(NSString*)number
-                                        successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
++ (AssistantRequest *)vipInfoWithNumber:(NSString*)number
+                                        successBlock:(void(^) ( NSString *vipInfoID))successBlock
                                         failureBlock:(TRCRequestFinishedBlock)failureBlock
 {
     
@@ -590,6 +704,8 @@
     [request startWithSessionManager:manager requestType:TRCHTTPRequestTypeGET params:params successBlock:^(TRCResult *result) {
         
         if ([result.output isKindOfClass:[NSDictionary class]]) {
+            NSString *vipid = [NSString stringWithFormat:@"%@",[result.output objectForKey:@"id"]];
+            successBlock(vipid);
             
         }else{
             successBlock(nil);

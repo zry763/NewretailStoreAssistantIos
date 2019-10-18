@@ -65,7 +65,10 @@
 		5B289667234D7F3D0025F4DD /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B289666234D7F3D0025F4DD /* UserInfoModel.m */; };
 		5B28966B234DC0A30025F4DD /* StoreInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B28966A234DC0A30025F4DD /* StoreInfoModel.m */; };
 		5B28966F234DD5B90025F4DD /* ProjectItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B28966E234DD5B90025F4DD /* ProjectItemModel.m */; };
+		5B345783235999DB00B5EFFE /* VipLendInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B345782235999DB00B5EFFE /* VipLendInfoModel.m */; };
+		5B345786235999F000B5EFFE /* VipReturnInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B345785235999F000B5EFFE /* VipReturnInfoModel.m */; };
 		5B394AB22327A09D00C37DAF /* NSArray+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */; };
+		5B456F422356E70A00B7606E /* UITableView+FooterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B456F412356E70A00B7606E /* UITableView+FooterManager.m */; };
 		5B63F6462339AA7600DD7924 /* OrderInfoPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6452339AA7600DD7924 /* OrderInfoPresentationController.m */; };
 		5B63F6492339B2E900DD7924 /* OrderInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F6482339B2E900DD7924 /* OrderInfoViewController.m */; };
 		5B63F64F2339B7C300DD7924 /* OrderInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B63F64D2339B7C300DD7924 /* OrderInfoTableViewCell.m */; };
@@ -262,8 +265,14 @@
 		5B28966A234DC0A30025F4DD /* StoreInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreInfoModel.m; sourceTree = "<group>"; };
 		5B28966D234DD5B90025F4DD /* ProjectItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectItemModel.h; sourceTree = "<group>"; };
 		5B28966E234DD5B90025F4DD /* ProjectItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectItemModel.m; sourceTree = "<group>"; };
+		5B345781235999DB00B5EFFE /* VipLendInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VipLendInfoModel.h; sourceTree = "<group>"; };
+		5B345782235999DB00B5EFFE /* VipLendInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VipLendInfoModel.m; sourceTree = "<group>"; };
+		5B345784235999F000B5EFFE /* VipReturnInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VipReturnInfoModel.h; sourceTree = "<group>"; };
+		5B345785235999F000B5EFFE /* VipReturnInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VipReturnInfoModel.m; sourceTree = "<group>"; };
 		5B394AAE2327A09D00C37DAF /* NSArray+Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Crash.h"; sourceTree = "<group>"; };
 		5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Crash.m"; sourceTree = "<group>"; };
+		5B456F402356E70A00B7606E /* UITableView+FooterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+FooterManager.h"; sourceTree = "<group>"; };
+		5B456F412356E70A00B7606E /* UITableView+FooterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FooterManager.m"; sourceTree = "<group>"; };
 		5B63F6442339AA7600DD7924 /* OrderInfoPresentationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderInfoPresentationController.h; sourceTree = "<group>"; };
 		5B63F6452339AA7600DD7924 /* OrderInfoPresentationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderInfoPresentationController.m; sourceTree = "<group>"; };
 		5B63F6472339B2E900DD7924 /* OrderInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderInfoViewController.h; sourceTree = "<group>"; };
@@ -865,6 +874,10 @@
 			children = (
 				5BFF3D762338AEB900F8D3F9 /* StepModel.h */,
 				5BFF3D772338AEB900F8D3F9 /* StepModel.m */,
+				5B345781235999DB00B5EFFE /* VipLendInfoModel.h */,
+				5B345782235999DB00B5EFFE /* VipLendInfoModel.m */,
+				5B345784235999F000B5EFFE /* VipReturnInfoModel.h */,
+				5B345785235999F000B5EFFE /* VipReturnInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1007,6 +1020,8 @@
 				5BFD82AB2333A46F0024FDCF /* BaseScanViewController.m */,
 				5B6828C8235176D900033F4B /* PageModel.h */,
 				5B6828C9235176D900033F4B /* PageModel.m */,
+				5B456F402356E70A00B7606E /* UITableView+FooterManager.h */,
+				5B456F412356E70A00B7606E /* UITableView+FooterManager.m */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -1295,16 +1310,19 @@
 				5B0D66D423347B800058F9AF /* HXScanViewController.m in Sources */,
 				5B04762A232F3C2F0016134E /* TRCResult+AssistantResult.m in Sources */,
 				5B04761B232F37FE0016134E /* NSArray+Extension.m in Sources */,
+				5B345783235999DB00B5EFFE /* VipLendInfoModel.m in Sources */,
 				5BFF3D732338A73E00F8D3F9 /* BorringProcessView.m in Sources */,
 				5BF57FD02341D2C50088BDCE /* AssistantHttpSessionManager.m in Sources */,
 				5BDCF2DA2330850A00AB10D3 /* BaseTableViewCell.m in Sources */,
 				5B63F67C233A155B00DD7924 /* CheckBookTableViewCell.m in Sources */,
 				5B047619232F37FE0016134E /* TRCBaseSharedInstance.m in Sources */,
 				5B04760B232F37FE0016134E /* TRCBase64.m in Sources */,
+				5B345786235999F000B5EFFE /* VipReturnInfoModel.m in Sources */,
 				5B63F6542339EA6E00DD7924 /* BookResultDetailViewController.m in Sources */,
 				EA8ADB0B2338FED2004FC1BC /* BorringBookScanViewController.m in Sources */,
 				5BAF7139233DEA24002263BC /* HBDNavigationBar.m in Sources */,
 				5BDCF2DD23308F1E00AB10D3 /* BaseViewController.m in Sources */,
+				5B456F422356E70A00B7606E /* UITableView+FooterManager.m in Sources */,
 				5BFD8284233313DB0024FDCF /* HXTableViewCell.m in Sources */,
 				5B28966F234DD5B90025F4DD /* ProjectItemModel.m in Sources */,
 				5BFD828C23332E340024FDCF /* HXDetailsViewController.m in Sources */,
@@ -1415,6 +1433,118 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5B456F3C2356A94C00B7606E /* TestRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "TestRelease=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = TestRelease;
+		};
+		5B456F3D2356A94C00B7606E /* TestRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAE0F5007316EEA4DA8394E3 /* Pods-NewretailStoreAssistantIos.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8SJC79N67;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NewretailStoreAssistantIos/NewretailStoreAssistantIos.pch;
+				INFOPLIST_FILE = NewretailStoreAssistantIos/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zry.identifier.NewretailStoreAssistantIos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = TestRelease;
+		};
+		5B456F3E2356A94C00B7606E /* TestRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8SJC79N67;
+				INFOPLIST_FILE = NewretailStoreAssistantIosTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zry.identifier.NewretailStoreAssistantIosTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewretailStoreAssistantIos.app/NewretailStoreAssistantIos";
+			};
+			name = TestRelease;
+		};
+		5B456F3F2356A94C00B7606E /* TestRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8SJC79N67;
+				INFOPLIST_FILE = NewretailStoreAssistantIosUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zry.identifier.NewretailStoreAssistantIosUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NewretailStoreAssistantIos;
+			};
+			name = TestRelease;
+		};
 		5B66282F2325E29200084F97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1651,6 +1781,7 @@
 			buildConfigurations = (
 				5B66282F2325E29200084F97 /* Debug */,
 				5B6628302325E29200084F97 /* Release */,
+				5B456F3C2356A94C00B7606E /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1660,6 +1791,7 @@
 			buildConfigurations = (
 				5B6628322325E29200084F97 /* Debug */,
 				5B6628332325E29200084F97 /* Release */,
+				5B456F3D2356A94C00B7606E /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1669,6 +1801,7 @@
 			buildConfigurations = (
 				5B6628352325E29200084F97 /* Debug */,
 				5B6628362325E29200084F97 /* Release */,
+				5B456F3E2356A94C00B7606E /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1678,6 +1811,7 @@
 			buildConfigurations = (
 				5B6628382325E29200084F97 /* Debug */,
 				5B6628392325E29200084F97 /* Release */,
+				5B456F3F2356A94C00B7606E /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

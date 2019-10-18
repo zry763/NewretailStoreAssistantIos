@@ -26,7 +26,7 @@
     GoodslistModel *goodModel =[detailInfoModel.goodsList objectAtIndex:0];
     if (goodModel) {
         
-            [self.itemDescribleLable setText:goodModel.goodsName];
+        [self.itemDescribleLable setText:goodModel.goodsName];
         [self.itemCount setText:[NSString stringWithFormat:@"%ld",(long)goodModel.number]];
         
     }

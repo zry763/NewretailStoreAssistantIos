@@ -92,8 +92,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jL-Se-Qyh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="泰然城环普店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGM-Id-Ull">
-                                        <rect key="frame" x="15" y="83" width="146" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGM-Id-Ull">
+                                        <rect key="frame" x="15" y="83" width="21.5" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                                 <rect key="frame" x="15" y="178" width="345" height="57"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WgB-Qr-eJd">
-                                        <rect key="frame" x="15" y="18.5" width="143.5" height="19.5"/>
+                                        <rect key="frame" x="15" y="18.5" width="116.5" height="19.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="当前登录人:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFO-MK-zYk">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.5" height="19.5"/>
@@ -119,10 +119,10 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="诸葛亮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b41-Dr-fTJ">
-                                                <rect key="frame" x="94.5" y="0.0" width="49" height="19.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b41-Dr-fTJ">
+                                                <rect key="frame" x="94.5" y="0.0" width="22" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="0.82745098039215681" green="0.22745098039215686" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -143,6 +143,9 @@
                                                 <integer key="value" value="14"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginOut:" destination="AzG-dw-RoL" eventType="touchUpInside" id="UqY-4s-3FB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,21 +158,79 @@
                                     <constraint firstItem="VbI-Qu-cSn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WgB-Qr-eJd" secondAttribute="trailing" id="to3-Il-Z6T"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFm-vZ-iPr">
+                                <rect key="frame" x="16" y="245" width="344" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="khK-AZ-oa5">
+                                        <rect key="frame" x="15" y="21" width="120.5" height="19.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 当前版本号:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDm-0G-iWp">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNU-b0-PKS">
+                                                <rect key="frame" x="98.5" y="0.0" width="22" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="khK-AZ-oa5" firstAttribute="leading" secondItem="mFm-vZ-iPr" secondAttribute="leading" constant="15" id="I9S-Bt-t2u"/>
+                                    <constraint firstAttribute="bottom" secondItem="khK-AZ-oa5" secondAttribute="bottom" constant="19.5" id="Q1l-r3-J0l"/>
+                                    <constraint firstItem="khK-AZ-oa5" firstAttribute="top" secondItem="mFm-vZ-iPr" secondAttribute="top" constant="21" id="bhn-Cl-u2H"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pU-8h-eDq">
+                                <rect key="frame" x="15" y="530" width="345" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="vos-LR-3aZ"/>
+                                </constraints>
+                                <state key="normal" title="退出当前门店">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginOutCurrentStore:" destination="AzG-dw-RoL" eventType="touchUpInside" id="xgD-lU-YKL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="xNd-6f-ERK" firstAttribute="trailing" secondItem="5pU-8h-eDq" secondAttribute="trailing" constant="15" id="B5E-aM-wDI"/>
+                            <constraint firstItem="xNd-6f-ERK" firstAttribute="bottom" secondItem="5pU-8h-eDq" secondAttribute="bottom" constant="28" id="IV8-0E-yDS"/>
+                            <constraint firstItem="xNd-6f-ERK" firstAttribute="trailing" secondItem="mFm-vZ-iPr" secondAttribute="trailing" constant="15" id="Xmo-vU-JtC"/>
+                            <constraint firstItem="5pU-8h-eDq" firstAttribute="leading" secondItem="xNd-6f-ERK" secondAttribute="leading" constant="15" id="a5v-9A-ztt"/>
                             <constraint firstItem="7jL-Se-Qyh" firstAttribute="top" secondItem="qth-oX-r6B" secondAttribute="top" id="apI-6H-uu0"/>
                             <constraint firstItem="xNd-6f-ERK" firstAttribute="trailing" secondItem="WwB-tY-bCT" secondAttribute="trailing" constant="15" id="bDl-1I-x3f"/>
                             <constraint firstItem="WwB-tY-bCT" firstAttribute="top" secondItem="7jL-Se-Qyh" secondAttribute="bottom" constant="-28" id="jEv-pA-8QX"/>
                             <constraint firstItem="7jL-Se-Qyh" firstAttribute="leading" secondItem="xNd-6f-ERK" secondAttribute="leading" id="lLZ-t2-mZi"/>
+                            <constraint firstItem="mFm-vZ-iPr" firstAttribute="leading" secondItem="xNd-6f-ERK" secondAttribute="leading" constant="16" id="p89-RJ-gUn"/>
                             <constraint firstItem="xNd-6f-ERK" firstAttribute="trailing" secondItem="7jL-Se-Qyh" secondAttribute="trailing" id="qBR-II-hCk"/>
                             <constraint firstItem="WwB-tY-bCT" firstAttribute="leading" secondItem="xNd-6f-ERK" secondAttribute="leading" constant="15" id="t3P-je-rD3"/>
+                            <constraint firstItem="mFm-vZ-iPr" firstAttribute="top" secondItem="WwB-tY-bCT" secondAttribute="bottom" constant="10" id="yBN-jy-p9s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xNd-6f-ERK"/>
                     </view>
                     <navigationItem key="navigationItem" id="hdu-BW-Scf">
                         <barButtonItem key="leftBarButtonItem" title="个人中心" id="ao0-bv-csA"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="currentVersion" destination="mNU-b0-PKS" id="psC-Ab-byM"/>
+                        <outlet property="loginUserName" destination="b41-Dr-fTJ" id="dVS-mQ-OXV"/>
+                        <outlet property="storeName" destination="BGM-Id-Ull" id="5kW-7Q-vv2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efU-DP-eE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

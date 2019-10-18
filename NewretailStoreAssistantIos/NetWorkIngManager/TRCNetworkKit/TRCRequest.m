@@ -290,7 +290,6 @@
         
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         
         
         self.task = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -304,7 +303,6 @@
                 return;
             }
             
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             
             // 判断是否需要缓存数据
             if (self.useCache && responseObject && [response isKindOfClass:[NSHTTPURLResponse class]]) {

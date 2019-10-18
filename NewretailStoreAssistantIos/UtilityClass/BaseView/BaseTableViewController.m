@@ -7,7 +7,7 @@
 //
 
 #import "BaseTableViewController.h"
-
+#import "UITableView+FooterManager.h"
 
 @interface BaseTableViewController ()
 
@@ -35,7 +35,10 @@
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
-    
+    self.tableView.emptyDataSetSource   = self;
+     self.tableView.emptyDataSetDelegate = self;
+    self.tableView.autoHideMjFooter = YES;
+ 
     // 去除最后的分割钱 plain
     self.tableView.tableFooterView = [[UIView alloc] init];
     
@@ -84,7 +87,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    
 }
 
 - (PageModel *)pageInfo {
@@ -159,11 +161,7 @@
     self.defaultCellReuseIdentifier = identifier;
     [self.tableView registerClass:class forCellReuseIdentifier:identifier];
 }
-#pragma mark 下拉刷新
-- (void)pullToRefresh {
-    
-    [self requestTableViewDataSource];
-}
+
 
 #pragma mark scrollView内容移动到顶层
 - (void)scrollToTop:(BOOL)animated {
@@ -207,24 +205,24 @@
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+
     return [self.dataSource count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     NSInteger row = [indexPath row];
-    
+
     BaseTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"BaseTableViewCell"];
-    
+
     if ([self.dataSource count] > row) {
-        
+
         id model = [self.dataSource objectAtIndex:row];
         [cell setUpWithModel:model];
     }
-    
-    
+
+
     return cell;
 }
 
@@ -240,7 +238,33 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark  DZNEmptyDataSetSource
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+
+    return [UIImage imageNamed:@"NoContent"];
+
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    
+    NSMutableAttributedString *titleStr = [[NSMutableAttributedString alloc]initWithString:@"暂无内容"];
+    UIFont *font = [UIFont systemFontOfSize:15.0];
+
+    [titleStr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, titleStr.length)];
+    [titleStr addAttribute:NSForegroundColorAttributeName value:[TRCColor colorFromHexCode:@"#353535"] range:NSMakeRange(0, titleStr.length)];
+
+    return titleStr;
+}
+
+- (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView {
+    return YES;
+}
+- (void)emptyDataSetWillAppear:(UIScrollView *)scrollView {
+    self.tableView.contentOffset = CGPointZero;
+}
 #if 0
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -259,6 +283,7 @@
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
 }
+
 #endif
 /*
 #pragma mark - Navigation

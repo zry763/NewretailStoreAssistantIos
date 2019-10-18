@@ -13,6 +13,10 @@
 #import "BookResultDetailViewController.h"
 
 @interface CheckBookViewController ()
+{
+    AssistantRequest *returnBookConfirmRequest;
+    
+}
 @property (strong ,nonatomic) BorringProcessView *processView;
 @property (strong ,nonatomic) ReturnBookHeaderView *checkListHeaderView;
 @end
@@ -25,6 +29,7 @@
     [self registerCellWithNibName:NSStringFromClass([CheckBookTableViewCell class]) reuseIdentifier:NSStringFromClass([CheckBookTableViewCell class])];
     // Do any additional setup after loading the view.
 }
+
 -(void)setupTableView{
     [super setupTableView];
     [self.view addSubview:self.processView];
@@ -71,7 +76,20 @@
     BookResultDetailViewController *bookResultVC =[[BookResultDetailViewController alloc]init];
     bookResultVC.stepNum = 3;
     [bookResultVC.goonBorringBT setTitle:@"继续归还" forState:UIControlStateNormal];
-    [self.navigationController pushViewController: bookResultVC animated:YES];
+    
+    if (returnBookConfirmRequest) {
+        [returnBookConfirmRequest cancel];
+        returnBookConfirmRequest = nil;
+        
+    }
+    returnBookConfirmRequest = [AssistantTask libraryManageReturnBookWithBookId:[NSString stringWithFormat:@"%ld",(long)self.returnRecordInfo.recordID] successBlock:^(TRCResult *resultInfo) {
+        if (resultInfo.responseCode == 0) {
+            [self.navigationController pushViewController: bookResultVC animated:YES];
+
+        }
+    } failureBlock:^(TRCResult *result) {
+        
+    }];
     NSLog(@"确认归还");
 }
 -(BorringProcessView *)processView{
@@ -102,11 +120,16 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.returnRecordInfo.list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CheckBookTableViewCell *cell =[self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CheckBookTableViewCell class]) forIndexPath:indexPath];
+
+    ReturnBookRecordInfo *bookInfo = [self.returnRecordInfo.list objectAtIndex:indexPath.row];
+    
+    [cell setUpWithModel:bookInfo];
+    
 
     return cell;
 }

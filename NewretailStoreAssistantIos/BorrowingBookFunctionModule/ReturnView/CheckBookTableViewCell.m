@@ -20,5 +20,13 @@
 
     // Configure the view for the selected state
 }
-
+-(void)setUpWithModel:(id)model{
+    
+    ReturnBookRecordInfo *bookInfo = (ReturnBookRecordInfo *)model;
+    
+    [self.bookName setText:bookInfo.productName];
+    [self.borringCount setText:[NSString stringWithFormat:@"x%@",[NSNumber numberWithInteger:bookInfo.lendingCount]]];
+    
+    
+}
 @end

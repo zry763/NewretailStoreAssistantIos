@@ -29,7 +29,6 @@
 - (void)initData {
     
     _currPage = 1;
-    _totalPage = 0;
     _pageSize = 10;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "BorringInfoTableViewCell.h"
+#import "VipReturnInfoModel.h"
 
 @implementation BorringInfoTableViewCell
 
@@ -21,8 +22,12 @@
     // Configure the view for the selected state
 }
 -(void)setUpWithModel:(id)model{
+    ReturnRecords *recordMode = (ReturnRecords *)model;
     
-    
+    [self.borringTime setText:recordMode.lendingTime];
+    [self.returnTime setText:recordMode.shouldReturnTime];
+    [self.borringCount setText:[NSString stringWithFormat:@"%@",[NSNumber numberWithInteger:recordMode.lendingCount]]];
+
     
 }
 

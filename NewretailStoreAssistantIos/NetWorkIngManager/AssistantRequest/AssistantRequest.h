@@ -10,6 +10,34 @@
 /**
  *  用户未登录或token失效，退出登录状态
  */
+
+typedef NS_ENUM(NSInteger, TRCAccountCenterStatusCodeType) {
+    
+    
+    /**
+     *  请求成功
+     */
+    TRCAccountCenterStatusCodeTypeRequsetSuccess = 0000,
+    
+    
+    /**
+     *  请求出错
+     */
+    TRCAccountCenterStatusCodeTypeRequsetFailure = 4000,
+    
+    
+    /**
+     *  Session超时
+     */
+    TRCAccountCenterStatusCodeTypeSessionTimeOut = 4001,
+    
+    
+    /**
+     *  服务器出错
+     */
+    TRCAccountCenterStatusCodeTypeServerError = 4002,
+    
+};
 static NSString *const TRCAccountCenteTokenInvalidNotification = @"TRCAccountCenteTokenInvalidNotification";
 NS_ASSUME_NONNULL_BEGIN
 

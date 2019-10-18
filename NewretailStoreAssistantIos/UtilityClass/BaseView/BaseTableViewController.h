@@ -9,10 +9,11 @@
 #import "BaseViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import "PageModel.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface BaseTableViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 /**
  *  PageModel
  */
@@ -69,12 +70,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier 重用标示符
  */
 - (void)registerCellWithClassName:(NSString *)className reuseIdentifier:(NSString *)identifier;
-
-
-/**
- *  下拉刷新（开启自定义刷新功能或者开启TRCPullToRefresh都将调用此方法进行下拉刷新）
- */
-- (void)pullToRefresh;
 
 /**
  *  请求列表数据（需重写）

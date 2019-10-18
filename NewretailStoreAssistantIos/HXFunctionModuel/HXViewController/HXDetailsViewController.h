@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HXDetailsViewController : BaseTableViewController
 @property (assign ,nonatomic) BOOL isDisplay;
-//@property(nonatomic ,copy) NSString *typeId;//项目类型id
+@property(nonatomic ,copy) NSString *typeId;//项目类型id
 @property(nonatomic ,copy) NSString *reservationCode;//项目类型id
+@property(nonatomic ,assign) BOOL confirmBtDisplay;//项目类型id
 
 @end
 

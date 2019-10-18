@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HXSearchViewController : BaseTableViewController
+@interface HXSearchViewController : BaseTableViewController<UISearchBarDelegate>
+@property(nonatomic ,copy) NSString *typeId;//项目类型id
 
 @end
 

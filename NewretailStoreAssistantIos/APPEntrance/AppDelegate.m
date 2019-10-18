@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "IQKeyboardManager.h"
+#import <AFNetworkReachabilityManager.h>
 @interface AppDelegate ()
 
 @end
@@ -27,12 +28,110 @@
     keyboardManager.enableAutoToolbar = NO;
     self.window.backgroundColor = [UIColor whiteColor];
     [[UINavigationBar appearance] setTintColor:UIColor.blackColor];
+    
+
+    UIStoryboard *rootBoard;
+    UIViewController *rootVC;
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+
+    if (![userDefault boolForKey:@"first"]) {
+        [userDefault setBool:YES forKey:@"first"];
+        rootBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:[NSBundle mainBundle]];
+
+    }else{
+        rootBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    }
+
+    rootVC = [rootBoard instantiateInitialViewController];
+    self.window.rootViewController = rootVC;
 
 
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(checkworking) name:AFNetworkingReachabilityDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(loginError) name:@"STORELOGINERROR" object:nil];
+
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 
     // Override point for customization after application launch.
     return YES;
 }
+-(void)loginError{
+    
+    
+        [[UserInfoModel sharedInstance] logout];
+   
+        UIStoryboard *loginBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:[NSBundle mainBundle]];
+        UIViewController *destVC = [loginBoard instantiateInitialViewController];
+        destVC.modalPresentationStyle =  UIModalPresentationFullScreen;
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:destVC animated:YES completion:nil];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"first"];
+        
+    
+    
+    
+}
+#pragma mark 网络检测
+-(void)checkworking
+
+{
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+          switch (status) {
+                            case AFNetworkReachabilityStatusNotReachable:
+                
+                                [self alercontroller:0];
+                
+                                break;
+                
+                            case AFNetworkReachabilityStatusReachableViaWWAN:
+                
+                                [self alercontroller:1];
+                                break;
+                
+                
+                            case AFNetworkReachabilityStatusReachableViaWiFi:
+                
+                                [self alercontroller:2];
+                                break;
+                
+                
+                            default:
+                
+                                break;
+                
+                    }}];
+
+    
+    
+}
+// 设置弹窗
+
+
+
+-(void)alercontroller:(int)stu
+{
+    NSString *netToast ;
+    
+    switch (stu) {
+        case 0:
+            netToast =@"当前无网络访问";
+            break;
+        case 1:
+            netToast =@"当前网络为2/3/4G网络";
+
+            break;
+        case 2:
+            netToast =@"当前网络为wifi网络";
+
+            break;
+        default:
+            break;
+    }
+    [[UIApplication sharedApplication].keyWindow makeToast:netToast duration:1 position:CSToastPositionCenter];
+
+}
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

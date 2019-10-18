@@ -17,9 +17,8 @@
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aO8-5n-NIl">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                     <subviews>
-                        <searchBar contentMode="redraw" placeholder="输入会员手机号、活动名称搜索" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-au-zag">
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="输入会员手机号、活动名称搜索" translatesAutoresizingMaskIntoConstraints="NO" id="IJ1-au-zag">
                             <rect key="frame" x="0.0" y="0.0" width="358" height="40"/>
-                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-At-Mbr">

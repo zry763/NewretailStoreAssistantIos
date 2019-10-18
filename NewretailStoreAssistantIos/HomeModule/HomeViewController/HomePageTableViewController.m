@@ -10,6 +10,8 @@
 #import "HxListViewController.h"
 #import "BorringHomeViewController.h"
 #import "StoreInfoModel.h"
+
+#import "HXSearchViewController.h"
 UserInfoModel *infomodel =nil;
 
 @interface HomePageTableViewController ()
@@ -46,6 +48,8 @@ UserInfoModel *infomodel =nil;
         
     } failureBlock:^(TRCResult *result) {
         [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+        [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
+
     }];
     
 }
@@ -75,6 +79,7 @@ UserInfoModel *infomodel =nil;
                 case 100:
                     backTitle = @"库存盘点";
                     [weakSelf resetBackButtonTitleWith:backTitle and:[UIColor clearColor]];
+//                    [weakSelf.navigationController pushViewController:[[HXSearchViewController alloc]init] animated:YES];
 
                     break;
                 case 101:

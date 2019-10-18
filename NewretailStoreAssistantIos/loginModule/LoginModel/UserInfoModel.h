@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UserInfoModel : NSObject <NSCoding>
 
 + (id)sharedInstance;
-
 /**
  *  解档
  */

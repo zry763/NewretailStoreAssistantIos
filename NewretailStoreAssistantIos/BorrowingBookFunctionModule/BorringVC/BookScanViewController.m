@@ -8,8 +8,13 @@
 
 #import "BookScanViewController.h"
 #import "BorringProcessView.h"
+#import "BorringInfoViewController.h"
+#import "AssociateMemberViewController.h"
 
 @interface BookScanViewController ()
+{
+    AssistantRequest *getuserIdRequest;
+}
 @property (strong ,nonatomic) BorringProcessView *processView;
 
 @end
@@ -51,6 +56,49 @@
         _processView = [BorringProcessView viewFromNib];
     }
     return _processView;
+}
+#pragma mark 扫码结果处理
+- (void)scanResultWithArray:(NSArray<LBXScanResult*>*)array
+{
+    LBXScanResult *scanResult;
+    if (array.count == 1) {
+         scanResult = [array objectAtIndex:0];
+        NSLog(@"strScanned=%@",scanResult.strScanned);
+        
+        UIViewController *destVC;
+        AssociateMemberViewController *associateVC;
+        BorringInfoViewController *borringVC;
+           if (borringOrReturnFlag) {//借书
+               borringVC = [[BorringInfoViewController alloc]init];
+               borringVC.stepNum = 2;
+               destVC = borringVC;
+                       
+           }else//还书
+           {
+               associateVC = [[AssociateMemberViewController alloc]init];
+               associateVC.stepNum = 1;
+               destVC = associateVC;
+           }
+
+           if (getuserIdRequest) {
+               [getuserIdRequest cancel];
+               getuserIdRequest = nil;
+           }
+           //获取会员id
+           getuserIdRequest = [AssistantTask vipInfoWithNumber:scanResult.strScanned successBlock:^( NSString *vipInfoID) {
+               if (borringOrReturnFlag) {
+                   borringVC.strScannedUserId = vipInfoID;
+               }else
+                   associateVC.strScannedUserId = vipInfoID;
+               [self.navigationController pushViewController:destVC animated:YES];
+
+           } failureBlock:^(TRCResult *result) {
+               
+           }];
+        
+    }else
+        [self.view makeToast:@"为查询到该会员信息"];
+
 }
 
 /*

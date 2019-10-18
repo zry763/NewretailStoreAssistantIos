@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CheckBookViewController : BaseTableViewController
-
+@property (nonatomic ,strong) ReturnRecords *returnRecordInfo;
 @end
 
 NS_ASSUME_NONNULL_END

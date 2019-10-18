@@ -36,6 +36,10 @@
     [super viewDidLoad];
     
     self.navigationBarHidden = YES;
+    NSString *storeNumber = [[NSUserDefaults standardUserDefaults]objectForKey:@"storeNumber"];
+    if (storeNumber) {
+        [self.storeIDField setText:storeNumber];
+    }
 
 
 
@@ -148,25 +152,28 @@
     
     [AssistantTask loginWithPhoneNumber:@"admin" password:@"admin@123" storeID:@"3462566" successBlock:^(UserInfoModel * _Nonnull infoModel) {
         
-        
+        if (self.presentingViewController) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }else
         [self.navigationController presentViewController:destVC animated:YES completion:nil];
+        [self dismissMaskView];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"first"];
 
         
     } failureBlock:^(TRCResult *result) {
-        
-        [self.view makeToast:@"请联系管理员" duration:3 position:CSToastPositionCenter];
+        [self dismissMaskView];
+
+        [self.view makeToast:result.responseContent duration:3 position:CSToastPositionCenter];
 
     }];
     
 
-//    [self.view addSubview:self.maskView];
-//    [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.view);
-//    }];
-//
-//    [self showLoading:self.maskView title:@"正在登录"];
-//
-//    [self performSelector:@selector(dismissMaskView) withObject:self afterDelay:3];
+    [self.view addSubview:self.maskView];
+    [self.maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+
+    [self showLoading:self.maskView title:@"正在登录"];
     
     
 }

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HXStateViewController : BaseTableViewController
 @property(nonatomic ,copy) NSString *typeId;//项目类型id
+@property(nonatomic ,copy) NSString *incompleteNum;//项目类型id
+@property(nonatomic ,copy) NSString *completedNum;//项目类型id
 
 @end
 

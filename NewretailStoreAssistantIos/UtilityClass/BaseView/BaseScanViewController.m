@@ -52,6 +52,13 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self startScan];
+
+    
+}
+
 -(LBXScanViewStyle*)style{
     if (!_style) {
         _style=[[LBXScanViewStyle alloc]init];
@@ -191,30 +198,7 @@
     
     
 }
-//
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-//
-//    [self drawScanView];
-//
-//    [self requestCameraPemissionWithResult:^(BOOL granted) {
-//
-//        if (granted) {
-//
-//            //不延时，可能会导致界面黑屏并卡住一会
-//            [self performSelector:@selector(startScan) withObject:nil afterDelay:0.3];
-//
-//        }else{
-//
-//#ifdef LBXScan_Define_UI
-//            [_qRScanView stopDeviceReadying];
-//#endif
-//
-//        }
-//    }];
-//
-//}
+
 
 //绘制扫描区域
 - (void)drawScanView
