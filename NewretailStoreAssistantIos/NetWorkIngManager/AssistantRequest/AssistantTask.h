@@ -20,6 +20,7 @@
 #import "libraryRecordModel.h"
 #import "VipLendInfoModel.h"
 #import "VipReturnInfoModel.h"
+#import "LendResultInfo.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AssistantTask : NSObject
@@ -132,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (AssistantRequest *)hxCheckItemInfoWithTypeId:(NSString*)typeId
                                reservationCode :(NSString*)reservationCode
-                                   successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                   successBlock:(void(^) (TRCResult *checkResult))successBlock
                                    failureBlock:(TRCRequestFinishedBlock)failureBlock;
 
 /**
@@ -169,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
 *
  */
 + (AssistantRequest *)libraryManageSaveInfoWithRecord:(libraryRecordModel*)record
-                                     successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                     successBlock:(void(^) (LendResultInfo *projectItemDetailModel))successBlock
                                      failureBlock:(TRCRequestFinishedBlock)failureBlock;
 
 /**
@@ -179,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (AssistantRequest *)libraryManagevlidateWithUserId:(NSString*)userId
                                              goodsSn:(NSString*)goodsSn
-                                        successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                        successBlock:(void(^) (TRCResult *goodInfo))successBlock
                                         failureBlock:(TRCRequestFinishedBlock)failureBlock;
 
 

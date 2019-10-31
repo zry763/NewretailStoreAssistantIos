@@ -7,6 +7,7 @@
 //
 
 #import "OrderInfoPresentationController.h"
+#import "BorringInputViewController.h"
 
 @implementation OrderInfoPresentationController
 
@@ -90,7 +91,13 @@
     
     CGFloat windowW = [UIScreen mainScreen].bounds.size.width;
    //弹出视图的位置及大小设定
-    self.presentedView.bounds = CGRectMake(0, 0, windowW - 30, windowH-250);
+    
+    if ([self.presentedViewController isKindOfClass:[BorringInputViewController class]]) {
+        self.presentedView.bounds = CGRectMake(0, 0, windowW - 30, 250);
+        
+    }else
+        self.presentedView.bounds = CGRectMake(0, 0, windowW - 30, windowH-250);
+
     self.presentedView.center=CGPointMake(windowW/2, windowH/2);
     self.presentedView.layer.cornerRadius = 8;
     self.presentedView.layer.masksToBounds =YES;

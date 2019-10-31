@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HXInputViewController : BaseViewController
+@property(nonatomic ,copy) NSString *typeId;//项目类型id
 
 @end
 

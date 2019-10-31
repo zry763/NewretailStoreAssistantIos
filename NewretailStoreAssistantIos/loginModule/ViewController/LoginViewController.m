@@ -55,7 +55,7 @@
 - (void)setupSubviews {
     [self.passwordLock setImage:[UIImage imageNamed:@"lock"] forState:UIControlStateNormal];
     [self.passwordLock setImage:[UIImage imageNamed:@"unLock"] forState:UIControlStateSelected];
-    [self.loginBT setEnabled:YES];
+    [self.loginBT setEnabled:NO];
 }
 
 
@@ -133,24 +133,24 @@
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     UIViewController *destVC = [main instantiateInitialViewController];
     destVC.modalPresentationStyle =  UIModalPresentationFullScreen;
-//    if ([[self endEditTextFiled:self.storeIDField] isEqualToString:@""]) {
-//          [self.view makeToast:@"请输入门店编号" duration:1 position:CSToastPositionCenter];
-//          return;
-//
-//      }
-//    if ([[self endEditTextFiled:self.userPhoneID] isEqualToString:@""]) {
-//        [self.view makeToast:@"请输入电话号码" duration:1 position:CSToastPositionCenter];
-//        return;
-//    }
-//    if ([[self endEditTextFiled:self.userPassword] isEqualToString:@""]) {
-//        [self.view makeToast:@"请输入密码" duration:1 position:CSToastPositionCenter];
-//        return;
-//
-//    }
+    if ([[self endEditTextFiled:self.storeIDField] isEqualToString:@""]) {
+          [self.view makeToast:@"请输入门店编号" duration:1 position:CSToastPositionCenter];
+          return;
+
+      }
+    if ([[self endEditTextFiled:self.userPhoneID] isEqualToString:@""]) {
+        [self.view makeToast:@"请输入电话号码" duration:1 position:CSToastPositionCenter];
+        return;
+    }
+    if ([[self endEditTextFiled:self.userPassword] isEqualToString:@""]) {
+        [self.view makeToast:@"请输入密码" duration:1 position:CSToastPositionCenter];
+        return;
+
+    }
   
 
     
-    [AssistantTask loginWithPhoneNumber:@"admin" password:@"admin@123" storeID:@"3462566" successBlock:^(UserInfoModel * _Nonnull infoModel) {
+    [AssistantTask loginWithPhoneNumber:self.userPhoneID.text password:self.userPassword.text storeID:self.storeIDField.text successBlock:^(UserInfoModel * _Nonnull infoModel) {
         
         if (self.presentingViewController) {
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -229,27 +229,27 @@
 }
 
 #pragma mark - UITextField Delegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSMutableString * newString = [NSMutableString stringWithString:textField.text];
-    [newString replaceCharactersInRange:range withString:string];
-    if (textField == self.userPhoneID) {
-        
-    if ([newString length] > INPUT_PHONE_NUMBER_LENGTH + 2){
-        self.isValidInputText = NO;
-        return NO;
-    }
-    
-    // 转换手机号码的输入显示格式  中间加空格
-    self.userPhoneID.text = [self changePhoneForInputTextField:textField.text];
-    
-    if (newString.length >= 0 && newString.length <= INPUT_PHONE_NUMBER_LENGTH + 2) {
-        self.isValidInputText = YES;
-    } else {
-        self.isValidInputText = NO;
-    }
-    }
-    return YES;
-}
+//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+//    NSMutableString * newString = [NSMutableString stringWithString:textField.text];
+//    [newString replaceCharactersInRange:range withString:string];
+//    if (textField == self.userPhoneID) {
+//
+//    if ([newString length] > INPUT_PHONE_NUMBER_LENGTH + 2){
+//        self.isValidInputText = NO;
+//        return NO;
+//    }
+//
+//    // 转换手机号码的输入显示格式  中间加空格
+//    self.userPhoneID.text = [self changePhoneForInputTextField:textField.text];
+//
+//    if (newString.length >= 0 && newString.length <= INPUT_PHONE_NUMBER_LENGTH + 2) {
+//        self.isValidInputText = YES;
+//    } else {
+//        self.isValidInputText = NO;
+//    }
+//    }
+//    return YES;
+//}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     

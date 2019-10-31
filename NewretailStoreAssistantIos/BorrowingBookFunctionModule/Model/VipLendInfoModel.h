@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger outTimeCount;
 
+@property (nonatomic, assign) NSInteger couldLendFlag;//0 不能再借 1 可以借书
+
 @property (nonatomic, assign) NSInteger waitingReturnCount;
 
 @property (nonatomic, assign) NSInteger remainCount;

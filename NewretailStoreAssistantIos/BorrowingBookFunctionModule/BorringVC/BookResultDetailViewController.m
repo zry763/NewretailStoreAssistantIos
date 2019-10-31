@@ -68,7 +68,8 @@
     }];
     [self.processView setupViewWithModel:self.stepModel];
  
-    
+    [self.borringResultView.lendCount setText:self.lendCount];
+    [self.borringResultView.shouldReturnTime setText: self.renturnTime];
 
 }
 

@@ -27,7 +27,7 @@
     if (goodModel) {
         
         [self.itemDescribleLable setText:goodModel.goodsName];
-        [self.itemCount setText:[NSString stringWithFormat:@"%ld",(long)goodModel.number]];
+        [self.itemCount setText:[NSString stringWithFormat:@"x%ld",(long)goodModel.number]];
         
     }
 

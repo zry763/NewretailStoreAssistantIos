@@ -43,7 +43,8 @@
         [self.tableView reloadData];
         
     } failureBlock:^(TRCResult *result) {
-        
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+
     }];
     
 }

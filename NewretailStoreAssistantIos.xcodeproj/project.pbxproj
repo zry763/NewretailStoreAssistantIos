@@ -65,6 +65,7 @@
 		5B289667234D7F3D0025F4DD /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B289666234D7F3D0025F4DD /* UserInfoModel.m */; };
 		5B28966B234DC0A30025F4DD /* StoreInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B28966A234DC0A30025F4DD /* StoreInfoModel.m */; };
 		5B28966F234DD5B90025F4DD /* ProjectItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B28966E234DD5B90025F4DD /* ProjectItemModel.m */; };
+		5B319052235D833500905B97 /* LendResultInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B319050235D833400905B97 /* LendResultInfo.m */; };
 		5B345783235999DB00B5EFFE /* VipLendInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B345782235999DB00B5EFFE /* VipLendInfoModel.m */; };
 		5B345786235999F000B5EFFE /* VipReturnInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B345785235999F000B5EFFE /* VipReturnInfoModel.m */; };
 		5B394AB22327A09D00C37DAF /* NSArray+Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B394AAF2327A09D00C37DAF /* NSArray+Crash.m */; };
@@ -265,6 +266,8 @@
 		5B28966A234DC0A30025F4DD /* StoreInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreInfoModel.m; sourceTree = "<group>"; };
 		5B28966D234DD5B90025F4DD /* ProjectItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectItemModel.h; sourceTree = "<group>"; };
 		5B28966E234DD5B90025F4DD /* ProjectItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectItemModel.m; sourceTree = "<group>"; };
+		5B319050235D833400905B97 /* LendResultInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LendResultInfo.m; sourceTree = "<group>"; };
+		5B319051235D833500905B97 /* LendResultInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LendResultInfo.h; sourceTree = "<group>"; };
 		5B345781235999DB00B5EFFE /* VipLendInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VipLendInfoModel.h; sourceTree = "<group>"; };
 		5B345782235999DB00B5EFFE /* VipLendInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VipLendInfoModel.m; sourceTree = "<group>"; };
 		5B345784235999F000B5EFFE /* VipReturnInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VipReturnInfoModel.h; sourceTree = "<group>"; };
@@ -382,6 +385,7 @@
 		5BFF3D7B2338C4A400F8D3F9 /* BorringInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BorringInfoViewController.m; sourceTree = "<group>"; };
 		5BFF3D7C2338C4A400F8D3F9 /* BorringInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorringInfoViewController.xib; sourceTree = "<group>"; };
 		6A25096CC7469474E89B47D6 /* Pods_NewretailStoreAssistantIos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewretailStoreAssistantIos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A6800FAD66BFB939AD12D22 /* Pods-NewretailStoreAssistantIos.testrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewretailStoreAssistantIos.testrelease.xcconfig"; path = "Target Support Files/Pods-NewretailStoreAssistantIos/Pods-NewretailStoreAssistantIos.testrelease.xcconfig"; sourceTree = "<group>"; };
 		AAE0F5007316EEA4DA8394E3 /* Pods-NewretailStoreAssistantIos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewretailStoreAssistantIos.release.xcconfig"; path = "Target Support Files/Pods-NewretailStoreAssistantIos/Pods-NewretailStoreAssistantIos.release.xcconfig"; sourceTree = "<group>"; };
 		EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewretailStoreAssistantIos.pch; sourceTree = "<group>"; };
 		EA8ADB092338FED2004FC1BC /* BorringBookScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BorringBookScanViewController.h; sourceTree = "<group>"; };
@@ -427,6 +431,7 @@
 			children = (
 				1ACCBF6C939030D803457E5B /* Pods-NewretailStoreAssistantIos.debug.xcconfig */,
 				AAE0F5007316EEA4DA8394E3 /* Pods-NewretailStoreAssistantIos.release.xcconfig */,
+				8A6800FAD66BFB939AD12D22 /* Pods-NewretailStoreAssistantIos.testrelease.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -872,6 +877,8 @@
 		5B63F6432339A9C000DD7924 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B319051235D833500905B97 /* LendResultInfo.h */,
+				5B319050235D833400905B97 /* LendResultInfo.m */,
 				5BFF3D762338AEB900F8D3F9 /* StepModel.h */,
 				5BFF3D772338AEB900F8D3F9 /* StepModel.m */,
 				5B345781235999DB00B5EFFE /* VipLendInfoModel.h */,
@@ -942,14 +949,11 @@
 				5B04762C232F8F820016134E /* HomeModule */,
 				5B263CED2331F0F3005FAF16 /* HXFunctionModuel */,
 				5B0D66DA2334CEF60058F9AF /* BorrowingBookFunctionModule */,
-				5B8F5F732328CC1F0068A275 /* LoginStoryboard.storyboard */,
-				5B66280E2325E28600084F97 /* Main.storyboard */,
-				5B6628112325E29200084F97 /* Assets.xcassets */,
-				5B6628132325E29200084F97 /* LaunchScreen.storyboard */,
-				5B04762B232F73E60016134E /* GlobalHeader.h */,
 				5B082FCC233B4DAF00A264E3 /* PersonalModuel */,
-				EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */,
+				5BE3C1DE236AB91C00E2498A /* heard */,
+				5BE3C1DD236AB8A900E2498A /* StoryBoard */,
 				5B6628162325E29200084F97 /* Info.plist */,
+				5B6628112325E29200084F97 /* Assets.xcassets */,
 				5B6628172325E29200084F97 /* main.m */,
 			);
 			path = NewretailStoreAssistantIos;
@@ -1024,6 +1028,25 @@
 				5B456F412356E70A00B7606E /* UITableView+FooterManager.m */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		5BE3C1DD236AB8A900E2498A /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				5B66280E2325E28600084F97 /* Main.storyboard */,
+				5B8F5F732328CC1F0068A275 /* LoginStoryboard.storyboard */,
+				5B6628132325E29200084F97 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		5BE3C1DE236AB91C00E2498A /* heard */ = {
+			isa = PBXGroup;
+			children = (
+				5B04762B232F73E60016134E /* GlobalHeader.h */,
+				EA6A11E3232E6DAF0062DC04 /* NewretailStoreAssistantIos.pch */,
+			);
+			path = heard;
 			sourceTree = "<group>";
 		};
 		5BFF3D702338A70200F8D3F9 /* View */ = {
@@ -1367,6 +1390,7 @@
 				5B263CEB2331DD45005FAF16 /* FunctionTableViewCell.m in Sources */,
 				5B047614232F37FE0016134E /* NSString+Sha1.m in Sources */,
 				5B8F60522328FCC30068A275 /* ResetTextField.m in Sources */,
+				5B319052235D833500905B97 /* LendResultInfo.m in Sources */,
 				5BFD828F23332FBF0024FDCF /* HXfootView.m in Sources */,
 				5BF57FD32341D66D0088BDCE /* AssistantTask.m in Sources */,
 				5B04761F232F37FE0016134E /* TRCTimeUtil.m in Sources */,
@@ -1433,7 +1457,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5B456F3C2356A94C00B7606E /* TestRelease */ = {
+		5B5A7AC323604689002FA799 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1487,12 +1511,13 @@
 			};
 			name = TestRelease;
 		};
-		5B456F3D2356A94C00B7606E /* TestRelease */ = {
+		5B5A7AC423604689002FA799 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAE0F5007316EEA4DA8394E3 /* Pods-NewretailStoreAssistantIos.release.xcconfig */;
+			baseConfigurationReference = 8A6800FAD66BFB939AD12D22 /* Pods-NewretailStoreAssistantIos.testrelease.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = P8SJC79N67;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1502,13 +1527,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zry.identifier.NewretailStoreAssistantIos;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = come.newStore.NewretailStoreAssistantIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = TestRelease;
 		};
-		5B456F3E2356A94C00B7606E /* TestRelease */ = {
+		5B5A7AC523604689002FA799 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1527,7 +1553,7 @@
 			};
 			name = TestRelease;
 		};
-		5B456F3F2356A94C00B7606E /* TestRelease */ = {
+		5B5A7AC623604689002FA799 /* TestRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -1663,6 +1689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = P8SJC79N67;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1672,7 +1699,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zry.identifier.NewretailStoreAssistantIos;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = come.newStore.NewretailStoreAssistantIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1684,6 +1712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0;
 				DEVELOPMENT_TEAM = P8SJC79N67;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1693,7 +1722,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = zry.identifier.NewretailStoreAssistantIos;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = come.newStore.NewretailStoreAssistantIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1781,7 +1811,7 @@
 			buildConfigurations = (
 				5B66282F2325E29200084F97 /* Debug */,
 				5B6628302325E29200084F97 /* Release */,
-				5B456F3C2356A94C00B7606E /* TestRelease */,
+				5B5A7AC323604689002FA799 /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1791,7 +1821,7 @@
 			buildConfigurations = (
 				5B6628322325E29200084F97 /* Debug */,
 				5B6628332325E29200084F97 /* Release */,
-				5B456F3D2356A94C00B7606E /* TestRelease */,
+				5B5A7AC423604689002FA799 /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1801,7 +1831,7 @@
 			buildConfigurations = (
 				5B6628352325E29200084F97 /* Debug */,
 				5B6628362325E29200084F97 /* Release */,
-				5B456F3E2356A94C00B7606E /* TestRelease */,
+				5B5A7AC523604689002FA799 /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1811,7 +1841,7 @@
 			buildConfigurations = (
 				5B6628382325E29200084F97 /* Debug */,
 				5B6628392325E29200084F97 /* Release */,
-				5B456F3F2356A94C00B7606E /* TestRelease */,
+				5B5A7AC623604689002FA799 /* TestRelease */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

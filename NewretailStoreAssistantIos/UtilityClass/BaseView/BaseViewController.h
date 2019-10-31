@@ -57,7 +57,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  请求列表数据（需重写），需要调用[super requestTableViewDataSource];
  */
-
+/**
+ *  是否显示空试图
+ */
+@property (nonatomic, assign) BOOL isLoading;
 - (void)requestTableViewDataSource;
 /**
  *  重置返回标题

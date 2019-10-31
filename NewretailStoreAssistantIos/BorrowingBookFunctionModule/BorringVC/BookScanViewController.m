@@ -72,12 +72,15 @@
                borringVC = [[BorringInfoViewController alloc]init];
                borringVC.stepNum = 2;
                destVC = borringVC;
+               [self resetBackButtonTitleWith:@"会员信息" and: [UIColor clearColor]];
+
                        
            }else//还书
            {
                associateVC = [[AssociateMemberViewController alloc]init];
                associateVC.stepNum = 1;
                destVC = associateVC;
+               [self resetBackButtonTitleWith:@"图书归还" and: [UIColor clearColor]];
            }
 
            if (getuserIdRequest) {
@@ -93,12 +96,15 @@
                [self.navigationController pushViewController:destVC animated:YES];
 
            } failureBlock:^(TRCResult *result) {
-               
+               [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+
            }];
         
     }else
         [self.view makeToast:@"为查询到该会员信息"];
-
+    [self stopScan];
+    
+    [self reStartDevice];
 }
 
 /*

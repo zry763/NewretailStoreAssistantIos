@@ -34,8 +34,8 @@
     UIViewController *rootVC;
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
 
-    if (![userDefault boolForKey:@"first"]) {
-        [userDefault setBool:YES forKey:@"first"];
+    if (![userDefault boolForKey:@"first"] ) {
+//        [userDefault setBool:YES forKey:@"first"];
         rootBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:[NSBundle mainBundle]];
 
     }else{

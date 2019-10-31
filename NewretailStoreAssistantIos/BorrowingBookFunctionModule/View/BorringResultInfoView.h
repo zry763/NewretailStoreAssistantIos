@@ -11,6 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BorringResultInfoView : TRCBaseView
+@property (weak, nonatomic) IBOutlet UILabel *lendCount;
+@property (weak, nonatomic) IBOutlet UILabel *shouldReturnTime;
 
 @end
 

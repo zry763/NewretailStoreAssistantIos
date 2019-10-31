@@ -21,5 +21,17 @@
 
     // Configure the view for the selected state
 }
+-(void) setUpWithModel:(id)model
+{
+    
+    recordList *orderinfo = (recordList*)model;
+    [self.bookName setText:orderinfo.goodSnName];
+    [self.bookCount setText:[NSString stringWithFormat:@"x%ld",(long)orderinfo.lendingCount]];
+    [self.bookNumber setText:orderinfo.goodsSn];
+    
 
+    
+    
+    
+}
 @end

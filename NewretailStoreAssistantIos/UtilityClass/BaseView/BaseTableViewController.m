@@ -10,6 +10,7 @@
 #import "UITableView+FooterManager.h"
 
 @interface BaseTableViewController ()
+@property(nonatomic ,strong) UIActivityIndicatorView *activityView;
 
 @end
 
@@ -67,6 +68,9 @@
     
     
     
+}
+- (void)requestTableViewDataSource
+{
 }
 
 -(void)tableViewEndRefresh{
@@ -197,10 +201,6 @@
 
 
 #pragma mark 请求列表数据（需重写）
-- (void)requestTableViewDataSource {
-    
-    
-}
 
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
@@ -239,17 +239,17 @@
 }
 
 #pragma mark  DZNEmptyDataSetSource
-
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-
+    
+    
     return [UIImage imageNamed:@"NoContent"];
 
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    
+
     NSMutableAttributedString *titleStr = [[NSMutableAttributedString alloc]initWithString:@"暂无内容"];
     UIFont *font = [UIFont systemFontOfSize:15.0];
 
@@ -265,6 +265,60 @@
 - (void)emptyDataSetWillAppear:(UIScrollView *)scrollView {
     self.tableView.contentOffset = CGPointZero;
 }
+
+- (UIView *)customViewForEmptyDataSet:(UIScrollView *)scrollView
+{
+    
+    if ([self.activityView isAnimating]) {
+        [self.activityView stopAnimating];
+        UIView *nocontentView = [[UIView alloc]initWithFrame:CGRectZero];
+        UIImageView *imageview = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"NoContent"]];
+        UILabel *deslable = [[UILabel alloc]init];
+        [deslable setText:@"暂无内容"];
+        [nocontentView addSubview: imageview];
+        [nocontentView addSubview:deslable];
+        [imageview mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(nocontentView).offset(-50);
+            make.centerX.equalTo(nocontentView);
+        }];
+        [deslable mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(nocontentView);
+            make.top.equalTo(imageview.mas_bottom).offset(10);
+        }];
+        
+        return nocontentView;
+        
+    }else
+    {
+        NSLog(@"customViewForEmptyDataSet");
+        UIView *custview = [[UIView alloc]initWithFrame:CGRectZero];
+        self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [custview addSubview:self.activityView];
+        [self.activityView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(custview);
+            make.centerY.equalTo(custview);
+        }];
+        
+        [ self.activityView startAnimating];
+        
+        
+        return  custview;
+        
+    }
+    
+    
+    
+}
+
+
+
+-(UIActivityIndicatorView *)activityView{
+    if (!_activityView) {
+        _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    return _activityView;
+}
+
 #if 0
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     

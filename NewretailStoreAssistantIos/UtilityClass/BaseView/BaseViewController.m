@@ -124,7 +124,7 @@
 #pragma mark - Public Methods
 #pragma mark 请求列表数据（需重写）
 - (void)requestTableViewDataSource {
-    
+    self.isLoading = YES;
 }
 
 -(void)resetBackButtonTitleWith:(NSString * )backTitle and:(UIColor *)color

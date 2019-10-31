@@ -7,10 +7,13 @@
 //
 
 #import "BaseViewController.h"
+typedef void(^orderInfoCount)();
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BorringInputViewController : BaseViewController
+@property (nonatomic,copy) NSString *strScannedUserId;
+@property (nonatomic ,copy) orderInfoCount orderDelegete;
 
 @end
 

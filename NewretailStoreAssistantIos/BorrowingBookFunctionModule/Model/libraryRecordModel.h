@@ -13,13 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface libraryRecordModel : NSObject
 
-@property (nonatomic, assign) NSInteger storeId;
+@property (nonatomic, assign) NSString *storeId;
 
 @property (nonatomic, copy) NSString *lendingOperator;
 
-@property (nonatomic, strong) NSArray *list;
+@property (nonatomic, copy) NSArray *list;
 
-@property (nonatomic, assign) NSInteger userId;
+@property (nonatomic, assign) NSString *userId;
 
 @end
 @interface recordList : NSObject
@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *goodsSn;
 
 @property (nonatomic, assign) NSInteger lendingCount;
+
+@property (nonatomic, copy) NSString *goodSnName;
+
 @end
 
 NS_ASSUME_NONNULL_END

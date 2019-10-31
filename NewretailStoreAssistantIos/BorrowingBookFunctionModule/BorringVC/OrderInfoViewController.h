@@ -10,7 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+typedef void(^orderInfoCount)();
 @interface OrderInfoViewController : BaseTableViewController
+@property (nonatomic ,copy) orderInfoCount orderDelegete;
+
+
 
 @end
 

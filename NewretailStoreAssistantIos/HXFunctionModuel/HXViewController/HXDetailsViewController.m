@@ -24,7 +24,7 @@
 @property(strong ,nonatomic) HXfootView *hxfootView;
 @property(strong ,nonatomic) YYhxItemTableViewCell *hxItemCell;
 @property(strong ,nonatomic) YYhxItemDetailsTableViewCell *hxItemDetailsCell;
-@property(strong ,nonatomic) YYhxItemDescribleTableViewCell *hxItemDescribleCell;
+//@property(strong ,nonatomic) YYhxItemDescribleTableViewCell *hxItemDescribleCell;
 
 @property(strong ,nonatomic) UIButton *hxConfirmBt;
 
@@ -37,6 +37,7 @@
     [super viewDidLoad];
     
     self.tableView.mj_footer = nil;
+    [self registerCellWithNibName:NSStringFromClass([YYhxItemDescribleTableViewCell class]) reuseIdentifier:NSStringFromClass([YYhxItemDescribleTableViewCell class])];
 
     // Do any additional setup after loading the view.
 }
@@ -73,12 +74,25 @@
         self->detailInfoModel =DetailInfoModel;
         
         if (DetailInfoModel.orderStatus == 301) {//=已核销
-            [self.hxfootView setupViewWithModel:DetailInfoModel];
+        
+            if (!self.isDisplay) {
+                self.isDisplay = YES;
+                self.confirmBtDisplay = NO;
+                [self setupSubviews];
+                [self.hxfootView setupViewWithModel:DetailInfoModel];
+            }
 
+        }else{
+            
+            self.isDisplay = NO;
+            if (self.confirmBtDisplay) {
+                [self setupSubviews];
+            }
         }
+        [self.tableView reloadData];
+
 
         [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
-        [self.tableView reloadData];
     } failureBlock:^(TRCResult *result) {
         [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
         [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
@@ -122,13 +136,14 @@
     HxconfirmRequest = [AssistantTask hxConfirmItemWithTypeId:self.typeId reservationCode:self.reservationCode successBlock:^(TRCResult *result) {
         
         if (result.responseCode == 0) {
-            [self.view makeToast:@"核销成功" duration:1 position:CSToastPositionBottom];
+            [self.view makeToast:@"核销成功" duration:1 position:CSToastPositionCenter];
+            [self.tableView.mj_header beginRefreshing];
         }else
-            [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+            [self.view makeToast:result.responseContent duration:1 position:CSToastPositionCenter];
 
             
     } failureBlock:^(TRCResult *result) {
-        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionCenter];
 
     }];
     
@@ -159,47 +174,51 @@
     }
     return _hxItemDetailsCell;
 }
--(YYhxItemDescribleTableViewCell *)hxItemDescribleCell{
-    if (!_hxItemDescribleCell) {
-        [self registerCellWithNibName:NSStringFromClass([YYhxItemDescribleTableViewCell class]) reuseIdentifier:NSStringFromClass([YYhxItemDescribleTableViewCell class])];
-        
-        _hxItemDescribleCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([YYhxItemDescribleTableViewCell class])];
-    }
-    return _hxItemDescribleCell;
-}
+//-(YYhxItemDescribleTableViewCell *)hxItemDescribleCell{
+//    if (!_hxItemDescribleCell) {
+//        [self registerCellWithNibName:NSStringFromClass([YYhxItemDescribleTableViewCell class]) reuseIdentifier:NSStringFromClass([YYhxItemDescribleTableViewCell class])];
+//
+//    }
+//    return _hxItemDescribleCell;
+//}
 
 
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (detailInfoModel.goodsList.count == 0) {
-        return 2;
-    }
     return 3;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 2) {
+        return detailInfoModel.goodsList.count;
+    }
+    return 1;
+    
+//    if (detailInfoModel.goodsList.count == 0) {
+//        return 2;
+//    }
+//    return 3;
+}
 
-    if (indexPath.row == 0) {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
         [self.hxItemCell setUpWithModel:detailInfoModel];
-        
-        return self.hxItemCell;
-    }else
-    if (indexPath.row == 1) {
+           
+           return self.hxItemCell;
+    }else if (indexPath.section == 1){
         [self.hxItemDetailsCell setUpWithModel:detailInfoModel];
 
-        return self.hxItemDetailsCell;
-
+           return self.hxItemDetailsCell;
     }else
-    if (indexPath.row == 2) {
-        [self.hxItemDescribleCell setUpWithModel:detailInfoModel];
-        return self.hxItemDescribleCell;
+    {
+        YYhxItemDescribleTableViewCell    *hxItemDescribleCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([YYhxItemDescribleTableViewCell class])];
 
+        [hxItemDescribleCell setUpWithModel:detailInfoModel];
+        return hxItemDescribleCell;
     }
+
+  
     return [UITableViewCell new];
 }
 /*

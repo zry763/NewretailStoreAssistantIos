@@ -25,7 +25,7 @@
 {
     hxStateDetailInfoModel *detailInfoModel = (hxStateDetailInfoModel *)model;
     
-    [self.itemTitle setText:detailInfoModel.userName];
+    [self.itemTitle setText:[NSString stringWithFormat:@"%@(%@)",detailInfoModel.userName,detailInfoModel.mobile]];
     [self.itemName setText:detailInfoModel.activityName];
     [self.itemTime setText:detailInfoModel.activityTime];
     if (detailInfoModel.orderStatus == 301) {

@@ -395,16 +395,25 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
     
     AssistantRequest *request = [[AssistantRequest alloc] init];
     NSString *url = @"app/reservation/reservationSearch";
-    NSDictionary *params = @{@"url":url,@"typeId":typeId,@"page":[NSNumber numberWithInteger:pageInfo.currPage],@"limit":[NSNumber numberWithInteger:pageInfo.pageSize]};
+    NSDictionary *params = @{@"url":url,@"typeId":typeId,@"page":[NSNumber numberWithInteger:pageInfo.currPage],@"limit":[NSNumber numberWithInteger:pageInfo.pageSize],@"content":content};
     request.contentType = TRCHTTPContentTypeURLEncoded;
     
     AFHTTPSessionManager *manager = [AssistantHttpSessionManager defaultManager].loginCenterSessionManager;
     
     [request startWithSessionManager:manager requestType:TRCHTTPRequestTypeGET params:params successBlock:^(TRCResult *result) {
         
+        
         if ([result.output isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *datadic= [result.output objectForKey:@"page"];
             
- 
+            pageInfo.currPage = [[datadic objectForKey:@"currPage"] integerValue];
+            pageInfo.totalPage = [[datadic objectForKey:@"totalPage"] integerValue];
+            pageInfo.pageSize = [[datadic objectForKey:@"pageSize"] integerValue];
+            
+            NSArray *datalist = [datadic objectForKey:@"list"];
+            
+            NSArray *itemArray = [ProjectItemListModel mj_objectArrayWithKeyValuesArray:datalist];
+            successBlock(itemArray,pageInfo);
             
         }else{
             successBlock(nil,nil);
@@ -426,16 +435,16 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
 
 + (AssistantRequest *)hxCheckItemInfoWithTypeId:(NSString*)typeId
                                reservationCode :(NSString*)reservationCode
-                                   successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                   successBlock:(void(^) (TRCResult *checkResult))successBlock
                                    failureBlock:(TRCRequestFinishedBlock)failureBlock
 {
     
     
-    if ([TRCStringUtil isEmpty:reservationCode]) {
-        
-        return nil;
-        
-    }
+//    if ([TRCStringUtil isEmpty:reservationCode]) {
+//        
+//        return nil;
+//        
+//    }
     
     AssistantRequest *request = [[AssistantRequest alloc] init];
     NSString *url = @"app/reservation/reservationCheck";
@@ -447,12 +456,10 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
     
     [request startWithSessionManager:manager requestType:TRCHTTPRequestTypeGET params:params successBlock:^(TRCResult *result) {
         
-        if ([result.output isKindOfClass:[NSDictionary class]]) {
+ 
+        successBlock(result);
             
-        }else{
-            successBlock(nil);
-            
-        }
+        
     } failureBlock:^(TRCResult *result) {
         
         
@@ -536,6 +543,9 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
         
         if ([result.output isKindOfClass:[NSDictionary class]]) {
             
+            VipLendInfoModel *lendInfo = [VipLendInfoModel mj_objectWithKeyValues:result.output];
+     
+            successBlock(lendInfo);
         }else{
             successBlock(nil);
             
@@ -599,7 +609,7 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
 #pragma mark 图书借阅新增
 
 + (AssistantRequest *)libraryManageSaveInfoWithRecord:(libraryRecordModel*)record
-                                     successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                     successBlock:(void(^) (LendResultInfo *projectItemDetailModel))successBlock
                                      failureBlock:(TRCRequestFinishedBlock)failureBlock
 {
     
@@ -608,16 +618,18 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
     
     AssistantRequest *request = [[AssistantRequest alloc] init];
     NSString *url = @"app/librarymanage/save";
-    NSDictionary *params = @{@"url":url,@"record":[record mj_keyValues]};
+    NSDictionary *params = @{@"url":url,@"storeId":record.storeId,@"userId":record.userId,@"list":[recordList mj_keyValuesArrayWithObjectArray:record.list]};
 
-    request.contentType = TRCHTTPContentTypeURLEncoded;
+    request.contentType = TRCHTTPContentTypeJSON;
     
     AFHTTPSessionManager *manager = [AssistantHttpSessionManager defaultManager].loginCenterSessionManager;
     
     [request startWithSessionManager:manager requestType:TRCHTTPRequestTypePOST params:params successBlock:^(TRCResult *result) {
         
         if ([result.output isKindOfClass:[NSDictionary class]]) {
-            
+            LendResultInfo *lendinfo = [LendResultInfo mj_objectWithKeyValues:result.output];
+            successBlock(lendinfo);
+
         }else{
             successBlock(nil);
             
@@ -640,7 +652,7 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
 
 + (AssistantRequest *)libraryManagevlidateWithUserId:(NSString*)userId
                                              goodsSn:(NSString*)goodsSn
-                                        successBlock:(void(^) (ProjectItemDetailModel *projectItemDetailModel))successBlock
+                                        successBlock:(void(^) (TRCResult *goodInfo))successBlock
                                         failureBlock:(TRCRequestFinishedBlock)failureBlock
 {
     
@@ -660,12 +672,10 @@ failureBlock:(TRCRequestFinishedBlock)failureBlock
     
     [request startWithSessionManager:manager requestType:TRCHTTPRequestTypeGET params:params successBlock:^(TRCResult *result) {
         
-        if ([result.output isKindOfClass:[NSDictionary class]]) {
+    
+            successBlock(result);
             
-        }else{
-            successBlock(nil);
-            
-        }
+        
     } failureBlock:^(TRCResult *result) {
         
         

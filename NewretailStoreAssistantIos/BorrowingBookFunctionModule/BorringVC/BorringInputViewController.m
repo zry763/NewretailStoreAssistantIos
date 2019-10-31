@@ -7,10 +7,16 @@
 //
 
 #import "BorringInputViewController.h"
+extern NSMutableArray *orderArray;
 
 @interface BorringInputViewController ()
+{
+    AssistantRequest *vilidRequest;
+
+}
 @property (weak, nonatomic) IBOutlet UITextField *bookNums;
 - (IBAction)confirmBookNum:(id)sender;
+- (IBAction)cancelTheBook:(id)sender;
 
 @end
 
@@ -40,7 +46,63 @@
 
 - (IBAction)confirmBookNum:(id)sender {
     //返回扫码借书
+    if (vilidRequest) {
+         [vilidRequest cancel];
+         vilidRequest = nil;
+     }
     
-    [self.navigationController popViewControllerAnimated:YES];
+   
+    vilidRequest = [AssistantTask libraryManagevlidateWithUserId:self.strScannedUserId goodsSn:self.bookNums.text successBlock:^(TRCResult * _Nonnull goodInfo) {
+           if ([goodInfo.output isKindOfClass:[NSString class]]) {
+             
+             
+             if (orderArray.count>0) {
+                 for (recordList *order in orderArray) {
+                     if ([order.goodsSn isEqualToString:self.bookNums.text]) {
+                         order.lendingCount ++;
+                     }else
+                     {
+                         recordList *orderinfo = [[recordList alloc]init];
+                         orderinfo.goodsSn = self.bookNums.text;
+                         orderinfo.lendingCount = 1;
+                         orderinfo.goodSnName = goodInfo.output;
+                         [orderArray addObject:orderinfo];
+                         
+                     }
+                 }
+             }else
+             {
+                 recordList *orderinfo = [[recordList alloc]init];
+                 orderinfo.goodsSn = self.bookNums.text;
+                 orderinfo.lendingCount = 1;
+                 orderinfo.goodSnName = goodInfo.output;
+                 [orderArray addObject:orderinfo];
+                 
+             }
+             [self dismissViewControllerAnimated:YES completion:nil];
+         }
+    } failureBlock:^(TRCResult *result) {
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+
+    }];
+    
+    
+ 
+}
+-(void) viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    
+    if (self.orderDelegete) {
+           self.orderDelegete();
+       }
+    
+    
+    
+    
+}
+- (IBAction)cancelTheBook:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 @end

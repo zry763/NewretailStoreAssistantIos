@@ -33,7 +33,7 @@ static AssistantHttpSessionManager *assistantManager = nil;
 //    online  https://nrstore.tairanmall.com/app/
     NSString *baseHost;
     #ifdef DEBUG
-        baseHost = @"http://10.200.167.44:8092";//开发
+        baseHost = @"http://10.200.167.42:8092";//开发
     #else
         
     #ifdef TestRelease

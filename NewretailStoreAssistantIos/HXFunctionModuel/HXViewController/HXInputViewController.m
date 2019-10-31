@@ -9,7 +9,10 @@
 #import "HXInputViewController.h"
 #import "HXDetailsViewController.h"
 
-@interface HXInputViewController ()
+@interface HXInputViewController (){
+    AssistantRequest *checkCodeRequest;
+
+}
 @property (weak, nonatomic) IBOutlet UITextField *inputHXNumberTextFiled;
 - (IBAction)confirmHX:(id)sender;
 - (IBAction)gobackScanHX:(id)sender;
@@ -40,9 +43,30 @@
 */
 
 - (IBAction)confirmHX:(id)sender {
-    [self resetBackButtonTitleWith:@"预约详情" and:[UIColor clearColor]];
     
-    [self.navigationController pushViewController:[[HXDetailsViewController alloc]init] animated:YES];
+    
+
+    if (checkCodeRequest) {
+        [checkCodeRequest cancel];
+        checkCodeRequest = nil;
+        
+    }
+    checkCodeRequest = [AssistantTask hxCheckItemInfoWithTypeId:self.typeId reservationCode:self.inputHXNumberTextFiled.text successBlock:^(TRCResult *checkResult) {
+        NSLog(@"strScanned=%@",self.inputHXNumberTextFiled.text);
+        [self resetBackButtonTitleWith:@"预约详情"and:[UIColor clearColor]];
+        HXDetailsViewController *hxDetailVC =[[HXDetailsViewController alloc]init];
+        hxDetailVC.reservationCode = self.inputHXNumberTextFiled.text;
+        hxDetailVC.typeId = self.typeId;
+        hxDetailVC.confirmBtDisplay = YES;
+        
+        [self.navigationController pushViewController:hxDetailVC animated:YES];
+        
+    } failureBlock:^(TRCResult *result) {
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+        
+    }];
+    
+  
     
 }
 

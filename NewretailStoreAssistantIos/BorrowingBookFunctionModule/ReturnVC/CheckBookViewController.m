@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self registerCellWithNibName:NSStringFromClass([CheckBookTableViewCell class]) reuseIdentifier:NSStringFromClass([CheckBookTableViewCell class])];
+    self.tableView.mj_header = nil;
     // Do any additional setup after loading the view.
 }
 
@@ -88,7 +89,8 @@
 
         }
     } failureBlock:^(TRCResult *result) {
-        
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+
     }];
     NSLog(@"确认归还");
 }

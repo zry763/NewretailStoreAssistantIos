@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BorringBookScanViewController : BookScanViewController<UIViewControllerTransitioningDelegate>
+@property (nonatomic,copy) NSString *strScannedUserId;
 
 @end
 

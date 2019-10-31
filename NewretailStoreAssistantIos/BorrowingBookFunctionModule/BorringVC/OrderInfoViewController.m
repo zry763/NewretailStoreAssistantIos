@@ -8,6 +8,7 @@
 
 #import "OrderInfoViewController.h"
 #import "OrderInfoTableViewCell.h"
+extern NSMutableArray *orderArray;
 
 @interface OrderInfoViewController ()
 @property (strong , nonatomic) UIButton *closeBt;
@@ -20,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor =[TRCColor colorFromHexCode:@"#F2F2F2"];
+    [self.bookNum setText: [NSString stringWithFormat:@"(%lu)",(unsigned long)orderArray.count]];
     
     [self registerCellWithNibName:NSStringFromClass([OrderInfoTableViewCell class]) reuseIdentifier:NSStringFromClass([OrderInfoTableViewCell class])];
     
@@ -62,7 +64,7 @@
 -(UILabel *)bookNum{
     if (!_bookNum) {
         _bookNum = [[UILabel alloc]init];
-        _bookNum.text=@"(4)";
+        _bookNum.text=@"()";
         [_bookNum setFont:[UIFont systemFontOfSize:18]];
         [_bookNum setTextColor:[TRCColor colorFromHexCode:@"#D33A31"]];
     }
@@ -88,25 +90,49 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return orderArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     OrderInfoTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([OrderInfoTableViewCell class]) forIndexPath:indexPath];
+    recordList *ordermodel = [orderArray objectAtIndex:indexPath.row];
+    [cell setUpWithModel:ordermodel];
+    
     return cell;
 }
 //
 - ( UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath  API_AVAILABLE(ios(11.0)){
-    //删除
-    UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+    
+    NSString *title = @"左滑删除";
+
+    NSMutableAttributedString *titlestr = [[NSMutableAttributedString alloc]initWithString:title];
+    UIFont *font = [UIFont systemFontOfSize:15.0];
+
+    [titlestr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, titlestr.length)];
+    [titlestr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, titlestr.length)];
+    
+   //删除
+    UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:title  handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         completionHandler (YES);
+        [orderArray removeObjectAtIndex:indexPath.row];
+        [self.bookNum setText: [NSString stringWithFormat:@"(%lu)",(unsigned long)orderArray.count]];
         [self.tableView reloadData];
     }];
-    deleteRowAction.title = @"左滑删除";
-    deleteRowAction.backgroundColor = [UIColor redColor];
+
+    
+    deleteRowAction.backgroundColor = [TRCColor colorFromHexCode:@"#D33A31"];
+
     UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction]];
     return config;
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    if (self.orderDelegete) {
+        self.orderDelegete();
+    }
 }
 
 #pragma mark - Navigation

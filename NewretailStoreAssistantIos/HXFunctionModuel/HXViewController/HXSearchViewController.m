@@ -14,6 +14,7 @@
 {
     AssistantRequest *searchRequest;
     NSMutableArray *dataArray;
+    NSString *curretnSearchText;
 
 }
 @property (nonatomic, strong) UISearchBar *searchBar;
@@ -25,7 +26,7 @@
 #pragma mark 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    dataArray = [[NSMutableArray alloc]init];
 
     [self.navigationItem setHidesBackButton:YES];
     [self setBarButtonItem];
@@ -88,7 +89,8 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self searchRequestWithContent:searchBar.searchTextField.text];
-
+    curretnSearchText = searchBar.searchTextField.text;
+    
     NSLog(@"SearchButton=%@",searchBar.searchTextField.text);
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
@@ -101,7 +103,10 @@
     searchBar.showsCancelButton = YES;
 
 }
-
+-(void)requestTableViewDataSource{
+    
+    [self searchRequestWithContent:curretnSearchText];
+}
 
 -(void)searchRequestWithContent:(NSString *)content
 {
@@ -113,10 +118,16 @@
             searchRequest = nil;
         }
         searchRequest  = [AssistantTask hxSearchItemInfoWithTypeId:self.typeId content:content pageInfo:self.pageInfo successBlock:^(NSArray * _Nonnull orderArray, PageModel * _Nonnull pageInfo) {
-            self.pageInfo = pageInfo;
-            [self->dataArray addObjectsFromArray:orderArray];
+      
+            
+              if ([self.tableView.mj_header isRefreshing]) {
+                  [self->dataArray removeAllObjects];
+              }
+              self.pageInfo = pageInfo;
+              [self->dataArray addObjectsFromArray:orderArray];
+            
+              [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
             [self.tableView reloadData];
-            [[NSNotificationCenter defaultCenter]postNotificationName:tableViewEndRefreshing object:nil];
 
         } failureBlock:^(TRCResult *result) {
             [self.view makeToast:result.responseContent duration:1 position:CSToastPositionCenter];

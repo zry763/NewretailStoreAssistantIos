@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign ,nonatomic) BOOL isDisplay;
 @property(nonatomic ,copy) NSString *typeId;//项目类型id
 @property(nonatomic ,copy) NSString *reservationCode;//项目类型id
-@property(nonatomic ,assign) BOOL confirmBtDisplay;//项目类型id
+@property(nonatomic ,assign) BOOL confirmBtDisplay;//确认核销
 
 @end
 

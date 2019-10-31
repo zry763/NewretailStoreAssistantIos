@@ -11,14 +11,21 @@
 #import "OrderInfoPresentationController.h"
 #import "BookResultDetailViewController.h"
 #import "BorringInputViewController.h"
+NSMutableArray *orderArray;
 
-@interface BorringBookScanViewController ()
+@interface BorringBookScanViewController (){
+    
+    AssistantRequest *confirmRequest;
+     AssistantRequest *vilidRequest;
+
+}
 
 
 @property (strong ,nonatomic) UIButton *scaninputBT;//输码借阅
 @property(strong ,nonatomic) UIButton *confirmBt;//确认借阅
 @property(strong ,nonatomic) UIButton *orderBt;//详单按钮
 @property(strong ,nonatomic) UILabel *orderCountLable;//详单数量
+@property (strong , nonatomic) libraryRecordModel *recordModel;
 
 @end
 
@@ -26,9 +33,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    orderArray = [[NSMutableArray alloc]init];
+    self.recordModel.userId = self.strScannedUserId;
+    self.recordModel.storeId = [[UserInfoModel sharedInstance] accountInfoUnarchiver].storeId;
+    
     // Do any additional setup after loading the view.
 }
 
+-(libraryRecordModel*)recordModel{
+    if (!_recordModel) {
+        _recordModel = [[libraryRecordModel alloc]init];
+    }
+    
+    return _recordModel;
+    
+}
 
 
 -(void)addSomeSubviews{
@@ -97,10 +116,15 @@
 -(void)pushInputNumber{
     
     BorringInputViewController *booknumVC =[[BorringInputViewController alloc]init];
+    booknumVC.strScannedUserId = self.strScannedUserId;
+    booknumVC.transitioningDelegate = self;// 此对象要实现 UIViewControllerTransitioningDelegate 协议
+    booknumVC.modalPresentationStyle=UIModalPresentationCustom;
+    booknumVC.orderDelegete = ^{
+         [self.orderCountLable setText:[NSString stringWithFormat:@"%lu",(unsigned long)orderArray.count]];
+      };
 
-    [self resetBackButtonTitleWith:@"输码借阅" and:[UIColor clearColor]];
-    [self.navigationController pushViewController:booknumVC animated:YES];
-    
+    [self presentViewController:booknumVC animated:NO completion:nil];
+
     
 }
 
@@ -119,12 +143,29 @@
 }
 -(void)confirmBorring{
     
-    [self resetBackButtonTitleWith:@"图书借阅" and: [UIColor clearColor]];
-    BookResultDetailViewController *bookResultVC =[[BookResultDetailViewController alloc]init];
-    bookResultVC.stepNum = 3;
-    [bookResultVC.goonBorringBT setTitle:@"继续借书" forState:UIControlStateNormal];
+    self.recordModel.list = orderArray;
+    
+    if (confirmRequest) {
+        [confirmRequest cancel];
+        confirmRequest = nil;
+    }
+    confirmRequest = [AssistantTask libraryManageSaveInfoWithRecord:self.recordModel successBlock:^(LendResultInfo * _Nonnull projectItemDetailModel) {
+        if (projectItemDetailModel) {
+            [self resetBackButtonTitleWith:@"图书借阅" and: [UIColor clearColor]];
+            BookResultDetailViewController *bookResultVC =[[BookResultDetailViewController alloc]init];
+            bookResultVC.stepNum = 3;
+            bookResultVC.lendCount = [NSString stringWithFormat:@"%ld",(long)projectItemDetailModel.lendingCount];
+            bookResultVC.renturnTime = projectItemDetailModel.shouldReturnTime;
+            [bookResultVC.goonBorringBT setTitle:@"继续借书" forState:UIControlStateNormal];
+            
+            [self.navigationController pushViewController: bookResultVC animated:YES];
+        }
+        
+    } failureBlock:^(TRCResult *result) {
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
 
-    [self.navigationController pushViewController: bookResultVC animated:YES];
+    }];
+
 }
 //订单
 -(UIButton *)orderBt{
@@ -162,8 +203,11 @@
     
     OrderInfoViewController *orderInfoVC = [[OrderInfoViewController alloc]init];
     orderInfoVC.transitioningDelegate = self;// 此对象要实现 UIViewControllerTransitioningDelegate 协议
-    
     orderInfoVC.modalPresentationStyle=UIModalPresentationCustom;
+    orderInfoVC.orderDelegete = ^{
+       [self.orderCountLable setText:[NSString stringWithFormat:@"%lu",(unsigned long)orderArray.count]];
+    };
+
 
     [self presentViewController:orderInfoVC animated:NO completion:nil];
     
@@ -171,10 +215,72 @@
 
 - (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source{
 
-   return [[OrderInfoPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+   return [[OrderInfoPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
     
 }
+#pragma mark 扫码结果处理
+- (void)scanResultWithArray:(NSArray<LBXScanResult*>*)array{
+    
+    LBXScanResult *scanResult;
+    if (array.count == 1) {
+         scanResult = [array objectAtIndex:0];
+        NSLog(@"strScanned=%@",scanResult.strScanned);
+        
+    }
+    [self stopScan];
+    
+    [self reStartDevice];
 
+
+    if (vilidRequest) {
+        [vilidRequest cancel];
+        vilidRequest = nil;
+    }
+    vilidRequest = [AssistantTask libraryManagevlidateWithUserId:self.strScannedUserId goodsSn:scanResult.strScanned successBlock:^(TRCResult * _Nonnull goodInfo) {
+      
+        if ([goodInfo.output isKindOfClass:[NSString class]]) {
+        
+
+        if (orderArray.count>0) {
+        for (recordList *order in orderArray) {
+            if ([order.goodsSn isEqualToString:scanResult.strScanned]) {
+                order.lendingCount ++;
+            }else
+            {
+                recordList *orderinfo = [[recordList alloc]init];
+                orderinfo.goodsSn = scanResult.strScanned;
+                orderinfo.lendingCount = 1;
+                orderinfo.goodSnName = goodInfo.output;
+                [orderArray addObject:orderinfo];
+                
+            }
+        }
+        }else
+        {
+            recordList *orderinfo = [[recordList alloc]init];
+            orderinfo.goodsSn = scanResult.strScanned;
+            orderinfo.lendingCount = 1;
+            orderinfo.goodSnName = goodInfo.output;
+            [orderArray addObject:orderinfo];
+            
+        }
+            
+        }
+        [self.orderCountLable setText:[NSString stringWithFormat:@"%lu",(unsigned long)orderArray.count]];
+        
+        
+    } failureBlock:^(TRCResult *result) {
+        [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+
+    }];
+    
+    
+    
+    
+//    LBXScanResult *scanResult;
+
+    
+}
 
 /*
 #pragma mark - Navigation

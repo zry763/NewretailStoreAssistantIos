@@ -8,8 +8,13 @@
 
 #import "HXScanViewController.h"
 #import "HXInputViewController.h"
+#import "HXDetailsViewController.h"
 
 @interface HXScanViewController ()
+{
+    AssistantRequest *checkCodeRequest;
+    
+}
 @property (strong ,nonatomic) UIButton *scaninputBT;
 
 @end
@@ -38,11 +43,50 @@
 
     
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
     
 }
+
+#pragma mark 扫码结果处理
+- (void)scanResultWithArray:(NSArray<LBXScanResult*>*)array
+{
+    __block  LBXScanResult *scanResult;
+    
+    if (array.count == 1) {
+        
+        scanResult = [array objectAtIndex:0];
+        if (checkCodeRequest) {
+            [checkCodeRequest cancel];
+            checkCodeRequest = nil;
+            
+        }
+        checkCodeRequest = [AssistantTask hxCheckItemInfoWithTypeId:self.typeId reservationCode:scanResult.strScanned successBlock:^(TRCResult *checkResult) {
+            scanResult = [array objectAtIndex:0];
+            NSLog(@"strScanned=%@",scanResult.strScanned);
+            [self resetBackButtonTitleWith:@"预约详情"and:[UIColor clearColor]];
+            HXDetailsViewController *hxDetailVC =[[HXDetailsViewController alloc]init];
+            hxDetailVC.reservationCode = scanResult.strScanned;
+            hxDetailVC.typeId = self.typeId;
+            hxDetailVC.confirmBtDisplay = YES;
+            
+            [self.navigationController pushViewController:hxDetailVC animated:YES];
+            
+        } failureBlock:^(TRCResult *result) {
+            [self.view makeToast:result.responseContent duration:1 position:CSToastPositionBottom];
+            
+        }];
+        
+
+    }else
+        [self.view makeToast:@"未查询到该预约信息"];
+    [self stopScan];
+    
+    [self reStartDevice];
+}
+
 -(UIButton *)scaninputBT{
     
     if (!_scaninputBT) {
@@ -62,8 +106,9 @@
 
 -(void)pushNextHX{
     [self resetBackButtonTitleWith:@"输码核销" and:[UIColor clearColor]];
-    
-    [self.navigationController pushViewController:[[HXInputViewController alloc]init] animated:YES];
+    HXInputViewController *hxinputVC =  [[HXInputViewController alloc]init];
+    hxinputVC.typeId = self.typeId;
+    [self.navigationController pushViewController:hxinputVC animated:YES];
     
 }
 /*
